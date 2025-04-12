@@ -5,33 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Ashraya Trust">
-    <title>Contact Ashraya Trust</title>
-    <meta name="description" content="Get in touch with Ashraya Trust. Find our contact details, address, location map, and send us a message through our contact form.">
+    <title>Get Involved - Volunteer & Support Ashraya Trust</title>
+    <meta name="description" content="Join Ashraya Trust as a volunteer or find other ways to support our mission. Help us serve the needy in Kurnool through your time, skills, or resources.">
     <script src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="images/favicon.png">
     <link href="app.css" rel="stylesheet">
     <style>
-        /* Add specific contact page styles */
-        .page-header { height: 40vh; min-height: 250px; background: url('images/contact-header-placeholder.jpg') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
+        /* Add specific get-involved page styles */
+        .page-header { height: 40vh; min-height: 250px; background: url('images/get-involved-header-placeholder.jpg') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
         .page-header-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1; }
         .page-header-content { position: relative; z-index: 2; }
-        .contact-details { background-color: #f8f9fa; padding: 2rem; border-radius: 8px; }
-        .contact-details h4 { color: #A70D17; }
-        .contact-form { background-color: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        #map-placeholder { height: 400px; background-color: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #6c757d; border: 1px dashed #ccc; margin-top: 2rem;}
+
+        .volunteer-section, .other-ways-section { padding: 4rem 0; }
+        .volunteer-section { background-color: #f8f9fa; }
+        .volunteer-form iframe { width: 100%; min-height: 800px; border: 1px solid #ccc; border-radius: 8px; }
+        .way-to-help-card { text-align: center; margin-bottom: 2rem; }
+        .way-to-help-card .icon { font-size: 3em; color: #A70D17; margin-bottom: 1rem; }
 
         /* Re-use blink from index.html if needed */
         .blink { animation: blinker 1.5s linear infinite; color: white; font-family: sans-serif; background: #A70D17; font-weight: 600; padding: 0.2em 0; }
         @keyframes blinker { 50% { opacity: 0; } }
-
-        /* Re-enable form that was hidden */
-        #contact-form-wrapper { display: block !important; }
     </style>
-    <!-- Add reCAPTCHA script if using -->
-    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 </head>
 <body>
-<div id="app" class="contact-page">
+<div id="app" class="get-involved-page">
     <!-- Header (Use the same header structure as about.html) -->
     <header>
         <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
@@ -94,56 +91,99 @@
     <section class="page-header">
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
-            <h1>Contact Us</h1>
-            <p class="lead">We'd love to hear from you.</p>
+            <h1>Get Involved</h1>
+            <p class="lead">Your time and support are invaluable to our mission.</p>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="container py-5">
-        <div class="row">
-            <div class="col-lg-5 mb-4 mb-lg-0">
-                <div class="contact-details h-100">
-                    <h3 class="demi text-red mb-4">Get in Touch</h3>
+    <!-- Volunteer Section -->
+    <section class="volunteer-section">
+        <div class="container">
+            <h2 class="text-center demi text-red mb-4">Volunteer With Us</h2>
+            <p class="text-center lite mb-5">Become a part of the Ashraya family and experience the joy of selfless service. We welcome volunteers for various activities, especially during events like Ugadi Seva.</p>
 
-                    <h4 class="demi"><i class="fas fa-phone-alt mr-2 text-red"></i>Telephone</h4>
-                    <p class="lite ml-4">Nagaraju: <a class="text-grey" href="tel:+919949319928">+91 99493 19928</a></p>
-                    <p class="lite ml-4">Rama Reddy: <a class="text-grey" href="tel:+919441011586">+91 94410 11586</a></p>
-
-                    <h4 class="demi mt-4"><i class="fas fa-map-marker-alt mr-2 text-red"></i>Address</h4>
-                    <p class="lite ml-4">The Ashraya Trust<br>
-                        Plot No. 294, Vishnu Township,<br>
-                        NH-44, Kurnool, AP 518003<br>
-                        India
-                    </p>
-
-                    <h4 class="demi mt-4"><i class="fas fa-envelope mr-2 text-red"></i>Email</h4>
-                    <p class="lite ml-4"><a href="mailto:info@ashrayatrust.org" class="text-grey">[Placeholder: info@ashrayatrust.org]</a></p>
-                    <!-- Add Email if available -->
-
-                    <h4 class="demi mt-4"><i class="fas fa-share-alt mr-2 text-red"></i>Social Media</h4>
-                    <p class="lite ml-4">
-                        <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-grey mr-3" style="font-size: 1.5em;"><i class="fab fa-facebook-f"></i></a>
-                        <!-- Add other social links -->
-                    </p>
-
-                    <div id="map-placeholder" class="mt-4">
-                        <!-- Placeholder for Google Maps Embed -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.4748751095376!2d78.0128673!3d15.8316196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb5e0ae91d39141%3A0x5f6feafb0ff60d9c!2sAshraya%20Trust!5e0!3m2!1sen!2sin!4v1744440927432!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h3 class="demi mb-3">Why Volunteer?</h3>
+                    <ul>
+                        <li class="lite mb-2"><i class="fas fa-heart text-red mr-2"></i>Make a direct impact on the lives of the needy.</li>
+                        <li class="lite mb-2"><i class="fas fa-users text-red mr-2"></i>Be part of a compassionate and dedicated community.</li>
+                        <li class="lite mb-2"><i class="fas fa-hands-helping text-red mr-2"></i>Experience the fulfillment of Seva (selfless service).</li>
+                        <li class="lite mb-2"><i class="fas fa-calendar-alt text-red mr-2"></i>Contribute during special events like Ugadi Yatri Seva.</li>
+                    </ul>
+                    <h4 class="demi mt-4">Current Opportunities</h4>
+                    <p class="lite">[Placeholder: List specific volunteer needs if any - e.g., teaching support on Sundays, help with food packing, medical professionals for camps, event support for Ugadi Seva.]</p>
+                    <!-- Placeholder for Volunteer Testimonial -->
+                    <blockquote class="quote mt-4">
+                        "Volunteering at Ashraya changed my perspective. It's more than charity; it's connecting with humanity." - [Volunteer Name Placeholder]
+                    </blockquote>
                 </div>
-            </div>
-
-            <div class="col-lg-7">
-                <div class="contact-form">
-                    <h3 class="demi text-red mb-4">Send Us a Message</h3>
-                    <div class="google-form-embed">
-                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfeQvIo30SqyLKawsNdoUcycdxHgkRmvcBBMPhHfXG_pIyUqA/viewform?embedded=true" width="100%" height="950" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <div class="col-lg-6">
+                    <h3 class="demi mb-3">Volunteer Sign-up Form</h3>
+                    <div class="volunteer-form">
+                        <!-- Embed Google Form -->
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfeQvIo30SqyLKawsNdoUcycdxHgkRmvcBBMPhHfXG_pIyUqA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                        <!-- OR: Placeholder for a native form to be built -->
+                        <!-- <form> -->
+                        <!--    <p class="text-center">[[ Native Volunteer Form Placeholder ]]</p> -->
+                        <!--    Include fields: Name, Email, Phone, Area of Interest, Availability -->
+                        <!--    <button type="submit" class="btn btn-outline-danger w-100">Submit Application</button> -->
+                        <!-- </form> -->
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <!-- Other Ways to Help Section -->
+    <section class="other-ways-section">
+        <div class="container">
+            <h2 class="text-center demi text-red mb-5">More Ways to Contribute</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="way-to-help-card">
+                        <div class="icon"><i class="fas fa-donate"></i></div>
+                        <h4 class="demi">Donate</h4>
+                        <p class="lite">Financial contributions are vital for sustaining our daily operations and expanding our reach.</p>
+                        <a href="donate.html" class="btn btn-donate demi text-white">Donate Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="way-to-help-card">
+                        <div class="icon"><i class="fas fa-bullhorn"></i></div>
+                        <h4 class="demi">Spread the Word</h4>
+                        <p class="lite">Share our mission and work with your friends, family, and social networks.</p>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://ashrayatrust.org" target="_blank" class="btn btn-outline-primary demi"><i class="fab fa-facebook-f mr-2"></i>Share</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="way-to-help-card">
+                        <div class="icon"><i class="fas fa-box-open"></i></div>
+                        <h4 class="demi">Donate Goods</h4>
+                        <p class="lite">[Placeholder: Specify if you accept in-kind donations like clothes, rations, stationery, etc., and how to arrange it.]</p>
+                        <a href="contact.html" class="btn btn-outline-danger demi">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="way-to-help-card">
+                        <div class="icon"><i class="fas fa-birthday-cake"></i></div>
+                        <h4 class="demi">Fundraise for Us</h4>
+                        <p class="lite">Dedicate your birthday, anniversary, or run a campaign to support Ashraya Trust's activities.</p>
+                        <a href="contact.html" class="btn btn-outline-danger demi">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="way-to-help-card">
+                        <div class="icon"><i class="fas fa-handshake"></i></div>
+                        <h4 class="demi">Corporate Partnership</h4>
+                        <p class="lite">[Placeholder: Information about CSR opportunities or corporate volunteering.]</p>
+                        <a href="contact.html" class="btn btn-outline-danger demi">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Footer (Use the same footer structure as index.html) -->
     <footer class="footer text-white">
@@ -208,8 +248,6 @@
 
     // Dynamic Copyright Year
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
-
-    // You might add JavaScript for form validation or AJAX submission here
 </script>
 </body>
 </html>

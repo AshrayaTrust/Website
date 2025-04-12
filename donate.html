@@ -1,224 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Ashraya Trust">
-	<title>Donation</title>
-	<meta name="description" content="Ashraya Trust was established in June 2011 by Avadhoota Nadananda. The Sadh guru has constituted a team to oversee and implement the objectives of Ashraya Trust and the main objective lies in SERVING the NEEDY" />    
+    <title>Donate to Ashraya Trust - Support Our Work</title>
+    <meta name="description" content="Make a secure online donation to Ashraya Trust. Your contribution supports food distribution, medical aid, and education for the needy in Kurnool. 80G benefits available.">
     <script src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="images/favicon.png">
     <link href="app.css" rel="stylesheet">
-    <link rel="shortcut icon" href="images/favicon.png" >
+    <style>
+        /* Add specific donate page styles */
+        .page-header { height: 40vh; min-height: 250px; background: url('images/donate-header-placeholder.jpg') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
+        .page-header-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1; }
+        .page-header-content { position: relative; z-index: 2; }
+
+        .donation-form-section { padding: 4rem 0; background-color: #f8f9fa; }
+        .donation-form { background-color: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .donation-options .btn { margin: 5px; font-size: 1.1em; }
+        .frequency-options .btn { margin-right: 10px; }
+        .payment-placeholder { border: 1px dashed #ccc; padding: 2rem; text-align: center; color: #6c757d; margin-top: 1.5rem; border-radius: 5px; }
+        .bank-details { background-color: #F0EAE7; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; }
+        .secure-info { text-align: center; margin-top: 1.5rem; color: #6c757d; }
+        .secure-info i { color: #28a745; margin-right: 5px; }
+
+        /* Re-use blink from index.html if needed */
+        .blink { animation: blinker 1.5s linear infinite; color: white; font-family: sans-serif; background: #A70D17; font-weight: 600; padding: 0.2em 0; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        /* Active button style */
+        .btn-outline-danger.active { background-color: #A70D17; color: white; }
+    </style>
 </head>
-
 <body>
-    <div id="app" class="about-us">
-         <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
-<marquee class="blink">80G Tax Benefits For Donations</marquee>
-    <div class="social d-flex align-items-center">
-		<a class="" target="_blank" href="https://www.facebook.com/TARASHRAYA"/> <i class="fab fa-facebook-f"></i> </a>
-		<!-- <a class="" target="_blank" href="https://twitter.com/Ashraya_trust_uk?lang=en"/> <i class="fab fa-twitter"></i> </a>
-		<a class="pr-3" target="_blank" href="https://www.instagram.com/Ashrayatrust"/> <i class="fab fa-instagram"></i> </a> -->
-    </div>
-</div>
-        <div class="site-navigation w-100 text-uppercase pb-3 text-white position-absolute">
-    <div class="container-fluid d-flex align-items-center">
-
-        <div class="main-nav d-flex align-items-center mr-auto">
-
-            <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html"><img src="images/Ashraya-logo.png" class="main-logo img-fluid"/></a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse ml-2 " id="navbarText" style="font-weight:500!important">
-                    <ul class='navbar-nav mr-auto d-flex align-items-center justify-content-between'><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi" href="about-us.html" target="_self">About Us</a></li><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi" href="about-guruji.html" target="_self">About Guruji</a><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi" href="projects.html" target="_self">Our Projects</a></li><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link dropdown demi" href="get-invloved.html" target="_self">Get Involved</a><ul><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi dropdown" href="donate.html" target="_self">Join a campaign</a><ul><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi" href="coronavirus-crisis.html" target="_self">Coronavirus Crisis</a></li></ul></li><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi" href="donate.html" target="_self">Fundraise for us</a><ul><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi" href="legacies.html" target="_self">Leave a gift in your will</a></li></ul></li></ul></li></ul>
-
-                </div>
-            </nav>
-        </div>
-        <div class="second-nav d-flex align-items-center">
-
-            <a class="cart pr-3 text-white position-relative border-right d-none" href="shop/cart.html"><i class="fas fa-shopping-cart"></i><span class="rounded-circle position-absolute text-white count">0</span></a>
-            <nav class="navbar p-0 navbar-expand-lg">	
-                <a class="py-1 px-5 px-md-4 btn pulse demi py-lg-3 px-lg-5" href="donate.html">DONATE</a>
-            </nav>
-
-        </div>
-    </div>
-</div>
-<div id="mobile-nav">
-    <div class="wrapper">
-        <div class="mobile-top d-flex align-items-center">
-            <a class="" href="index.html"><img src="images/Ashraya-logo.png" class="w-50 img-fluid"/></a>
-
-            <i class="fas fa-bars navbar-toggle collapsed" data-toggle="slide-collapse" data-target="#sidebar-nav" aria-expanded="false"></i>
-        </div>
-    </div>
-    <div class="mobile-buttons d-flex">
-        <a class="btn btn-fundraise" href="donate.html">FUNDRAISE</a>
-        <a class=" btn btn-donate" href="donate.html">DONATE</a>
-    </div>
-    <div class="" id="sidebar-nav" style="width: 80%; display: none;">
-
-        <div class="sidebar-wrapper">
-            <ul class='navbar-nav mr-auto'>
-				<li class='nav-item'><a class="nav-link demi" href="index.html">Home</a></li>
-				<li class='nav-item'><a class="nav-link demi" href="about-us.html">About Us</a></li>
-				<li class='nav-item'><a class="nav-link demi" href="about-guruji.html">About Guriji</a></li>
-				<li class='nav-item'><a class="nav-link demi" href="projects.html">Our Projects</a></li>
-				<li class='nav-item'><a class="nav-link dropdown demi" href="get-invloved.html">Get Involved</a></li>
-				<li class='nav-item'><a class="nav-link demi" href="contact.html">Contact Us</a></li>
-			</ul>            
-        </div>
-
-    </div>
-
-</div>
-                    <div id="carousel" class="carousel slide mb-5 mb-lg-0" data-ride="carousel">
-            <div class="carousel-inner">
-                                                <div class="carousel-item active" style="background-image:url('images/about-guriji.png');
-                        background-position:bottom center">
-                                                    <div class="w-100 h100 mask_bottom" style="mask-image: linear-gradient(to top, black, transparent 75% );
-                                -webkit-mask-image: linear-gradient(to top, black , transparent 75%);"></div>
-                                                                                        <div class="carousel-caption py-5">
-                        <p class="font-xl mb-2 text-uppercase text-white">About us</p>
-                        <h1><div>‘We Serve’</div></h1>
-                                            </div>
-                </div>
-                            <div class="vr wow vrGrowCarousel d-none d-lg-block slow"></div>
-        </div>
-            
-</div>
-                        
-
-            <div id="content about-us" class="beige-overlay-t top-tear ">
-       <div class="gutenberg__content wp-embed-responsive"><!-- wp:group {"className":"top-content pb-5 pb-md-0"} -->
-<div class="wp-block-group top-content pb-5 pb-md-0"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"container pb-md-4"} -->
-<div class="wp-block-group container pb-md-4"><div class="wp-block-group__inner-container"><!-- wp:columns -->
-<div class="wp-block-columns"><!-- wp:column {"width":7} -->
-<div class="wp-block-column" style="flex-basis:7%"></div>
-<!-- /wp:column -->
-
-<!-- wp:column {"width":93} -->
-<div class="wp-block-column" style="flex-basis:93%"><!-- wp:heading {"level":3,"className":"text-red demi"} -->
-<!-- <h3 class="text-red demi"> For Volunteer Please </h3> -->
-<p class="text-red demi font-xl">For Donation  </p>
-<p class="font-xl demi">
-Ashraya Trust,  Kurnool <br>
-Karnataka Bank <br>
-SB A/c. 4282500100979801 <br>
-IFSC code KARB0000428</p>
-<!-- /wp:heading --></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns -->
-
-<div class="wp-block-column" style="flex-basis:50%">
-
-</div>
-
-
-<!-- /wp:column --></div>
-<!-- /wp:columns -->
-
-<!-- wp:columns {"className":"pb-5"} -->
-<div class="wp-block-columns pb-5"><!-- wp:column -->
-<div class="wp-block-column"></div>
-<!-- /wp:column -->
-
-<!-- wp:column -->
-<div class="wp-block-column"></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns --></div></div>
-<!-- /wp:group --></div></div>
-<!-- /wp:group -->
-
-
-<footer class="footer text-white">
-    <div class="d-none d-sm-flex">
-        <div class="container">
-            <div class="footer-top pb-2 mt-3 d-flex align-items-center position-relative">
-                <div>
-                    <a href="donate.html" class="btn py-1 px-5 text-uppercase pulse py-lg-3 px-lg-5">Donate</a>
-                </div>
-                <div class="social d-flex ml-auto align-items-center">
-                    <div class="icons d-none d-md-block">
-						<a class="" target="_blank" href="https://www.facebook.com/TARASHRAYA"/> <i class="fab fa-facebook-f"></i> </a>                                                    
-						<!-- <a target="_blank" href="https://twitter.com/Ashraya_trust_uk?lang=en"/> <i class="fab fa-twitter"></i> </a>
-						<a target="_blank" href="https://www.instagram.com/Ashrayatrust"/> <i class="fab fa-instagram"></i> </a> -->                                                                                             
-                    </div>
-                    <div>
-                        <a class="btn rounded-10 py-1 px-5 ml-3 up-white-g py-lg-3 px-lg-5" href="contact.html">CONTACT</a>
-                    </div>
-
-                </div>
-
+<div id="app" class="donate-page">
+    <!-- Header (Use the same header structure as about.html) -->
+    <header>
+        <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
+            <marquee class="blink">80G Tax Benefits For Donations</marquee>
+            <div class="social d-flex align-items-center">
+                <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white px-2"><i class="fab fa-facebook-f"></i></a>
             </div>
-            
-            <div class="icons d-md-none mt-3 float-right">
-                <a href="https://www.facebook.com/TARASHRAYA"/><i class="fab fa-facebook-f"></i></a>
-                <!-- <a href="#"/><i class="fab fa-twitter"></i></a>
-                <a href="#"/><i class="fab fa-instagram"></i></a> -->
-            </div>
-            <div class="mb-3 mt-4 d-flex justify-content-between">
-                <h4 class="d-none mb-0 d-md-block">Useful Links</h4>
-
-            </div>
-
-            <div class="footer-bottom d-md-flex">
-                <div class="pr-5 d-none d-md-block">
-                    <ul>
-						<li class='nav-item'><a class="nav-link demi" href="index.html">Home</a></li>
-						<li class='nav-item'><a class="nav-link demi" href="about-us.html">About Us</a></li>
-						<li class='nav-item'><a class="nav-link demi" href="about-guruji.html">About Guriji</a></li>
-						<li class='nav-item'><a class="nav-link demi" href="projects.html">Our Projects</a></li>
-					</ul>
+        </div>
+        <div class="site-navigation w-100 text-uppercase pb-3 text-red position-relative alt-nav" style="background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div class="container-fluid d-flex align-items-center">
+                <div class="main-nav d-flex align-items-center mr-auto">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="index.html"><img src="images/Ashraya-logo.png" class="main-logo img-fluid" alt="Ashraya Trust Logo"/></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-bars text-dark"></i>
+                        </button>
+                        <div class="collapse navbar-collapse ml-2" id="navbarText">
+                            <ul class='navbar-nav mr-auto d-flex align-items-center'>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="index.html">Home</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="about.html">About Us</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="our-work.html">Our Work</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="get-involved.html">Get Involved</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
-                <div class="pr-5 d-none d-md-block">
-                    <ul>
-						<li class='nav-item'><a class="nav-link demi" href="projects.html">Our Projects</a></li>
-						<li class='nav-item'><a class="nav-link dropdown demi" href="get-invloved.html">Get Involved</a></li>
-						<li><a class="nav-link" href="donate.html" target="_self">Fundraise for Us</a></li>
+                <div class="second-nav d-flex align-items-center">
+                    <nav class="navbar p-0 navbar-expand-lg">
+                        <a class="py-2 px-4 btn pulse demi text-white" href="donate.html" style="border-radius: 20px;">DONATE</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Nav (Use the same structure as index.html) -->
+        <div id="mobile-nav" class="d-lg-none"> <!-- Show only on smaller screens -->
+            <div class="wrapper" style="background: #fff; padding: 10px; border-bottom: 1px solid #eee;">
+                <div class="mobile-top d-flex align-items-center justify-content-between">
+                    <a class="" href="index.html"><img src="images/Ashraya-logo.png" class="w-50 img-fluid" alt="Ashraya Trust Logo"/></a>
+                    <i class="fas fa-bars navbar-toggle collapsed" data-target="#sidebar-nav" style="font-size: 1.5em; cursor: pointer; color: #404041;"></i>
+                </div>
+            </div>
+            <div class="" id="sidebar-nav" style="display: none; position: fixed; top: 0; left: 0; height: 100%; width: 80%; background: #404041; z-index: 9999; padding-top: 60px; overflow-y: auto;">
+                <i class="fas fa-times navbar-toggle" style="position: absolute; top: 20px; right: 20px; font-size: 1.8em; color: white; cursor: pointer;"></i>
+                <div class="sidebar-wrapper px-3">
+                    <ul class='navbar-nav mr-auto'>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="index.html">Home</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="about.html">About Us</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="our-work.html">Our Work</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="get-involved.html">Get Involved</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="contact.html">Contact</a></li>
+                        <li class='nav-item mt-3'><a class="btn btn-donate d-block text-center text-white" href="donate.html">Donate Now</a></li>
                     </ul>
                 </div>
+            </div>
+        </div>
+    </header>
 
-                <div class="footer-menu  text-right ml-auto">
-                    The Ashraya Trust<br/>
-                    Plot No. 294, Vishnu Township, <br/>NH-44, Kurnool, AP 518003
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>Support Ashraya Trust</h1>
+            <p class="lead">Your contribution directly impacts lives.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="donation-form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="donation-form">
+                        <h2 class="text-center demi text-red mb-4">Make a Donation</h2>
+                        <p class="text-center lite mb-4">Choose an amount and frequency. Every rupee helps us serve the needy.</p>
+
+                        <form id="donationForm">
+                            <!-- Frequency Options -->
+                            <div class="form-group text-center frequency-options mb-4">
+                                <button type="button" class="btn btn-outline-danger active" data-frequency="single">One Time</button>
+                                <button type="button" class="btn btn-outline-danger" data-frequency="monthly">Monthly</button>
+                                <input type="hidden" name="donation_frequency" id="donation_frequency" value="single">
+                            </div>
+
+                            <!-- Amount Options -->
+                            <div class="form-group text-center donation-options mb-4">
+                                <button type="button" class="btn btn-outline-danger amount-btn" data-amount="500">₹500</button>
+                                <button type="button" class="btn btn-outline-danger amount-btn" data-amount="1000">₹1000</button>
+                                <button type="button" class="btn btn-outline-danger amount-btn" data-amount="2500">₹2500</button>
+                                <button type="button" class="btn btn-outline-danger amount-btn" data-amount="5000">₹5000</button>
+                            </div>
+
+                            <!-- Custom Amount -->
+                            <div class="form-group mb-4">
+                                <label for="custom_amount">Or Enter Custom Amount (INR)</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">₹</span>
+                                    </div>
+                                    <input type="number" class="form-control" id="custom_amount" name="custom_amount" placeholder="e.g., 1500">
+                                </div>
+                            </div>
+
+                            <!-- Personal Details -->
+                            <h4 class="demi text-red mt-4 mb-3">Your Details</h4>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="donor_name">Full Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="donor_name" name="donor_name" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="donor_email">Email Address <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="donor_email" name="donor_email" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="donor_phone">Phone Number <span class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" id="donor_phone" name="donor_phone" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="donor_pan">PAN Card (For 80G Receipt)</label>
+                                    <input type="text" class="form-control" id="donor_pan" name="donor_pan" placeholder="Optional">
+                                </div>
+                            </div>
+
+                            <!-- Payment Gateway Placeholder -->
+                            <div class="payment-placeholder">
+                                <h4 class="demi">Payment Gateway Integration</h4>
+                                <p>[[ Placeholder: Integrate Razorpay/Stripe/etc. here for secure online payments (Cards, UPI, Netbanking) ]]</p>
+                                <p>This section will contain the payment elements provided by the chosen gateway.</p>
+                                <button type="submit" class="btn btn-donate demi text-white btn-lg mt-3" disabled>Proceed to Secure Payment (Disabled)</button>
+                            </div>
+
+                            <div class="secure-info mt-4">
+                                <p><i class="fas fa-lock"></i> Your donation is processed securely.</p>
+                                <p>All donations are eligible for tax exemption under Section 80G of the Income Tax Act.</p>
+                            </div>
+
+                        </form>
+                    </div> <!-- end .donation-form -->
+
+                    <!-- Bank Transfer Details -->
+                    <div class="bank-details mt-5">
+                        <h4 class="text-center demi text-red mb-3">Alternative: Bank Transfer (NEFT/IMPS)</h4>
+                        <p class="text-center lite">You can also donate directly to our bank account:</p>
+                        <p class="text-center font-l demi">
+                            Account Name: Ashraya Trust, Kurnool <br>
+                            Bank: Karnataka Bank <br>
+                            Account Type: SB (Savings Bank) <br>
+                            Account No: 4282500100979801 <br>
+                            IFSC Code: KARB0000428
+                        </p>
+                        <p class="text-center lite mt-3" style="font-size: 0.9em;">After transferring, please email your Name, PAN (optional), Amount, and Transaction ID to [Your Trust Email Placeholder - e.g., donations@ashrayatrust.org] for the 80G receipt.</p>
+                    </div>
+
                 </div>
             </div>
-            <div class="d-md-flex align-items-center copywright mt-4">                
+        </div>
+    </section>
+
+    <!-- Footer (Use the same footer structure as index.html) -->
+    <footer class="footer text-white">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="demi mb-3">Ashraya Trust</h5>
+                    <p class="lite">Serving the Needy since 2011. Inspired by Avadhoota Nadananda.</p>
+                    <p class="lite">Plot No. 294, Vishnu Township, <br>NH-44, Kurnool, AP 518003</p>
+                    <p class="lite"><a href="tel:+919949319928" class="text-white">Nagaraju: +91 99493 19928</a></p>
+                    <p class="lite"><a href="tel:+919441011586" class="text-white">Rama Reddy: +91 94410 11586</a></p>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h5 class="demi mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-white lite">About Us</a></li>
+                        <li><a href="our-work.html" class="text-white lite">Our Work</a></li>
+                        <li><a href="get-involved.html" class="text-white lite">Get Involved</a></li>
+                        <li><a href="donate.html" class="text-white lite">Donate</a></li>
+                        <li><a href="contact.html" class="text-white lite">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5 class="demi mb-3">Our Focus</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="our-work.html#food" class="text-white lite">Food Distribution</a></li>
+                        <li><a href="our-work.html#medical" class="text-white lite">Medical Aid</a></li>
+                        <li><a href="our-work.html#education" class="text-white lite">Education Support</a></li>
+                        <li><a href="our-work.html#ugadi" class="text-white lite">Ugadi Seva</a></li>
+                        <li><a href="our-work.html#gurukulam" class="text-white lite">AksharaTara Gurukulam</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5 class="demi mb-3">Connect</h5>
+                    <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;"><i class="fab fa-facebook-f"></i></a>
+                    <h5 class="demi mt-4 mb-3">Support Us</h5>
+                    <a href="donate.html" class="btn btn-donate demi text-white py-2 px-4">Donate Now</a>
+                </div>
+            </div>
+            <hr style="border-top: 1px solid rgba(255,255,255,0.2);">
+            <div class="text-center lite" style="font-size: 0.9em;">
+                &copy; <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved.
             </div>
         </div>
-    </div>
-    <div class="d-flex d-md-none">
-        <div class="container">
-            <a href="donate.html" class="btn py-1 px-5 text-uppercase d-block mx-auto mb-4 w-75 pulse">Donate</a>
-
-            <a class="btn rounded-10 py-1 px-5 w-75 up-white-g d-block mx-auto" href="contact.html">CONTACT</a>
-            <div class="icons d-md-none mt-3 d-flex px-5 justify-content-between">
-                <a href="https://www.facebook.com/TARASHRAYA" target="_blank"/><i class="fab fa-facebook-f"></i></a>
-                <!-- <a href="#"/><i class="fab fa-twitter"></i></a>
-                <a href="#"/><i class="fab fa-instagram"></i></a> -->
-            </div>
-            <div class="footer-menu my-4">
-                 The Ashraya Trust<br/>
-				 Plot No. 294, Vishnu Township, <br/>NH-44, Kurnool, AP 518003
-            </div>
-        </div>
-    </div>
-
-</footer>
+    </footer>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-	$('.navbar-toggle').on('click', function(){
-		event.preventDefault();
-		$('#sidebar-nav').toggle();
-	});
+    // Mobile nav toggle (same as index.html)
+    $('.navbar-toggle').on('click', function(event){
+        event.stopPropagation();
+        var target = $(this).data('target');
+        $(target).toggle();
+    });
+    // Close functionality added
+    $('#sidebar-nav .fa-times').on('click', function(){
+        $('#sidebar-nav').hide();
+    });
+
+    // Dynamic Copyright Year
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+    // Donation Form Logic
+    $(document).ready(function() {
+        // Frequency toggle
+        $('.frequency-options .btn').on('click', function() {
+            $('.frequency-options .btn').removeClass('active');
+            $(this).addClass('active');
+            $('#donation_frequency').val($(this).data('frequency'));
+        });
+
+        // Amount selection
+        $('.amount-btn').on('click', function() {
+            $('.amount-btn').removeClass('active');
+            $(this).addClass('active');
+            $('#custom_amount').val(''); // Clear custom amount
+            // You might want to set a hidden field with the selected amount here
+            // $('#selected_amount').val($(this).data('amount'));
+            console.log("Selected amount:", $(this).data('amount'));
+        });
+
+        // Clear preset amount if custom amount is entered
+        $('#custom_amount').on('input', function() {
+            if ($(this).val()) {
+                $('.amount-btn').removeClass('active');
+                // $('#selected_amount').val($(this).val());
+                console.log("Custom amount entered:", $(this).val());
+            }
+        });
+
+        // Basic form submission handler (replace with payment gateway logic)
+        $('#donationForm').on('submit', function(e) {
+            e.preventDefault(); // Prevent actual submission for now
+            alert('Form submitted (placeholder). Implement payment gateway integration here.');
+            // Collect form data: frequency, amount (preset or custom), name, email, phone, pan
+            const formData = {
+                frequency: $('#donation_frequency').val(),
+                amount: $('.amount-btn.active').data('amount') || $('#custom_amount').val(),
+                name: $('#donor_name').val(),
+                email: $('#donor_email').val(),
+                phone: $('#donor_phone').val(),
+                pan: $('#donor_pan').val()
+            };
+            console.log("Donation Data:", formData);
+            // --> Send this data to your backend / payment gateway initiation
+        });
+    });
 </script>
 </body>
 </html>

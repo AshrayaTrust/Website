@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Ashraya Trust">
+    <title>Our Work - Ashraya Trust Initiatives</title>
+    <meta name="description" content="Explore the various initiatives of Ashraya Trust, including Kshuda Nivarana (food distribution), Rugna Nivarana (medical aid), educational support, AksharaTara Gurukulam, and Ugadi Seva. See how we serve the needy.">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.png">
+    <!-- Main Stylesheet -->
+    <link href="app.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+
+    <style>
+        /* === Base & Variables === */
+        :root {
+            --brand-red: #A70D17;
+            --brand-green: #00B095; /* Donate Green */
+            --brand-blue: #00B0BD; /* Fundraise Blue */
+            --brand-beige: #F0EAE7;
+            --brand-dark-grey: #404041;
+            --brand-light-grey: #f8f9fa;
+            --text-color: #404041;
+            --white: #fff;
+        }
+
+        /* === General Page Styles === */
+        body { margin: 0; font-family: "Nunito", sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.6; color: var(--text-color); text-align: left; background-color: var(--white); }
+
+        /* Page Header */
+        .page-header { height: 40vh; min-height: 250px; background: url('images/our-work-header-placeholder.jpg') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
+        .page-header-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.55); z-index: 1; }
+        .page-header-content { position: relative; z-index: 2; }
+        .page-header h1 { margin-bottom: 0.2em; font-size: 2.5em;}
+        .page-header .lead { font-size: 1.1em; }
+
+        /* Project Section Styling */
+        .project-section { padding: 4rem 1rem; border-bottom: 1px solid #eee; }
+        .project-section:nth-child(even) { background-color: #fdfdfd; }
+        .project-section:last-child { border-bottom: none; }
+        .project-section h2 { color: var(--brand-red); font-size: 2.4em; margin-bottom: 1.8rem; font-weight: 700; display: flex; align-items: center; border-bottom: 2px solid var(--brand-beige); padding-bottom: 0.7rem; }
+        .project-section h2 .icon { font-size: 1em; margin-right: 15px; opacity: 0.9; }
+        /* Specific Project Icons */
+        .icon-food { color: #DC5636; } .icon-medical { color: #7DA351; } .icon-education { color: #3490dc; } .icon-gurukul { color: #9F375E; } .icon-seva { color: #f6993f; }
+        .project-section h3.sub-heading { color: var(--brand-dark-grey); margin-top: 2.5rem; margin-bottom: 1.2rem; font-weight: 600; font-size: 1.7em; }
+        .project-section p { font-size: 1.05em; line-height: 1.75; font-weight: 400; color: #555; margin-bottom: 1.3rem; }
+        .project-section ul { list-style: none; padding-left: 0; margin-bottom: 1.5rem; }
+        .project-section ul li { position: relative; padding-left: 2em; margin-bottom: 0.9em; line-height: 1.7; font-size: 1.05em; font-weight: 400; color: #555; }
+        .project-section ul li::before { content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; left: 0; top: 6px; color: var(--brand-red); font-size: 1em; }
+        blockquote.quote { font-style: italic; color: #444; border-left: 5px solid var(--brand-red); padding: 1rem 1.5rem; margin: 2.5rem 0; font-size: 1.15em; font-weight: 400; background-color: #fdfdfd; border-radius: 0 5px 5px 0; }
+        cite { display: block; text-align: right; margin-top: 0.7rem; color: var(--brand-dark-grey); font-size: 0.9em; font-weight: 500; }
+        .impact-highlight { background-color: #fff9f2; padding: 1.8rem; border-radius: 8px; margin-top: 2.5rem; border-left: 6px solid var(--brand-red); box-shadow: 0 3px 8px rgba(0,0,0,0.06); }
+        .impact-highlight p { margin-bottom: 0.8rem; font-size: 1.1em; color: #333; line-height: 1.7; }
+        .impact-highlight strong { color: var(--brand-red); font-weight: 700; }
+
+        /* Carousel Styling */
+        .project-carousel { margin-bottom: 2.5rem; border: 1px solid #ddd; padding: 8px; border-radius: 10px; background-color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .project-carousel .carousel-item img { width: 100%; max-height: 450px; object-fit: cover; border-radius: 6px; }
+        .project-carousel .carousel-control-prev-icon, .project-carousel .carousel-control-next-icon { background-color: rgba(0, 0, 0, 0.6); border-radius: 50%; padding: 12px; background-size: 55%; width: 45px; height: 45px; }
+        .project-carousel .carousel-control-prev, .project-carousel .carousel-control-next { width: 10%; opacity: 0.8; transition: opacity 0.2s ease; }
+        .project-carousel:hover .carousel-control-prev, .project-carousel:hover .carousel-control-next { opacity: 1; }
+
+        /* --- Buttons (Ensure these match app.css or are defined here) --- */
+        .btn { display: inline-block; font-weight: 500; text-align: center; vertical-align: middle; user-select: none; background-color: transparent; border: 1px solid transparent; padding: 0.6rem 1.2rem; font-size: 0.95rem; line-height: 1.5; border-radius: 20px; transition: all 0.15s ease-in-out; cursor: pointer; }
+        .btn:hover { text-decoration: none; }
+        a.btn-donate, button.btn-donate { background-color: var(--brand-green); border-color: var(--brand-green); color: var(--white) !important; }
+        a.btn-donate:hover, button.btn-donate:hover { background-color: #008a75; border-color: #008a75; color: var(--white) !important; }
+        .btn-outline-danger { color: var(--brand-red); border-color: var(--brand-red); }
+        .btn-outline-danger:hover, .btn-outline-danger.active { background-color: var(--brand-red); color: var(--white); }
+        .btn-primary { background-color: #3282e6; border-color: #3282e6; color: white; } /* Standard blue */
+        .btn-primary:hover { background-color: #1d68a7; border-color: #1d68a7; }
+        .btn-sm { padding: 0.4rem 0.8rem; font-size: 0.85rem; } /* Smaller button size */
+        .demi { font-weight: 600 !important; }
+
+        /* Gallery Button Specific Style */
+        .google-gallery-btn {
+            margin-top: 1rem; /* Space above the button */
+        }
+        .google-gallery-btn i { /* Style for Google icon */
+            color: #DB4437; /* Google Red */
+            margin-right: 8px;
+        }
+
+        /* Footer (Placeholder) */
+        .footer { background: var(--brand-dark-grey); padding: 2rem 1rem; color: #ccc; }
+        .footer a.lite { color: #ccc; } .footer a.lite:hover { color: var(--white); }
+
+        /* Responsive */
+        @media (max-width: 767.98px) {
+            .project-section { padding: 2.5rem 1rem; }
+            .project-section h2 { font-size: 1.8em; }
+            .project-carousel .carousel-item img { max-height: 350px; }
+            .project-section .row > div[class*="col-lg-"] { order: 0 !important; flex: 0 0 100%; max-width: 100%;}
+            .project-carousel { margin-bottom: 1.5rem;}
+            .google-gallery-btn { display: block; width: 100%; margin-top: 1.5rem; } /* Full width button on mobile */
+        }
+        @media (max-width: 575.98px) {
+            .project-section h2 { font-size: 1.6em; }
+            .project-carousel .carousel-item img { max-height: 280px; }
+        }
+
+    </style>
+</head>
+<body>
+<div id="app" class="our-work-page">
+    <!-- Header (Include standard header structure) -->
+    <header>
+        <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
+            <span class="mx-auto">80G Tax Benefits For Donations</span>
+            <div class="social d-flex align-items-center">
+                <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white px-2"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+        <div class="site-navigation w-100 text-uppercase pb-3 text-red position-relative alt-nav" style="background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div class="container-fluid d-flex align-items-center">
+                <div class="main-nav d-flex align-items-center mr-auto">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="index.html"><img src="images/Ashraya-logo.png" class="main-logo img-fluid" alt="Ashraya Trust Logo"/></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-bars text-dark"></i>
+                        </button>
+                        <div class="collapse navbar-collapse ml-2" id="navbarText">
+                            <ul class='navbar-nav mr-auto d-flex align-items-center'>
+                                <li class='nav-item px-2'><a class="nav-link demi" href="index.html">Home</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi" href="about.html">About Us</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi" href="our-work.html">Our Work</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi" href="get-involved.html">Get Involved</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="second-nav d-flex align-items-center">
+                    <nav class="navbar p-0 navbar-expand-lg">
+                        <a class="py-2 px-4 btn btn-donate demi text-white" href="donate.html" style="border-radius: 20px; background-color: var(--brand-green);">DONATE</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Nav Placeholder -->
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>Our Work & Initiatives</h1>
+            <p class="lead">Touching lives through compassionate service.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container-fluid px-0">
+
+        <!-- Introduction -->
+        <div class="container py-5 text-center">
+            <h2 class="demi text-red">Serving the Needy: Our Core Activities</h2>
+            <p class="font-l lite col-lg-8 mx-auto">Since 2011, Ashraya Trust, under the guidance of Avadhoota Nadananda, has been dedicated to uplifting the lives of the underprivileged in and around Kurnool, Andhra Pradesh. Our work focuses on providing essential necessities and fostering hope through various seva activities.</p>
+        </div>
+
+        <!-- Kshuda Nivarana Section -->
+        <section id="food" class="project-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="demi"><i class="fas fa-utensils icon icon-food"></i>Kshuda Nivarana</h2>
+                        <p>Ensuring no one sleeps hungry is a core tenet of Ashraya Trust. Our Kshuda Nivarana program provides daily, nutritious meals to those most in need.</p>
+                        <!-- Food Carousel -->
+                        <div id="carouselFood" class="carousel slide project-carousel" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active"><img src="images/our-projects/kshudanivarna/01.jpg" class="d-block w-100" alt="Food Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/kshudanivarna/05.jpg" class="d-block w-100" alt="Serving Food"></div>
+                                <div class="carousel-item"><img src="images/our-projects/kshudanivarna/10.jpg" class="d-block w-100" alt="Food Packets"></div>
+                                <div class="carousel-item"><img src="images/our-projects/kshudanivarna/15.jpg" class="d-block w-100" alt="Volunteers Serving"></div>
+                                <div class="carousel-item"><img src="images/our-projects/kshudanivarna/20.jpg" class="d-block w-100" alt="Receiving Food"></div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselFood" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a>
+                            <a class="carousel-control-next" href="#carouselFood" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>
+                        </div>
+                        <!-- Google Photos Link Button -->
+                        <div class="text-center google-gallery-btn"> <!-- Centered button -->
+                            <a href="https://photos.app.goo.gl/ASTXFgKE5KHb4jc18" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                                <i class="fab fa-google"></i> View More Photos
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="sub-heading">Daily Food Distribution</h3>
+                        <p>Every single day, our dedicated team of volunteers prepares and distributes around <strong>700-750</strong> fresh food packets.</p>
+                        <ul>
+                            <li>Beneficiaries: Patients' attendants (General Hospital), travelers (bus stand, railway station), devotees, Leprosy Colony residents, roadside dwellers.</li>
+                            <li>Provides crucial sustenance and a moment of respite.</li>
+                            <li>Community-driven: Individuals often sponsor distribution for special occasions.</li>
+                        </ul>
+                        <div class="impact-highlight">
+                            <p><strong>Impact:</strong> Daily relief from hunger for hundreds, ensuring basic nutritional needs are met.</p>
+                        </div>
+                        <a href="donate.html#food-sponsor" class="btn btn-donate demi text-white mt-3">Sponsor a Meal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rugna Nivarana Section -->
+        <section id="medical" class="project-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 order-lg-2">
+                        <h2 class="demi"><i class="fas fa-first-aid icon icon-medical"></i>Rugna Nivarana</h2>
+                        <p>Access to healthcare is a fundamental right. We strive to provide free medical services.</p>
+                        <h3 class="sub-heading">Regular Medical Services</h3>
+                        <ul>
+                            <li><strong>Weekly Camps at Ashraya:</strong> Free diagnosis, treatment, medication every Sunday.</li>
+                            <li><strong>Rural Outreach (Mandlem):</strong> Camps every alternate Sunday.</li>
+                            <li><strong>Mobile Dispensary:</strong> Reaching remote areas.</li>
+                            <li><strong>Eye Care:</strong> Occasional camps with free medication/surgery facilitation.</li>
+                        </ul>
+                        <div class="impact-highlight">
+                            <p><strong>Impact:</strong> Improved access to primary healthcare, early diagnosis, prevention, and eye care.</p>
+                        </div>
+                        <a href="donate.html#medical-sponsor" class="btn btn-donate demi text-white mt-3">Support Medical Camps</a>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+<!--                        <div id="carouselMedical" class="carousel slide project-carousel" data-ride="carousel">-->
+<!--                            <div class="carousel-inner">-->
+<!--                                <div class="carousel-item active"><img src="images/our-projects/rugnanivarna/06.jpg" class="d-block w-100" alt="Medical Camp"></div>-->
+<!--                                <div class="carousel-item"><img src="images/our-projects/rugnanivarna/01.jpg" class="d-block w-100" alt="Patient Checkup"></div>-->
+<!--                                <div class="carousel-item"><img src="images/our-projects/rugnanivarna/11.jpg" class="d-block w-100" alt="Medicine Distribution"></div>-->
+<!--                                <div class="carousel-item"><img src="images/our-projects/rugnanivarna/16.jpg" class="d-block w-100" alt="Doctor Consultation"></div>-->
+<!--                                <div class="carousel-item"><img src="images/our-projects/rugnanivarna/08.jpg" class="d-block w-100" alt="Rural Medical Camp"></div>-->
+<!--                            </div>-->
+<!--                            <a class="carousel-control-prev" href="#carouselMedical" role="button" data-slide="prev">...</a>-->
+<!--                            <a class="carousel-control-next" href="#carouselMedical" role="button" data-slide="next">...</a>-->
+<!--                        </div>-->
+                        <div id="carouselMedical" class="carousel slide project-carousel" data-ride="carousel"> <!-- Unique ID: carouselMedical -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active"><img src="images/our-projects/rugnanivarna/06.jpg" class="d-block w-100" alt="Medical Camp"></div>
+                                <div class="carousel-item"><img src="images/our-projects/rugnanivarna/01.jpg" class="d-block w-100" alt="Patient Checkup"></div>
+                                <!-- ... more items -->
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselMedical" role="button" data-slide="prev"> <!-- FIX: href="#carouselMedical" -->
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselMedical" role="button" data-slide="next"> <!-- FIX: href="#carouselMedical" -->
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <!-- Google Photos Link Button -->
+                        <div class="text-center google-gallery-btn">
+                            <a href="[REPLACE_WITH_RUGNA_NIVARANA_GOOGLE_PHOTOS_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                                <i class="fab fa-google"></i> View More Photos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Assistance Section -->
+        <section id="education" class="project-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="demi"><i class="fas fa-book-reader icon icon-education"></i>Educational Assistance</h2>
+                        <p>Education empowers individuals and builds nations. We provide crucial support to deserving students.</p>
+                        <!-- Education Carousel -->
+                        <div id="carouselEducation" class="carousel slide project-carousel" data-ride="carousel"> <!-- Unique ID: carouselEducation -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active"><img src="images/our-projects/educationalassistance/08.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/01.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <!-- ... more items -->
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselEducation" role="button" data-slide="prev"> <!-- FIX: href="#carouselEducation" -->
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselEducation" role="button" data-slide="next"> <!-- FIX: href="#carouselEducation" -->
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <!-- Google Photos Link Button -->
+                        <div class="text-center google-gallery-btn">
+                            <a href="[REPLACE_WITH_EDUCATION_GOOGLE_PHOTOS_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                                <i class="fab fa-google"></i> View More Photos
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="sub-heading">Support Programs</h3>
+                        <ul>
+                            <li><strong>Leprosy Colony Adoption:</strong> Comprehensive support for <strong>56+ students</strong>.</li>
+                            <li><strong>Sunday Enrichment Classes:</strong> Academic help and moral education.</li>
+                            <li><strong>Higher Education Sponsorship:</strong> Financial aid until employment.</li>
+                        </ul>
+                        <div class="impact-highlight">
+                            <p><strong>Impact:</strong> Increased enrollment, improved academics, holistic development, pathways to better livelihoods.</p>
+                        </div>
+                        <a href="donate.html#education-sponsor" class="btn btn-donate demi text-white mt-3">Sponsor a Child's Education</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AksharaTara Gurukulam Section -->
+        <section id="gurukulam" class="project-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 order-lg-2">
+                        <h2 class="demi"><i class="fas fa-school icon icon-gurukul"></i>AksharaTara Gurukulam</h2>
+                        <p>A visionary project reviving the ancient Gurukula system, blending tradition with modern education.</p>
+                        <h3 class="sub-heading">Concept and Features</h3>
+                        <ul>
+                            <li>Located in Mandlem village.</li>
+                            <li>Unique <strong>15-year residential program</strong> from age 5.</li>
+                            <li>Nurturing inherent aptitude and passion.</li>
+                            <li>Personalized curriculum.</li>
+                            <li>Integrates learning of the <strong>64 ancient Indian Kalas</strong>.</li>
+                            <li>Joyous learning, life skills, character building.</li>
+                        </ul>
+                        <div class="impact-highlight">
+                            <p><strong>Impact:</strong> Cultivating well-rounded, skilled, ethically grounded individuals connected to their heritage.</p>
+                        </div>
+                        <a href="donate.html#gurukul-sponsor" class="btn btn-donate demi text-white mt-3">Support AksharaTara Gurukulam</a>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div id="carouselGurukul" class="carousel slide project-carousel" data-ride="carousel"> <!-- Unique ID: carouselGurukul -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active"><img src="images/our-projects/akshayatara/01.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/07.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <!-- ... more items -->
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselGurukul" role="button" data-slide="prev"> <!-- FIX: href="#carouselGurukul" -->
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselGurukul" role="button" data-slide="next"> <!-- FIX: href="#carouselGurukul" -->
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <!-- Google Photos Link Button -->
+                        <div class="text-center google-gallery-btn">
+                            <a href="[REPLACE_WITH_GURUKULAM_GOOGLE_PHOTOS_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                                <i class="fab fa-google"></i> View More Photos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ugadi Seva Section -->
+        <section id="ugadi" class="project-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="demi"><i class="fas fa-hand-holding-heart icon icon-seva"></i>Ugadi Yatri Seva</h2>
+                        <p>A monumental annual effort serving thousands of pilgrims walking to Srisailam during Ugadi.</p>
+                        <div id="carouselUgadi" class="carousel slide project-carousel" data-ride="carousel"> <!-- Unique ID: carouselUgadi -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active"><img src="images/our-projects/ugadiseva/ugadiseva-08.jpg" class="d-block w-100" alt="Ugadi Seva Food"></div>
+                                <div class="carousel-item"><img src="images/our-projects/ugadiseva/ugadiseva-01.jpg" class="d-block w-100" alt="Ugadi Seva Medical"></div>
+                                <!-- ... more items -->
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselUgadi" role="button" data-slide="prev"> <!-- FIX: href="#carouselUgadi" -->
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselUgadi" role="button" data-slide="next"> <!-- FIX: href="#carouselUgadi" -->
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <!-- Google Photos Link Button -->
+                        <div class="text-center google-gallery-btn">
+                            <a href="[REPLACE_WITH_UGADI_SEVA_GOOGLE_PHOTOS_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                                <i class="fab fa-google"></i> View More Photos
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <p>Recognizing the immense physical strain, we provide comprehensive care:</p>
+                        <h3 class="sub-heading">Seva Activities</h3>
+                        <ul>
+                            <li><strong>Sacred Oil Massage:</strong> Using Guruji's special Siddha oil.</li>
+                            <li><strong>24/7 Food & Refreshments:</strong> Hot meals, buttermilk, snacks.</li>
+                            <li><strong>Wound Care:</strong> Cleaning and dressing foot wounds.</li>
+                            <li><strong>Medical Support:</strong> Round-the-clock doctors.</li>
+                        </ul>
+                        <blockquote class="quote mt-3">
+                            "We consider this not just service, but 'Pooja to the walking Shivas'..."
+                            <cite>- Inspired by Guruji's teachings</cite>
+                        </blockquote>
+                        <div class="impact-highlight">
+                            <p><strong>Impact:</strong> Easing hardships for thousands, enabling pilgrims to complete their spiritual journey with dignity.</p>
+                        </div>
+                        <a href="get-involved.html#volunteer" class="btn btn-outline-danger demi mt-3 mr-2">Volunteer for Ugadi Seva</a>
+                        <a href="donate.html#ugadi-sponsor" class="btn btn-donate demi text-white mt-3">Support Ugadi Seva</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Image Modal (Still needed if you keep the carousels clickable to enlarge) -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body text-center p-0">
+                    <img src="#" id="modalImage" class="img-fluid" alt="Project Image Enlarged">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer (Include standard footer structure) -->
+    <footer class="footer text-white">
+        <div class="container py-4">
+            <!-- Footer content -->
+            <div class="text-center lite" style="font-size: 0.9em;">
+                © <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Scripts (jQuery, Bootstrap JS, Custom Script) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Mobile nav toggle
+    $('.navbar-toggle').on('click', function(event){
+        event.stopPropagation();
+        $('#sidebar-nav').toggleClass('open');
+    });
+    $('#sidebar-nav .fa-times').on('click', function(){
+        $('#sidebar-nav').removeClass('open');
+    });
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('#sidebar-nav, .navbar-toggle').length && $('#sidebar-nav').hasClass('open')) {
+            $('#sidebar-nav').removeClass('open');
+        }
+    });
+
+    // Dynamic Copyright Year
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+    // Image Modal Script (Optional - if you want carousel images to open modal)
+    /*
+     $('.project-carousel .carousel-item img').on('click', function() {
+         var imgSrc = $(this).attr('src');
+         $('#modalImage').attr('src', imgSrc);
+         $('#imageModal').modal('show');
+     });
+    */
+
+    // Ensure Bootstrap Carousel is initialized
+    $('.carousel').carousel({
+        interval: false // Disable auto-sliding
+    });
+
+</script>
+</body>
+</html>
