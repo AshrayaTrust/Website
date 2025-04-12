@@ -1,274 +1,3 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="utf-8">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
-<!--    <meta name="author" content="Ashraya Trust">-->
-<!--    <title>About Ashraya Trust & Our Founder Avadhoota Nadananda</title> &lt;!&ndash; Updated Title &ndash;&gt;-->
-<!--    <meta name="description" content="Learn about Ashraya Trust's mission, vision, values, and the detailed story and inspiration behind our founder, Avadhoota Nadananda.">-->
-<!--    &lt;!&ndash; Font Awesome &ndash;&gt;-->
-<!--    <script src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>-->
-<!--    &lt;!&ndash; Favicon &ndash;&gt;-->
-<!--    <link rel="shortcut icon" href="images/favicon.png">-->
-<!--    &lt;!&ndash; Main Stylesheet &ndash;&gt;-->
-<!--    <link href="app.css" rel="stylesheet">-->
-<!--    &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">-->
-
-<!--    <style>-->
-<!--        /* Add specific about page styles */-->
-<!--        .page-header {-->
-<!--            height: 40vh; min-height: 250px;-->
-<!--            background: url('images/about-header-placeholder.jpg') no-repeat center center; /* !! REPLACE Placeholder !! */-->
-<!--            background-size: cover; display: flex; align-items: center; justify-content: center;-->
-<!--            text-align: center; color: white; position: relative;-->
-<!--        }-->
-<!--        .page-header-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.55); z-index: 1; }-->
-<!--        .page-header-content { position: relative; z-index: 2; }-->
-<!--        .page-header h1 { margin-bottom: 0.2em; font-size: 2.5em;}-->
-<!--        .page-header .lead { font-size: 1.1em; }-->
-
-<!--        /* Founder Section Styling */-->
-<!--        .founder-section { background-color: #f8f9fa; padding: 4rem 1rem; }-->
-<!--        .guruji-main-img { /* Style for the main image */-->
-<!--            max-width: 100%;-->
-<!--            border-radius: 10px;-->
-<!--            margin-bottom: 1.5rem; /* Space below main image */-->
-<!--            box-shadow: 0 4px 12px rgba(0,0,0,0.15);-->
-<!--        }-->
-<!--        .guruji-thumb-gallery img { /* Styling for the smaller thumbnails below */-->
-<!--            width: 120px; /* Control thumbnail size */-->
-<!--            height: 120px;-->
-<!--            object-fit: cover;-->
-<!--            border-radius: 8px;-->
-<!--            margin: 5px;-->
-<!--            border: 2px solid var(&#45;&#45;white);-->
-<!--            box-shadow: 0 2px 5px rgba(0,0,0,0.1);-->
-<!--        }-->
-<!--        .founder-section h3.demi { color: var(&#45;&#45;brand-red); font-weight: 700; }-->
-<!--        .founder-section h4.demi { color: var(&#45;&#45;brand-dark-grey); margin-top: 2rem; font-weight: 600;}-->
-<!--        .founder-section p { font-size: 1.05em; line-height: 1.75; color: #444; }-->
-<!--        .founder-section blockquote { font-style: italic; color: #555; border-left: 4px solid var(&#45;&#45;brand-red); padding-left: 1.5rem; margin: 1.8rem 0; font-size: 1.1em; background-color: #fff; padding-top: 1rem; padding-bottom: 1rem; border-radius: 0 5px 5px 0;}-->
-
-<!--        /* Team Section (Placeholder) Styling */-->
-<!--        .team-section { padding: 4rem 1rem; }-->
-<!--        .team-section .card { border: 1px solid #eee; transition: box-shadow 0.3s ease; }-->
-<!--        .team-section .card:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }-->
-<!--        .team-section .card-img-top { height: 200px; object-fit: cover; background-color: #eee; } /* Placeholder bg */-->
-<!--        .team-section .card-title { color: var(&#45;&#45;brand-red); }-->
-
-<!--        /* Additional Image Row Styling */-->
-<!--        .guruji-additional-images .row { margin-bottom: 1rem; } /* Space between rows */-->
-<!--        .guruji-additional-images img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }-->
-
-<!--        /* Include Blink animation if top-nav uses it */-->
-<!--        .blink { animation: blinker 1.5s linear infinite; color: white; font-family: sans-serif; background: #A70D17; font-weight: 600; padding: 0.2em 0; }-->
-<!--        @keyframes blinker { 50% { opacity: 0; } }-->
-
-<!--        /* Minimal Header/Footer styles if not using full app.css */-->
-<!--        #top-nav { background: var(&#45;&#45;brand-red); font-size: 0.8em; color: white;}-->
-<!--        .site-navigation { z-index: 950; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative;}-->
-<!--        .site-navigation .navbar-brand img.main-logo { max-height: 60px; width: auto; }-->
-<!--        .site-navigation .navbar { padding: 0.5rem 1rem; }-->
-<!--        .site-navigation .nav-item { padding: 0 0.5rem; }-->
-<!--        .site-navigation .nav-link { font-weight: 500; padding: 0.5rem 0.8rem !important; transition: color 0.2s ease; border: none !important; color: var(&#45;&#45;brand-dark-grey) !important;}-->
-<!--        .site-navigation .nav-link:hover { color: var(&#45;&#45;brand-red) !important; }-->
-<!--        .footer { background: var(&#45;&#45;brand-dark-grey); padding: 2rem 1rem; color: #ccc; }-->
-<!--        .footer a.lite { color: #ccc; } .footer a.lite:hover { color: var(&#45;&#45;white); }-->
-<!--        /* Basic Button styles */-->
-<!--        .btn { display: inline-block; font-weight: 500; text-align: center; vertical-align: middle; user-select: none; background-color: transparent; border: 1px solid transparent; padding: 0.6rem 1.2rem; font-size: 0.95rem; line-height: 1.5; border-radius: 20px; transition: all 0.15s ease-in-out; cursor: pointer; }-->
-<!--        a.btn-donate, button.btn-donate { background-color: var(&#45;&#45;brand-green); border-color: var(&#45;&#45;brand-green); color: var(&#45;&#45;white) !important; }-->
-<!--        a.btn-donate:hover, button.btn-donate:hover { background-color: #008a75; border-color: #008a75; color: var(&#45;&#45;white) !important; }-->
-<!--        .btn-outline-danger { color: var(&#45;&#45;brand-red); border-color: var(&#45;&#45;brand-red); }-->
-<!--        .btn-outline-danger:hover { background-color: var(&#45;&#45;brand-red); color: var(&#45;&#45;white); }-->
-<!--        .btn-outline-primary { color: #3282e6; border-color: #3282e6; }-->
-<!--        .btn-outline-primary:hover { background-color: #3282e6; color: var(&#45;&#45;white); }-->
-<!--        .demi { font-weight: 600 !important; }-->
-<!--    </style>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div id="app" class="about-page">-->
-<!--    &lt;!&ndash; Header (Standard Inner Page Header) &ndash;&gt;-->
-<!--    <header>-->
-<!--        <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">-->
-<!--            <span class="mx-auto">80G Tax Benefits For Donations</span>-->
-<!--            <div class="social d-flex align-items-center">-->
-<!--                <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white px-2"><i class="fab fa-facebook-f"></i></a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="site-navigation w-100 text-uppercase pb-3 text-red position-relative alt-nav">-->
-<!--            <div class="container-fluid d-flex align-items-center">-->
-<!--                <div class="main-nav d-flex align-items-center mr-auto">-->
-<!--                    <nav class="navbar navbar-expand-lg">-->
-<!--                        <a class="navbar-brand" href="index.html"><img src="images/Ashraya-logo.png" class="main-logo img-fluid" alt="Ashraya Trust Logo"/></a>-->
-<!--                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--                            <i class="fas fa-bars text-dark"></i>-->
-<!--                        </button>-->
-<!--                        <div class="collapse navbar-collapse ml-2" id="navbarText">-->
-<!--                            <ul class='navbar-nav mr-auto d-flex align-items-center'>-->
-<!--                                <li class='nav-item px-2'><a class="nav-link demi" href="index.html">Home</a></li>-->
-<!--                                <li class='nav-item px-2'><a class="nav-link demi" href="about.html">About Us</a></li>-->
-<!--                                <li class='nav-item px-2'><a class="nav-link demi" href="our-work.html">Our Work</a></li>-->
-<!--                                <li class='nav-item px-2'><a class="nav-link demi" href="get-involved.html">Get Involved</a></li>-->
-<!--                                <li class='nav-item px-2'><a class="nav-link demi" href="contact.html">Contact</a></li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                    </nav>-->
-<!--                </div>-->
-<!--                <div class="second-nav d-flex align-items-center">-->
-<!--                    <nav class="navbar p-0 navbar-expand-lg">-->
-<!--                        <a class="py-2 px-4 btn btn-donate demi text-white" href="donate.html" style="border-radius: 20px; background-color: var(&#45;&#45;brand-green);">DONATE</a>-->
-<!--                    </nav>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        &lt;!&ndash; Mobile Nav Placeholder &ndash;&gt;-->
-<!--        &lt;!&ndash; Include standard mobile nav structure if needed &ndash;&gt;-->
-<!--    </header>-->
-
-<!--    &lt;!&ndash; Page Header &ndash;&gt;-->
-<!--    <section class="page-header">-->
-<!--        <div class="page-header-overlay"></div>-->
-<!--        <div class="page-header-content">-->
-<!--            <h1>About Ashraya Trust</h1>-->
-<!--            <p class="lead">Our Mission, Our Vision, Our Inspiration</p>-->
-<!--        </div>-->
-<!--    </section>-->
-
-<!--    &lt;!&ndash; Main Content &ndash;&gt;-->
-<!--    <main class="container py-5">-->
-<!--        <section id="mission-vision" class="mb-5">-->
-<!--            <h2 class="text-center demi text-red mb-5">Our Purpose</h2>-->
-<!--            <div class="row">-->
-<!--                <div class="col-lg-6 mb-4">-->
-<!--                    <h3 class="demi text-red mb-3"><i class="fas fa-bullseye mr-2"></i>Our Mission</h3>-->
-<!--                    <p>To serve the needy by providing essential resources like food, medical aid, and educational support, fostering self-reliance and dignity within the community.</p>-->
-<!--                    <p>Established in June 2011, Ashraya Trust operates primarily in Kurnool, Andhra Pradesh, reaching out to the most vulnerable populations, including those in leprosy colonies, hospitals, and impoverished areas.</p>-->
-<!--                </div>-->
-<!--                <div class="col-lg-6 mb-4">-->
-<!--                    <h3 class="demi text-red mb-3"><i class="fas fa-eye mr-2"></i>Our Vision</h3>-->
-<!--                    <p>A society where everyone has access to basic necessities and opportunities, free from suffering caused by hunger, illness, or lack of education.</p>-->
-<!--                    <p>We believe in the power of selfless service ('Seva') to not only uplift others but also to bring about inner transformation and realization for those who serve.</p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="text-center mt-4">-->
-<!--                <a href="our-work.html" class="btn btn-outline-danger demi">Explore Our Projects</a>-->
-<!--            </div>-->
-<!--        </section>-->
-
-<!--        <hr class="my-5">-->
-
-<!--        &lt;!&ndash; Founder Section - INCORPORATING CONTENT FROM about-guruji.html &ndash;&gt;-->
-<!--        <section id="founder" class="founder-section">-->
-<!--            <div class="container">-->
-<!--                <h2 class="text-center demi text-red mb-5">Our Guiding Light: Avadhoota Nadananda</h2>-->
-<!--                <div class="row">-->
-<!--                    <div class="col-lg-4 text-center mb-4 mb-lg-0">-->
-<!--                        &lt;!&ndash; Main Image &ndash;&gt;-->
-<!--                        &lt;!&ndash; !! Ensure ashraya-guruji.jpg exists and is web-optimized !! &ndash;&gt;-->
-<!--                        <img src="images/ashraya-guruji.jpg" alt="Avadhoota Nadananda Guruji" class="guruji-main-img img-fluid">-->
-
-<!--&lt;!&ndash;                        todo&ndash;&gt;-->
-<!--                        &lt;!&ndash; Thumbnail Gallery &ndash;&gt;-->
-<!--                        <div class="guruji-thumb-gallery mt-3">-->
-<!--                            <img src="images/guruji1.jpeg" alt="Guruji serving" >-->
-<!--                            <img src="images/guruji2.jpeg" alt="Guruji close-up" >-->
-<!--                            <img src="images/guruji3.jpeg" alt="Guruji interacting" >-->
-<!--                            <img src="images/guruji4.jpeg" alt="Guruji profile" >-->
-<!--                        </div>-->
-<!--                        <a href="https://www.facebook.com/avahoota?mibextid=ZbWKwL" target="_blank" class="btn btn-outline-primary demi mt-4 d-block d-lg-inline-block">-->
-<!--                            <i class="fab fa-facebook-f mr-2"></i>Follow Guruji on Facebook-->
-<!--                        </a>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-8">-->
-<!--                        <h3 class="demi mb-3">An Avadhoota with a Vision and a Mission</h3>-->
-<!--                        <p>Renouncing behind everything from a remote village of Kerala, Avadhoota Nadananda traveled and did penance in the Himalayan forest, searching for the truth of existence.</p>-->
-<!--                        <p>Then he realized the sadhana and its accumulated energy must be utilised for the upliftment of depressed, deprived, humiliated, tormented, tortured suffering people around us - this is the real penance. On the banks of Ganga, Narmada, in cities, pilgrim centres he walked around as a parivrajaka to experience their life.</p>-->
-<!--                        <blockquote class="quote">“Rich people are begging inside abode of Almighty and Poor people are begging for a morsel of food infront abode of Almighty”.<br><small>– His poignant observation.</small></blockquote>-->
-<!--                        <p>He found a Mission: renunciation is not the only way to realize; service to humanity is also a path. Again he moved around entire India and created teams who understand his philosophy – <strong>‘Service to mankind is service to God’</strong>. He is visible in streets, in slums, among the leprosy patients, in hospital wards, on footpaths, in bus stands, feeding the suffering people, arranging medical camps, teaching small children and clothing them. May be it in Dhar, in Kurnool, in Bangalore, in Visakapatnam surrounded with likeminded devotees who take a vow to serve the needy.</p>-->
-
-<!--                        <h4 class="demi mt-4 mb-2">The Guiding Principle: Vision to Serve, Mission to Realize</h4>-->
-<!--                        <p>He never teaches or preaches any specific tradition or philosophy. Instead, he guides the devotees and team around him to experience oneness with ultimate reality <strong>by serving others</strong>. Devotees experience the body, the mind, the intellect complexes vanish during the service of one or two hours everyday. The journey from individual consciousness to cosmic consciousness was there, is here, and would be there through Seva.</p>-->
-<!--                        <p>You will never find a rich man moving around him with bundles of notes for his needs. One can witness common man is around him who shares few bucks from their hard-saved money. For Seva, he never begs, nor does he beg for his food. He says, ”Everything is destined and it comes in time.” Thus, money flows for projects, and all are happy.</p>-->
-<!--                        <p>That visionary and missionary is none other than our Guruji, Avadhoota Nadananda.</p>-->
-
-<!--                        <h4 class="demi mt-4 mb-2">Understanding the Avadhoota Path (Insights from Mohanji)</h4>-->
-<!--                        <p>Mohanji of Ammucare Charitable Trust offers a perspective: "Avadhoota once told me 'When a man becomes mad, he becomes a saint. When saint becomes mad, he becomes an Avadhoota. When Avadhoota becomes mad, he becomes Bhagwan.' Being reveling in their non-existence are Avadhootas. They are totally occupied inside, so much so that the outside world with its materials and flavours carries no meaning to them... Regular human beings... will find it difficult to understand such an existence."</p>-->
-<!--                        <p>"We live in an atomic universe... made of particles. They are energy manifested into forms... This is the cause of all delusions. An Avadhoota is rooted in the energy beyond the matter within and outside of him. He is never deluded with terrestrial existence."</p>-->
-<!--                        <p>"One who has nothing to do with terrestrial existence is an Avadhoota... no emotional value of any events of life... occupied in bliss supreme. They remain calm, pure and full of love always. They are spontaneous, unbound and unperturbed about how the society looks at them... Detachment is their garb. Society can only see their seemingly indifferent existence and they mark it as madness."</p>-->
-<!--                        <p>Regarding Avadhoota Nadananda ji specifically, Mohanji notes: "His life purpose is to lead people towards inner awakening and his deep urge to serve the under-privileged despite his compelling physical conditions. He still sings (trained by Pandit Bhimsen Joshi) and dances despite his binding physical ailments."</p>-->
-<!--                        <p>Guruji once stated to Mohanji: <strong>“Mohanji , I will remain in action for 300 years after my physical demise, just as Sai Baba of Shirdi continues to work 100 years after his physical exit. Sai Baba was the 39th Pointiff of Gyanganj . I am 48th.”</strong></p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
-
-<!--        <hr class="my-5">-->
-
-<!--        &lt;!&ndash; Team Section (Placeholder) &ndash;&gt;-->
-<!--        <section id="team" class="team-section text-center">-->
-<!--            <h2 class="demi text-red mb-5">Meet the Team</h2>-->
-<!--            <p class="lite mb-4">Ashraya Trust is run by a dedicated team of volunteers inspired by Guruji's vision. [Placeholder for team member photos and brief bios - Optional but good for trust]</p>-->
-<!--            <div class="row justify-content-center">-->
-<!--                &lt;!&ndash; Placeholder Cards &ndash;&gt;-->
-<!--                <div class="col-md-3 col-sm-6 mb-4">-->
-<!--                    <div class="card h-100">-->
-<!--                        <img src="images/team-placeholder.png" class="card-img-top" alt="Team Member">-->
-<!--                        <div class="card-body">-->
-<!--                            <h5 class="card-title demi">Team Member Name</h5>-->
-<!--                            <p class="card-text lite">Role/Responsibility</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-3 col-sm-6 mb-4">-->
-<!--                    <div class="card h-100">-->
-<!--                        <img src="images/team-placeholder.png" class="card-img-top" alt="Team Member">-->
-<!--                        <div class="card-body">-->
-<!--                            <h5 class="card-title demi">Team Member Name</h5>-->
-<!--                            <p class="card-text lite">Role/Responsibility</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                &lt;!&ndash; Add more team members &ndash;&gt;-->
-<!--            </div>-->
-<!--            <a href="get-involved.html" class="btn btn-outline-danger demi mt-3">Join Our Team</a>-->
-<!--        </section>-->
-
-<!--    </main>-->
-
-<!--    &lt;!&ndash; Footer (Include standard footer HTML) &ndash;&gt;-->
-<!--    <footer class="footer text-white">-->
-<!--        <div class="container py-4">-->
-<!--            &lt;!&ndash; Footer content &ndash;&gt;-->
-<!--            <div class="text-center lite" style="font-size: 0.9em;">-->
-<!--                © <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved.-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </footer>-->
-<!--</div>-->
-
-<!--&lt;!&ndash; Scripts &ndash;&gt;-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>-->
-<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>-->
-<!--<script>-->
-<!--    // Mobile nav toggle (same as index.html)-->
-<!--    $('.navbar-toggle').on('click', function(event){-->
-<!--        event.stopPropagation();-->
-<!--        var target = $(this).data('target');-->
-<!--        $(target).toggle();-->
-<!--    });-->
-<!--    // Close functionality added-->
-<!--    $('#sidebar-nav .fa-times').on('click', function(){-->
-<!--        $('#sidebar-nav').hide();-->
-<!--    });-->
-
-<!--    // Dynamic Copyright Year-->
-<!--    document.getElementById('copyright-year').textContent = new Date().getFullYear();-->
-<!--</script>-->
-<!--</body>-->
-<!--</html>-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -285,7 +14,7 @@
     <!-- Main Stylesheet -->
     <link href="app.css" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">-->
 
     <style>
         /* Styles from previous about.html */
@@ -298,8 +27,6 @@
         .founder-section { background-color: #f8f9fa; padding: 4rem 1rem; }
         .guruji-main-img { max-width: 100%; border-radius: 10px; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         .guruji-thumb-gallery img { width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin: 5px; border: 2px solid var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .founder-section h3.demi { color: var(--brand-red); font-weight: 700; }
-        .founder-section h4.demi { color: var(--brand-dark-grey); margin-top: 2rem; font-weight: 600;}
         .founder-section p { font-size: 1.05em; line-height: 1.75; color: #444; }
         .founder-section blockquote { font-style: italic; color: #555; border-left: 4px solid var(--brand-red); padding: 1.5rem; margin: 1.8rem 0; font-size: 1.1em; background-color: #fff; border-radius: 0 5px 5px 0;}
         .guruji-additional-images .row { margin-bottom: 1rem; }
@@ -344,23 +71,6 @@
         .blink { animation: blinker 1.5s linear infinite; color: white; font-family: sans-serif; background: #A70D17; font-weight: 600; padding: 0.2em 0; }
         @keyframes blinker { 50% { opacity: 0; } }
 
-        /* Minimal Header/Footer styles */
-        #top-nav { background: var(--brand-red); font-size: 0.8em; color: white;}
-        .site-navigation { z-index: 950; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative;}
-        .site-navigation .navbar-brand img.main-logo { max-height: 60px; width: auto; }
-        .site-navigation .navbar { padding: 0.5rem 1rem; }
-        .site-navigation .nav-item { padding: 0 0.5rem; }
-        .site-navigation .nav-link { font-weight: 500; padding: 0.5rem 0.8rem !important; transition: color 0.2s ease; border: none !important; color: var(--brand-dark-grey) !important;}
-        .site-navigation .nav-link:hover { color: var(--brand-red) !important; }
-        /* Basic Button styles */
-        .btn { display: inline-block; font-weight: 500; text-align: center; vertical-align: middle; user-select: none; background-color: transparent; border: 1px solid transparent; padding: 0.6rem 1.2rem; font-size: 0.95rem; line-height: 1.5; border-radius: 20px; transition: all 0.15s ease-in-out; cursor: pointer; }
-        a.btn-donate, button.btn-donate { background-color: var(--brand-green); border-color: var(--brand-green); color: var(--white) !important; }
-        a.btn-donate:hover, button.btn-donate:hover { background-color: #008a75; border-color: #008a75; color: var(--white) !important; }
-        .btn-outline-danger { color: var(--brand-red); border-color: var(--brand-red); }
-        .btn-outline-danger:hover { background-color: var(--brand-red); color: var(--white); }
-        .btn-outline-primary { color: #3282e6; border-color: #3282e6; }
-        .btn-outline-primary:hover { background-color: #3282e6; color: var(--white); }
-        .demi { font-weight: 600 !important; }
     </style>
 </head>
 <body>
@@ -368,12 +78,12 @@
     <!-- Header (Standard Inner Page Header) -->
     <header>
         <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
-            <span class="mx-auto">80G Tax Benefits For Donations</span>
+            <marquee class="blink">80G Tax Benefits For Donations</marquee>
             <div class="social d-flex align-items-center">
                 <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white px-2"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
-        <div class="site-navigation w-100 text-uppercase pb-3 text-red position-relative alt-nav">
+        <div class="site-navigation w-100 text-uppercase pb-3 text-red position-relative alt-nav" style="background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
             <div class="container-fluid d-flex align-items-center">
                 <div class="main-nav d-flex align-items-center mr-auto">
                     <nav class="navbar navbar-expand-lg">
@@ -383,25 +93,45 @@
                         </button>
                         <div class="collapse navbar-collapse ml-2" id="navbarText">
                             <ul class='navbar-nav mr-auto d-flex align-items-center'>
-                                <li class='nav-item px-2'><a class="nav-link demi" href="index.html">Home</a></li>
-                                <li class='nav-item px-2'><a class="nav-link demi" href="about.html">About Us</a></li>
-                                <li class='nav-item px-2'><a class="nav-link demi" href="our-work.html">Our Work</a></li>
-                                <li class='nav-item px-2'><a class="nav-link demi" href="get-involved.html">Get Involved</a></li>
-                                <li class='nav-item px-2'><a class="nav-link demi" href="contact.html">Contact</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="index.html">Home</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="about.html">About Us</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="our-work.html">Our Work</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="get-involved.html">Get Involved</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="contact.html">Contact</a></li>
                             </ul>
                         </div>
                     </nav>
                 </div>
                 <div class="second-nav d-flex align-items-center">
                     <nav class="navbar p-0 navbar-expand-lg">
-                        <a class="py-2 px-4 btn btn-donate demi text-white" href="donate.html" style="border-radius: 20px; background-color: var(--brand-green);">DONATE</a>
+                        <a class="py-2 px-4 btn pulse demi text-white" href="donate.html" style="border-radius: 20px;">DONATE</a>
                     </nav>
                 </div>
             </div>
         </div>
-        <!-- Mobile Nav Placeholder -->
+        <!-- Mobile Nav (Use the same structure as index.html) -->
+        <div id="mobile-nav" class="d-lg-none"> <!-- Show only on smaller screens -->
+            <div class="wrapper" style="background: #fff; padding: 10px; border-bottom: 1px solid #eee;">
+                <div class="mobile-top d-flex align-items-center justify-content-between">
+                    <a class="" href="index.html"><img src="images/Ashraya-logo.png" class="w-50 img-fluid" alt="Ashraya Trust Logo"/></a>
+                    <i class="fas fa-bars navbar-toggle collapsed" data-target="#sidebar-nav" style="font-size: 1.5em; cursor: pointer; color: #404041;"></i>
+                </div>
+            </div>
+            <div class="" id="sidebar-nav" style="display: none; position: fixed; top: 0; left: 0; height: 100%; width: 80%; background: #404041; z-index: 9999; padding-top: 60px; overflow-y: auto;">
+                <i class="fas fa-times navbar-toggle" style="position: absolute; top: 20px; right: 20px; font-size: 1.8em; color: white; cursor: pointer;"></i>
+                <div class="sidebar-wrapper px-3">
+                    <ul class='navbar-nav mr-auto'>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="index.html">Home</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="about.html">About Us</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="our-work.html">Our Work</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="get-involved.html">Get Involved</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="contact.html">Contact</a></li>
+                        <li class='nav-item mt-3'><a class="btn btn-donate d-block text-center text-white" href="donate.html">Donate Now</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </header>
-
     <!-- Page Header -->
     <section class="page-header">
         <div class="page-header-overlay"></div>

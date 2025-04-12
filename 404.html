@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Ashraya Trust</title>
+    <meta name="description" content="The page you requested could not be found on the Ashraya Trust website.">
+    <!-- Link to your main stylesheet -->
+    <link href="app.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <style>
+        /* Specific styles for the 404 page */
+        :root { /* Define variables here if not reliably loaded from app.css */
+            --brand-red: #A70D17;
+            --brand-green: #00B095;
+            --brand-dark-grey: #404041;
+            --white: #fff;
+            --brand-light-grey: #f8f9fa;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: "Nunito", sans-serif; /* Match site font */
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--brand-light-grey); /* Light background */
+            color: var(--brand-dark-grey);
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 3rem 1rem;
+            flex-grow: 1; /* Pushes footer down */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 700px; /* Limit content width */
+            margin: 0 auto; /* Center container */
+        }
+
+        .error-logo img {
+            max-height: 80px; /* Adjust logo size */
+            margin-bottom: 2rem;
+        }
+
+        .error-icon {
+            font-size: 4rem; /* Large icon */
+            color: #ffc107; /* Standard warning color */
+            margin-bottom: 1.5rem;
+            animation: pulse-warning 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-warning {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .error-container h1 {
+            color: var(--brand-red);
+            font-size: 2.2em; /* Slightly smaller than main site H1 */
+            font-weight: 700; /* Bold */
+            margin-bottom: 1rem;
+        }
+
+        .error-container p {
+            color: #555; /* Darker grey for readability */
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Button style matching .btn-donate */
+        .btn-home {
+            display: inline-block;
+            font-weight: 600; /* Demi-bold */
+            text-align: center;
+            vertical-align: middle;
+            user-select: none;
+            background-color: var(--brand-green);
+            border: 1px solid var(--brand-green);
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            border-radius: 25px; /* Pill shape */
+            color: var(--white) !important; /* Ensure text is white */
+            text-decoration: none;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            cursor: pointer;
+        }
+        .btn-home:hover {
+            background-color: #008a75; /* Darker green */
+            border-color: #008a75;
+            color: var(--white) !important;
+            text-decoration: none;
+        }
+        .btn-home i {
+            margin-right: 8px;
+        }
+
+        /* Minimal Footer */
+        .error-footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9em;
+            color: #6c757d;
+            background-color: #e9ecef; /* Light grey background */
+            border-top: 1px solid #dee2e6;
+            margin-top: auto; /* Sticks to bottom */
+        }
+        .error-footer a {
+            color: var(--brand-red);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="error-container">
+
+    <div class="error-logo">
+        <a href="index.html">
+            <img src="images/Ashraya-logo.png" alt="Ashraya Trust Logo">
+        </a>
+    </div>
+
+    <div class="error-icon">
+        <i class="fas fa-unlink"></i> <!-- Or fa-compass, fa-exclamation-triangle -->
+    </div>
+
+    <h1>404 - Page Not Found</h1>
+
+    <p>
+        We're sorry, but the page you are looking for cannot be found. It might have been moved, renamed, or it never existed.
+    </p>
+
+    <p>
+        Let's get you back to exploring the work of Us.
+    </p>
+
+    <a href="index.html" class="btn-home demi">
+        <i class="fas fa-home"></i>Go to Homepage
+    </a>
+
+</div>
+
+<footer class="error-footer">
+    © <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved. | <a href="contact.html">Contact Us</a>
+</footer>
+
+<script>
+    // Dynamic Copyright Year (minimal JS needed)
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
