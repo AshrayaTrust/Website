@@ -36,6 +36,7 @@
  */
 
 :root {
+  scroll-behavior: smooth;
   --blue: #3490dc;
   --indigo: #6574cd;
   --purple: #9561e2;
