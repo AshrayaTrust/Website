@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Ashraya Trust">
-    <title>About Ashraya Trust - Mission, Founder & Activities</title> <!-- Updated Title -->
+    <title>About Ashraya Trust - Mission, Founder & Activities</title>
     <meta name="description" content="Learn about Ashraya Trust's mission, vision, founder Avadhoota Nadananda, and our core activities: food distribution (Kshuda Nivarana), medical aid (Rugna Nivarana), educational support, AksharaTara Gurukulam, and Ugadi Seva.">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
@@ -13,18 +13,15 @@
     <link rel="shortcut icon" href="images/favicon.png">
     <!-- Main Stylesheet -->
     <link href="app.css" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">-->
 
     <style>
         body { font-family: "Nunito", sans-serif; }
-        /* Styles from previous about.html */
-        /* --- MODIFIED PAGE HEADER BACKGROUND --- */
-        /* !! IMPORTANT: Replace 'images/guruji_sent_image.jpg' with the actual path to the image you sent !! */
+
+        /* Page Header (Unchanged from previous step) */
         .page-header {
             height: 40vh;
             min-height: 250px;
-            background: url('images/about-guriji.png') no-repeat center center; /* <<< UPDATED BACKGROUND IMAGE PATH */
+            background: url('images/about-guriji.png') no-repeat center center;
             background-size: cover;
             display: flex;
             align-items: center;
@@ -33,75 +30,113 @@
             color: white;
             position: relative;
         }
-        /* --- END MODIFIED PAGE HEADER BACKGROUND --- */
         .page-header-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.55); z-index: 1; }
         .page-header-content { position: relative; z-index: 2; }
         .page-header h1 { margin-bottom: 0.2em; font-size: 2.5em;}
         .page-header .lead { font-size: 1.1em; }
 
-        .founder-section { background-color: #f8f9fa; padding: 4rem 1rem; }
-        .guruji-main-img { max-width: 100%; border-radius: 10px; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-        .guruji-thumb-gallery img { width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin: 5px; border: 2px solid var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .founder-section p { font-size: 1.05em; line-height: 1.75; color: #444; }
-        .founder-section blockquote { font-style: italic; color: #555; border-left: 4px solid var(--brand-red); padding: 1.5rem; margin: 1.8rem 0; font-size: 1.1em; background-color: #fff; border-radius: 0 5px 5px 0;}
-        .guruji-additional-images .row { margin-bottom: 1rem; }
-        .guruji-additional-images img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
 
-        /* --- ADDED Books Section Styling --- */
-        .guruji-books-section {
-            background-color: #f8f9fa; /* Light background like founder/team */
-            padding: 4rem 1rem;
+        /* --- Founder Section with Background Image & Pseudo Overlay --- */
+        #founder {
+            /* !! IMPORTANT: Replace 'images/guruji_sent_image.jpg' with the actual path !! */
+            background: url('images/ashraya-guruji-1.png') no-repeat center center; /* <<< YOUR IMAGE PATH HERE */
+            background-size: cover;
+            background-attachment: scroll; /* Keep it scrolling with the section */
+            padding: 4rem 1rem; /* Padding remains on the section */
+            position: relative; /* Crucial for the absolute positioning of the pseudo-element */
+            color: var(--brand-dark-grey); /* Default text color */
+            z-index: 0; /* Ensure section is behind potential fixed elements but allows pseudo-element */
         }
-        .guruji-books-section .btn i { /* Ensure icon spacing */
-            margin-right: 8px;
-        }
-        /* --- END Books Section Styling --- */
 
-        /* Activity Section Styling */
+        /* The overlay using a pseudo-element */
+        #founder::before {
+            content: ""; /* Required for pseudo-elements */
+            position: absolute; /* Position relative to the #founder section */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white overlay */
+            z-index: 1; /* Sit between the section background and the container content */
+            border-radius: 0; /* Ensure overlay covers edges if section has padding */
+        }
+
+        /* Content container sits ABOVE the overlay */
+        #founder .container {
+            position: relative; /* Needed to stack above the pseudo-element */
+            z-index: 2; /* Above the ::before overlay */
+            /* REMOVED background-color, padding, border-radius, box-shadow from here */
+        }
+
+        /* Ensure text within the container is readable (styles inherited or can be set explicitly) */
+        #founder .container h2,
+        #founder .container h3,
+        #founder .container h4,
+        #founder .container p,
+        #founder .container blockquote {
+            color: var(--brand-dark-grey); /* Ensure text is dark */
+        }
+        #founder .container blockquote {
+            background-color: rgba(248, 249, 250, 0.9); /* Keep blockquote background slightly different if desired */
+            /* Or make it fully opaque: background-color: #f8f9fa; */
+        }
+        #founder .container a.btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+            background-color: rgba(255, 255, 255, 0.7); /* Give buttons slight background if needed */
+        }
+        #founder .container a.btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        .guruji-main-img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 3px solid rgba(255, 255, 255, 0.5); /* Optional subtle border */
+        }
+        /* --- End Founder Section Styles --- */
+
+
+        /* --- Other Section Styles (Unchanged from previous step) --- */
+        #mission-vision { padding: 2rem 0; margin-bottom: 2rem; }
+        .guruji-books-section { background-color: #f8f9fa; padding: 4rem 1rem; }
         .activities-section { padding: 4rem 1rem; background-color: #ffffff; }
-        .activity-item { margin-bottom: 3rem; }
-        .activity-item:last-child { margin-bottom: 0; }
-        .activity-item h4 { /* Main activity title like Kshuda Nivarana */
-            color: var(--brand-red);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--brand-beige);
-            display: inline-block; /* Keep underline tight */
-        }
-        .activity-item h5 { /* Sub-activity title like Oil Massage */
-            color: var(--brand-dark-grey);
-            font-weight: 500;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-size: 1.2em;
-        }
-        .activity-item p {
-            font-size: 1em; /* Slightly smaller than founder text */
-            line-height: 1.7;
-            color: #555;
-        }
-        .activity-item ul { list-style: disc; padding-left: 25px; margin-top: 1rem; } /* Standard bullets for sub-points */
-        .activity-item ul li { margin-bottom: 0.5rem; color: #555; }
-
-
-        /* Team Section Styling */
         .team-section { padding: 4rem 1rem; background-color: #f8f9fa; }
-        .team-section .card { border: 1px solid #eee; transition: box-shadow 0.3s ease; }
+
+        /* Styles for content within sections (No major changes) */
+        .founder-section p { font-size: 1.05em; line-height: 1.75; }
+        .founder-section blockquote { font-style: italic; border-left: 4px solid var(--brand-red); padding: 1.5rem; margin: 1.8rem 0; font-size: 1.1em; border-radius: 0 5px 5px 0;}
+
+        .guruji-books-section .btn i { margin-right: 8px; }
+
+        .activities-section .activity-item { margin-bottom: 3rem; }
+        .activities-section .activity-item:last-child { margin-bottom: 0; }
+        .activities-section .activity-item h4 { color: var(--brand-red); font-weight: 600; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--brand-beige); display: inline-block; }
+        .activities-section .activity-item h5 { color: var(--brand-dark-grey); font-weight: 500; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.2em; }
+        .activities-section .activity-item p { font-size: 1em; line-height: 1.7; color: #555; }
+        .activities-section .activity-item ul { list-style: disc; padding-left: 25px; margin-top: 1rem; }
+        .activities-section .activity-item ul li { margin-bottom: 0.5rem; color: #555; }
+
+        .team-section .card { border: 1px solid #eee; transition: box-shadow 0.3s ease; background-color: var(--white); }
         .team-section .card:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .team-section .card-img-top { height: 200px; object-fit: cover; background-color: #eee; }
         .team-section .card-title { color: var(--brand-red); }
 
-        /* Include Blink animation if top-nav uses it */
         .blink { animation: blinker 1.5s linear infinite; color: white; font-family: sans-serif; background: #A70D17; font-weight: 600; padding: 0.2em 0; }
         @keyframes blinker { 50% { opacity: 0; } }
 
     </style>
 </head>
 <body>
+
+<!-- No body overlay div needed now -->
+
 <div id="app" class="about-page">
-    <!-- Header (Standard Inner Page Header) -->
+    <!-- Header (Standard Inner Page Header - Unchanged) -->
     <header>
+        <!-- ... (Header HTML remains the same) ... -->
         <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
             <marquee class="blink">80G Tax Benefits For Donations</marquee>
             <div class="social d-flex align-items-center">
@@ -134,8 +169,8 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Nav (Use the same structure as index.html) -->
-        <div id="mobile-nav" class="d-lg-none"> <!-- Show only on smaller screens -->
+        <!-- Mobile Nav -->
+        <div id="mobile-nav" class="d-lg-none">
             <div class="wrapper" style="background: #fff; padding: 10px; border-bottom: 1px solid #eee;">
                 <div class="mobile-top d-flex align-items-center justify-content-between">
                     <a class="" href="index.html"><img src="images/Ashraya-logo.png" class="w-50 img-fluid" alt="Ashraya Trust Logo"/></a>
@@ -157,8 +192,10 @@
             </div>
         </div>
     </header>
-    <!-- Page Header -->
+
+    <!-- Page Header (Unchanged) -->
     <section class="page-header">
+        <!-- ... (Page Header HTML remains the same) ... -->
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
             <h1>About Ashraya Trust</h1>
@@ -167,43 +204,36 @@
     </section>
 
     <!-- Main Content -->
-    <main class="container py-5">
-        <!-- Mission & Vision Section -->
-        <section id="mission-vision" class="mb-5">
-            <h2 class="text-center demi text-red mb-5">Our Purpose</h2>
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <h3 class="demi text-red mb-3"><i class="fas fa-bullseye mr-2"></i>Our Mission</h3>
-                    <p>To serve the needy by providing essential resources like food, medical aid, and educational support, fostering self-reliance and dignity within the community.</p>
-                    <p>Established in June 2011, Ashraya Trust operates primarily in Kurnool, Andhra Pradesh, reaching out to the most vulnerable populations.</p>
+    <main class="container-fluid px-0"> <!-- Use container-fluid -->
+        <div class="container py-5"> <!-- Inner container for Mission/Vision -->
+            <!-- Mission & Vision Section -->
+            <section id="mission-vision" class="mb-5">
+                <!-- ... (Mission/Vision content remains the same) ... -->
+                <h2 class="text-center demi text-red mb-5">Our Purpose</h2>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <h3 class="demi text-red mb-3"><i class="fas fa-bullseye mr-2"></i>Our Mission</h3>
+                        <p>To serve the needy by providing essential resources like food, medical aid, and educational support, fostering self-reliance and dignity within the community.</p>
+                        <p>Established in June 2011, Ashraya Trust operates primarily in Kurnool, Andhra Pradesh, reaching out to the most vulnerable populations.</p>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <h3 class="demi text-red mb-3"><i class="fas fa-eye mr-2"></i>Our Vision</h3>
+                        <p>A society where everyone has access to basic necessities and opportunities, free from suffering caused by hunger, illness, or lack of education.</p>
+                        <p>We believe in the power of selfless service ('Seva') to not only uplift others but also to bring about inner transformation and realization for those who serve.</p>
+                    </div>
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <h3 class="demi text-red mb-3"><i class="fas fa-eye mr-2"></i>Our Vision</h3>
-                    <p>A society where everyone has access to basic necessities and opportunities, free from suffering caused by hunger, illness, or lack of education.</p>
-                    <p>We believe in the power of selfless service ('Seva') to not only uplift others but also to bring about inner transformation and realization for those who serve.</p>
-                </div>
-            </div>
-        </section>
+            </section>
+            <hr class="my-5"> <!-- Separator -->
+        </div>
 
-        <hr class="my-5">
-        <!-- Founder Section - INCORPORATING CONTENT FROM about-guruji.html -->
-        <section id="founder" class="founder-section">
-            <div class="container">
+        <!-- Founder Section - Spans full width, background applied here -->
+        <section id="founder">
+            <div class="container"> <!-- Inner container receives overlay effect via #founder::before -->
                 <h2 class="text-center demi text-red mb-5">Our Guiding Light: Avadhoota Nadananda</h2>
                 <div class="row">
+                    <!-- ... (Founder content remains the same) ... -->
                     <div class="col-lg-4 text-center mb-4 mb-lg-0">
-                        <!-- Main Image -->
-                        <!-- !! Ensure ashraya-guruji.jpg exists and is web-optimized !! -->
                         <img src="images/ashraya-guruji.jpg" alt="Avadhoota Nadananda Guruji" class="guruji-main-img img-fluid">
-
-                        <!--                        todo-->
-                        <!-- Thumbnail Gallery -->
-                        <!--                                <div class="guruji-thumb-gallery mt-3">-->
-                        <!--                                    <img src="images/guruji1.jpeg" alt="Guruji serving" >-->
-                        <!--                                    <img src="images/guruji2.jpeg" alt="Guruji close-up" >-->
-                        <!--                                    <img src="images/guruji3.jpeg" alt="Guruji interacting" >-->
-                        <!--                                    <img src="images/guruji4.jpeg" alt="Guruji profile" >-->
-                        <!--                                </div>-->
                         <a href="https://www.facebook.com/avahoota?mibextid=ZbWKwL" target="_blank" class="btn btn-outline-primary demi mt-4 d-block d-lg-inline-block">
                             <i class="fab fa-facebook-f mr-2"></i>Follow Guruji on Facebook
                         </a>
@@ -230,11 +260,12 @@
                 </div>
             </div>
         </section>
-        <hr class="my-5">
+        <hr class="my-5"> <!-- Separator -->
 
-        <!-- **** NEW Guruji's Books Section **** -->
+        <!-- Guruji's Books Section -->
         <section id="guruji-books" class="guruji-books-section text-center">
-            <div class="container">
+            <div class="container"> <!-- Inner container -->
+                <!-- ... (Books content remains the same) ... -->
                 <h2 class="text-center demi text-red mb-4">Explore Guruji's Writings</h2>
                 <p class="lite col-lg-8 mx-auto mb-4">
                     Dive deeper into the wisdom and teachings of Avadhoota Nadananda through his published works. Discover insights on spirituality, service, and the path to realization.
@@ -244,12 +275,12 @@
                 </a>
             </div>
         </section>
-        <hr class="my-5">
-        <!-- **** End Guruji's Books Section **** -->
+        <hr class="my-5"> <!-- Separator -->
 
         <!-- Activities Section -->
         <section id="activities" class="activities-section">
-            <div class="container">
+            <div class="container"> <!-- Inner container -->
+                <!-- ... (Activities content remains the same) ... -->
                 <h2 class="text-center demi text-red mb-5">Our Core Activities: Seva in Action</h2>
                 <p class="text-center lite col-lg-8 mx-auto mb-5">Since our inception, Ashraya Trust has focused on addressing fundamental needs within the Kurnool community through consistent and dedicated service initiatives.</p>
 
@@ -300,30 +331,32 @@
                 </div>
             </div>
         </section>
-        <!-- End Activities Section -->
-
-        <hr class="my-5">
+        <hr class="my-5"> <!-- Separator -->
 
         <!-- Team Section (Placeholder) -->
         <section id="team" class="team-section text-center">
-            <h2 class="demi text-red mb-5">Meet the Team</h2>
-            <p class="lite mb-4">Ashraya Trust is run by a dedicated team of volunteers inspired by Guruji's vision. [Placeholder for team member photos and brief bios]</p>
-            <div class="row justify-content-center">
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <div class="card h-100"><img src="images/team-placeholder.png" class="card-img-top" alt="Team Member"><div class="card-body"><h5 class="card-title demi">Member Name</h5><p class="card-text lite">Role</p></div></div>
+            <div class="container"> <!-- Inner container -->
+                <!-- ... (Team content remains the same) ... -->
+                <h2 class="demi text-red mb-5">Meet the Team</h2>
+                <p class="lite mb-4">Ashraya Trust is run by a dedicated team of volunteers inspired by Guruji's vision. [Placeholder for team member photos and brief bios]</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card h-100"><img src="images/team-placeholder.png" class="card-img-top" alt="Team Member"><div class="card-body"><h5 class="card-title demi">Member Name</h5><p class="card-text lite">Role</p></div></div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <div class="card h-100"><img src="images/team-placeholder.png" class="card-img-top" alt="Team Member"><div class="card-body"><h5 class="card-title demi">Member Name</h5><p class="card-text lite">Role</p></div></div>
+                    </div>
+                    <!-- Add more team members as needed -->
                 </div>
-                <div class="col-md-3 col-sm-6 mb-4">
-                    <div class="card h-100"><img src="images/team-placeholder.png" class="card-img-top" alt="Team Member"><div class="card-body"><h5 class="card-title demi">Member Name</h5><p class="card-text lite">Role</p></div></div>
-                </div>
-                <!-- Add more team members as needed -->
+                <a href="get-involved.html" class="btn btn-outline-danger demi mt-3">Join Our Team</a>
             </div>
-            <a href="get-involved.html" class="btn btn-outline-danger demi mt-3">Join Our Team</a>
         </section>
 
     </main>
 
     <!-- Footer -->
     <footer class="footer text-white">
+        <!-- ... (Footer HTML remains the same) ... -->
         <div class="container py-4">
             <div class="row">
                 <div class="col-md-4 mb-3">
@@ -356,14 +389,13 @@
                 <div class="col-md-3 mb-3">
                     <h5 class="demi mb-3">Connect</h5>
                     <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;"><i class="fab fa-facebook-f"></i></a>
-                    <!-- Add other social icons here -->
                     <h5 class="demi mt-4 mb-3">Support Us</h5>
                     <a href="donate.html" class="btn btn-donate demi text-white py-2 px-4">Donate Now</a>
                 </div>
             </div>
             <hr style="border-top: 1px solid rgba(255,255,255,0.2);">
             <div class="text-center lite" style="font-size: 0.9em;">
-                © <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved. <!-- Add Privacy Policy link if needed -->
+                © <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -373,28 +405,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Mobile nav toggle
+    // Mobile nav toggle (same as index.html)
     $('.navbar-toggle').on('click', function(event){
-        event.stopPropagation(); // Prevent event bubbling
+        event.stopPropagation();
         var target = $(this).data('target');
-        // Use slideToggle for a smoother effect, or just toggle
-        $(target).slideToggle(200); // Adjust speed as needed
+        $(target).toggle();
     });
-
-    // Close mobile nav if clicked outside
+    // Close functionality added
+    $('#sidebar-nav .fa-times').on('click', function(){
+        $('#sidebar-nav').hide();
+    });
     $(document).on('click', function(event) {
         if (!$(event.target).closest('#sidebar-nav, .navbar-toggle').length) {
-            // Check if the sidebar is currently visible before hiding
             if ($('#sidebar-nav').is(":visible")) {
-                $('#sidebar-nav').slideUp(200); // Use slideUp to match slideToggle
+                $('#sidebar-nav').hide();
             }
         }
     });
 
-    // Close mobile nav using the close icon inside
-    $('#sidebar-nav .fa-times').on('click', function(){
-        $('#sidebar-nav').slideUp(200); // Use slideUp
-    });
     // Dynamic Copyright Year
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
 </script>
