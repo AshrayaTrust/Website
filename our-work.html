@@ -626,16 +626,25 @@
 <script>
     // Mobile nav toggle
     $('.navbar-toggle').on('click', function(event){
-        event.stopPropagation();
-        $('#sidebar-nav').toggleClass('open');
+        event.stopPropagation(); // Prevent event bubbling
+        var target = $(this).data('target');
+        // Use slideToggle for a smoother effect, or just toggle
+        $(target).slideToggle(200); // Adjust speed as needed
     });
-    $('#sidebar-nav .fa-times').on('click', function(){
-        $('#sidebar-nav').removeClass('open');
-    });
+
+    // Close mobile nav if clicked outside
     $(document).on('click', function(event) {
-        if (!$(event.target).closest('#sidebar-nav, .navbar-toggle').length && $('#sidebar-nav').hasClass('open')) {
-            $('#sidebar-nav').removeClass('open');
+        if (!$(event.target).closest('#sidebar-nav, .navbar-toggle').length) {
+            // Check if the sidebar is currently visible before hiding
+            if ($('#sidebar-nav').is(":visible")) {
+                $('#sidebar-nav').slideUp(200); // Use slideUp to match slideToggle
+            }
         }
+    });
+
+    // Close mobile nav using the close icon inside
+    $('#sidebar-nav .fa-times').on('click', function(){
+        $('#sidebar-nav').slideUp(200); // Use slideUp
     });
 
     // Dynamic Copyright Year

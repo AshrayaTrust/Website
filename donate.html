@@ -247,15 +247,27 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Mobile nav toggle (same as index.html)
+    // Mobile nav toggle
     $('.navbar-toggle').on('click', function(event){
-        event.stopPropagation();
+        event.stopPropagation(); // Prevent event bubbling
         var target = $(this).data('target');
-        $(target).toggle();
+        // Use slideToggle for a smoother effect, or just toggle
+        $(target).slideToggle(200); // Adjust speed as needed
     });
-    // Close functionality added
+
+    // Close mobile nav if clicked outside
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('#sidebar-nav, .navbar-toggle').length) {
+            // Check if the sidebar is currently visible before hiding
+            if ($('#sidebar-nav').is(":visible")) {
+                $('#sidebar-nav').slideUp(200); // Use slideUp to match slideToggle
+            }
+        }
+    });
+
+    // Close mobile nav using the close icon inside
     $('#sidebar-nav .fa-times').on('click', function(){
-        $('#sidebar-nav').hide();
+        $('#sidebar-nav').slideUp(200); // Use slideUp
     });
 
     // Dynamic Copyright Year
