@@ -15,6 +15,102 @@
     <link href="app.css" rel="stylesheet">
 
     <style>
+        .carousel-control-next {
+            position: absolute; /* Position it within the carousel container */
+            top: 0;            /* Align to the top of the carousel */
+            bottom: 0;         /* Align to the bottom of the carousel */
+            right: 0;          /* Position on the right side (changed from prev) */
+            display: flex;      /* Use flexbox for centering the icon */
+            align-items: center; /* Vertically center the icon */
+            justify-content: center; /* Horizontally center the icon */
+            width: 5%;         /* Adjust width as needed, relative to carousel */
+            color: #fff;        /* Icon color (white or light color for contrast) */
+            text-align: center; /* Center text if any (though we're using icon) */
+            opacity: 0.5;       /* Semi-transparent by default */
+            cursor: pointer;    /* Indicate it's interactive */
+            text-decoration: none; /* Remove underlines from <a> if used */
+            background: none;   /* No background by default, often relies on hover */
+            border: 0;          /* Remove default button borders */
+            outline: none;      /* Remove focus outline for cleaner look, consider accessibility */
+        }
+
+        .carousel-control-next:hover,
+        .carousel-control-next:focus {
+            color: #fff;        /* Icon color on hover/focus */
+            text-decoration: none; /* Remove underlines on hover/focus */
+            opacity: 0.9;       /* Slightly more opaque on hover/focus */
+            background-color: rgba(0, 0, 0, 0.2); /* Optional background on hover/focus, semi-transparent black */
+            outline: none;      /* Ensure no focus outline on hover/focus */
+        }
+
+        .carousel-control-next-icon {
+            display: inline-block; /* Make it a block to control width/height */
+            width: 20px;         /* Adjust icon size as needed */
+            height: 20px;        /* Adjust icon size as needed */
+            background-color: transparent; /* Ensure no background color */
+            background-repeat: no-repeat; /* Prevent icon from repeating */
+            background-position: center center; /* Center the icon within its container */
+            background-size: 100% 100%; /* Scale icon to fit the container */
+            /* Define the "next" arrow icon using SVG or a character */
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e"); /* Example SVG right arrow (white) - changed from prev */
+        }
+
+        /* Optional: Styling for when carousel is RTL (Right-to-Left) */
+        .carousel.rtl .carousel-control-next {
+            right: auto;
+            left: 0; /* Changed for RTL next to be on the left */
+        }
+        .carousel.rtl .carousel-control-next-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e"); /* Example SVG left arrow (white) for RTL "next" - changed for RTL and next icon */
+        }
+        .carousel-control-prev {
+            position: absolute; /* Position it within the carousel container */
+            top: 0;            /* Align to the top of the carousel */
+            bottom: 0;         /* Align to the bottom of the carousel */
+            left: 0;           /* Position on the left side */
+            display: flex;      /* Use flexbox for centering the icon */
+            align-items: center; /* Vertically center the icon */
+            justify-content: center; /* Horizontally center the icon */
+            width: 5%;         /* Adjust width as needed, relative to carousel */
+            color: #fff;        /* Icon color (white or light color for contrast) */
+            text-align: center; /* Center text if any (though we're using icon) */
+            opacity: 0.5;       /* Semi-transparent by default */
+            cursor: pointer;    /* Indicate it's interactive */
+            text-decoration: none; /* Remove underlines from <a> if used */
+            background: none;   /* No background by default, often relies on hover */
+            border: 0;          /* Remove default button borders */
+            outline: none;      /* Remove focus outline for cleaner look, consider accessibility */
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-prev:focus {
+            color: #fff;        /* Icon color on hover/focus */
+            text-decoration: none; /* Remove underlines on hover/focus */
+            opacity: 0.9;       /* Slightly more opaque on hover/focus */
+            background-color: rgba(0, 0, 0, 0.2); /* Optional background on hover/focus, semi-transparent black */
+            outline: none;      /* Ensure no focus outline on hover/focus */
+        }
+
+        .carousel-control-prev-icon {
+            display: inline-block; /* Make it a block to control width/height */
+            width: 20px;         /* Adjust icon size as needed */
+            height: 20px;        /* Adjust icon size as needed */
+            background-color: transparent; /* Ensure no background color */
+            background-repeat: no-repeat; /* Prevent icon from repeating */
+            background-position: center center; /* Center the icon within its container */
+            background-size: 100% 100%; /* Scale icon to fit the container */
+            /* Define the "previous" arrow icon using SVG or a character */
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e"); /* Example SVG left arrow (white) */
+        }
+
+        /* Optional: Styling for when carousel is RTL (Right-to-Left) */
+        .carousel.rtl .carousel-control-prev {
+            left: auto;
+            right: 0;
+        }
+        .carousel.rtl .carousel-control-prev-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e"); /* Example SVG right arrow (white) for RTL */
+        }
         /* === Base & Variables === */
         :root {
             --brand-red: #A70D17;
@@ -62,18 +158,6 @@
         .project-carousel .carousel-control-prev-icon, .project-carousel .carousel-control-next-icon { background-color: rgba(0, 0, 0, 0.6); border-radius: 50%; padding: 12px; background-size: 55%; width: 45px; height: 45px; }
         .project-carousel .carousel-control-prev, .project-carousel .carousel-control-next { width: 10%; opacity: 0.8; transition: opacity 0.2s ease; }
         .project-carousel:hover .carousel-control-prev, .project-carousel:hover .carousel-control-next { opacity: 1; }
-
-        /* --- Buttons (Ensure these match app.css or are defined here) --- */
-        /*.btn { display: inline-block; font-weight: 500; text-align: center; vertical-align: middle; user-select: none; background-color: transparent; border: 1px solid transparent; padding: 0.6rem 1.2rem; font-size: 0.95rem; line-height: 1.5; border-radius: 20px; transition: all 0.15s ease-in-out; cursor: pointer; }*/
-        /*.btn:hover { text-decoration: none; }*/
-        /*a.btn-donate, button.btn-donate { background-color: var(--brand-green); border-color: var(--brand-green); color: var(--white) !important; }*/
-        /*a.btn-donate:hover, button.btn-donate:hover { background-color: #008a75; border-color: #008a75; color: var(--white) !important; }*/
-        /*.btn-outline-danger { color: var(--brand-red); border-color: var(--brand-red); }*/
-        /*.btn-outline-danger:hover, .btn-outline-danger.active { background-color: var(--brand-red); color: var(--white); }*/
-        /*.btn-primary { background-color: #3282e6; border-color: #3282e6; color: white; } !* Standard blue *!*/
-        /*.btn-primary:hover { background-color: #1d68a7; border-color: #1d68a7; }*/
-        /*.btn-sm { padding: 0.4rem 0.8rem; font-size: 0.85rem; } !* Smaller button size *!*/
-        /*.demi { font-weight: 600 !important; }*/
 
         /* Gallery Button Specific Style */
         .google-gallery-btn {
@@ -244,17 +328,6 @@
                         <a href="donate.html#medical-sponsor" class="btn btn-donate demi text-white mt-3">Support Medical Camps</a>
                     </div>
                     <div class="col-lg-6 order-lg-1">
-<!--                        <div id="carouselMedical" class="carousel slide project-carousel" data-ride="carousel">-->
-<!--                            <div class="carousel-inner">-->
-<!--                                <div class="carousel-item active"><img src="images/our-projects/rugnanivarna/06.jpg" class="d-block w-100" alt="Medical Camp"></div>-->
-<!--                                <div class="carousel-item"><img src="images/our-projects/rugnanivarna/01.jpg" class="d-block w-100" alt="Patient Checkup"></div>-->
-<!--                                <div class="carousel-item"><img src="images/our-projects/rugnanivarna/11.jpg" class="d-block w-100" alt="Medicine Distribution"></div>-->
-<!--                                <div class="carousel-item"><img src="images/our-projects/rugnanivarna/16.jpg" class="d-block w-100" alt="Doctor Consultation"></div>-->
-<!--                                <div class="carousel-item"><img src="images/our-projects/rugnanivarna/08.jpg" class="d-block w-100" alt="Rural Medical Camp"></div>-->
-<!--                            </div>-->
-<!--                            <a class="carousel-control-prev" href="#carouselMedical" role="button" data-slide="prev">...</a>-->
-<!--                            <a class="carousel-control-next" href="#carouselMedical" role="button" data-slide="next">...</a>-->
-<!--                        </div>-->
                         <div id="carouselMedical" class="carousel slide project-carousel" data-ride="carousel"> <!-- Unique ID: carouselMedical -->
                             <div class="carousel-inner">
                                 <div class="carousel-item active"><img src="images/our-projects/rugnanivarna/06.jpg" class="d-block w-100" alt="Medical Camp"></div>
@@ -289,8 +362,33 @@
                         <!-- Education Carousel -->
                         <div id="carouselEducation" class="carousel slide project-carousel" data-ride="carousel"> <!-- Unique ID: carouselEducation -->
                             <div class="carousel-inner">
-                                <div class="carousel-item active"><img src="images/our-projects/educationalassistance/08.JPG" class="d-block w-100" alt="Students Learning"></div>
-                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/01.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item active"><img src="images/our-projects/educationalassistance/01.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/02.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/03.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/04.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/05.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/06.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/07.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/08.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/09.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/10.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/11.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/12.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/13.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/14.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/15.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/16.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/17.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/18.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/19.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/21.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/22.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/23.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/24.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/26.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/27.JPG" class="d-block w-100" alt="Students Learning"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/28.JPG" class="d-block w-100" alt="Stationery Distribution"></div>
+                                <div class="carousel-item"><img src="images/our-projects/educationalassistance/29.JPG" class="d-block w-100" alt="Students Learning"></div>
                                 <!-- ... more items -->
                             </div>
                             <a class="carousel-control-prev" href="#carouselEducation" role="button" data-slide="prev"> <!-- FIX: href="#carouselEducation" -->
@@ -348,7 +446,45 @@
                         <div id="carouselGurukul" class="carousel slide project-carousel" data-ride="carousel"> <!-- Unique ID: carouselGurukul -->
                             <div class="carousel-inner">
                                 <div class="carousel-item active"><img src="images/our-projects/akshayatara/01.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
-                                <div class="carousel-item"><img src="images/our-projects/akshayatara/07.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/02.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/03.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/04.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/05.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/06.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/07.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/08.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/09.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/10.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/11.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/12.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/13.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/14.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/15.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/16.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/17.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/18.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/19.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/20.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/21.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/22.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/23.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/24.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/25.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/26.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/27.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/28.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/29.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/30.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/31.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/32.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/33.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/34.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/35.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/36.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/37.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/38.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/39.jpg" class="d-block w-100" alt="Gurukulam Building"></div>
+                                <div class="carousel-item"><img src="images/our-projects/akshayatara/40.jpg" class="d-block w-100" alt="Gurukulam Activities"></div>
                                 <!-- ... more items -->
                             </div>
                             <a class="carousel-control-prev" href="#carouselGurukul" role="button" data-slide="prev"> <!-- FIX: href="#carouselGurukul" -->
@@ -378,8 +514,9 @@
                         <p>A monumental annual effort serving thousands of pilgrims walking to Srisailam during Ugadi.</p>
                         <div id="carouselUgadi" class="carousel slide project-carousel" data-ride="carousel"> <!-- Unique ID: carouselUgadi -->
                             <div class="carousel-inner">
-                                <div class="carousel-item active"><img src="images/our-projects/ugadiseva/ugadiseva-08.jpg" class="d-block w-100" alt="Ugadi Seva Food"></div>
-                                <div class="carousel-item"><img src="images/our-projects/ugadiseva/ugadiseva-01.jpg" class="d-block w-100" alt="Ugadi Seva Medical"></div>
+                                <div class="carousel-item active"><img src="images/our-projects/ugadiseva/ugadiseva-01.jpg" class="d-block w-100" alt="Ugadi Seva Food"></div>
+                                <div class="carousel-item"><img src="images/our-projects/ugadiseva/ugadiseva-02.jpg" class="d-block w-100" alt="Ugadi Seva Medical"></div>
+                                <div class="carousel-item"><img src="images/our-projects/ugadiseva/ugadiseva-03.jpg" class="d-block w-100" alt="Ugadi Seva Medical"></div>
                                 <!-- ... more items -->
                             </div>
                             <a class="carousel-control-prev" href="#carouselUgadi" role="button" data-slide="prev"> <!-- FIX: href="#carouselUgadi" -->

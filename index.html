@@ -5,18 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Ashraya Trust">
-    <title>Ashraya Trust - Serving the Needy</title>
-    <meta name="description" content="Ashraya Trust, founded by Avadhoota Nadananda, is dedicated to serving the needy through food distribution, medical aid, and educational support in Kurnool, AP. Join us in making a difference.">
-    <meta name="keywords" content="Ashraya Trust, Avadhoota Nadananda, charity, NGO, Kurnool, donation, volunteer, serve the needy, food distribution, medical camp, education support" />
+    <title>Ashraya Trust - Serving the Needy Since 2011</title> <!-- Added year to title -->
+    <meta name="description" content="Operating for over 13 years, Ashraya Trust, founded by Avadhoota Nadananda, is dedicated to serving the needy through food distribution, medical aid, and educational support in Kurnool, AP. Join us in making a difference.">
+    <meta name="keywords" content="Ashraya Trust, 13+ years service, Avadhoota Nadananda, charity, NGO, Kurnool, donation, volunteer, serve the needy, food distribution, medical camp, education support" />
     <script src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="images/favicon.png">
     <link href="app.css" rel="stylesheet">
     <!-- Add specific homepage styles if needed -->
     <style>
+        /* --- Existing styles from your provided code --- */
+        :root { /* Define colors if not in app.css */
+            --brand-red: #A70D17;
+            --brand-green: #00B095;
+            --brand-blue: #00B0BD;
+            --brand-beige: #F0EAE7;
+            --brand-dark-grey: #404041;
+            --brand-light-grey: #f8f9fa;
+            --text-color: #404041;
+            --white: #fff;
+        }
+        body { font-family: "Nunito", sans-serif; } /* Define font if not in app.css */
         .hero-section {
             height: 85vh; /* Adjust as needed */
             min-height: 500px;
-            background: url('images/about-guriji.png') no-repeat center center; /* !! REPLACE with high-quality impactful image */
+            background: url('images/about-guriji.png') no-repeat center center; /* Your hero image */
             background-size: cover;
             display: flex;
             align-items: center;
@@ -60,6 +72,7 @@
         .focus-card:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .focus-card img { max-height: 80px; margin-bottom: 1.5rem; }
         .focus-card h3 { margin-bottom: 1rem; color: #A70D17; }
+        .focus-card .btn-link { font-weight: 500; } /* Existing style */
 
         .story-section { padding: 4rem 0; background-color: #F0EAE7; } /* Beige background */
         .story-card { display: flex; align-items: center; margin-bottom: 3rem; }
@@ -70,8 +83,49 @@
         .help-section { background: #404041; color: white; padding: 4rem 0; text-align: center;}
         .help-section .btn { margin: 0.5rem; }
 
-        .blink { animation: blinker 1.5s linear infinite; color: white; font-family: sans-serif; background: #A70D17; font-weight: 600; padding: 0.2em 0; }
+        .blink { animation: blinker 1.5s linear infinite; color: white; font-family: sans-serif; background: #A70D17; font-weight: 600; padding: 0.2em 0; display: block; width: 100%;}
         @keyframes blinker { 50% { opacity: 0; } }
+
+        /* === CSS RULES SPECIFICALLY FOR THE LONGEVITY HIGHLIGHT === */
+        .longevity-highlight {
+            background-color: var(--brand-beige); /* Subtle background */
+            border-bottom: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+            padding: 1.5rem 0; /* Adjust padding */
+        }
+        .longevity-highlight h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.6em; /* Make it noticeable */
+            font-weight: 600; /* Demi-bold */
+            color: var(--brand-red); /* Use brand red */
+        }
+        .longevity-highlight h3 .fas { /* Style the icon */
+            font-size: 0.9em;
+            vertical-align: middle;
+            margin-right: 8px; /* Space after icon */
+        }
+        .longevity-highlight p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 0; /* Remove extra margin */
+            font-weight: 400; /* Ensure normal weight for paragraph */
+        }
+        @media (max-width: 768px) {
+            .longevity-highlight { padding: 1rem 0; }
+            .longevity-highlight h3 { font-size: 1.4em; }
+            .longevity-highlight p { font-size: 1em; }
+        }
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2em; }
+            .hero-content p { font-size: 1.1em; }
+            .impact-card h3 { font-size: 2em; }
+        }
+        @media (max-width: 575.98px) {
+            .hero-content h1 { font-size: 2em; }
+            .hero-content p { font-size: 1em; }
+            .impact-card h3 { font-size: 1.8em; }
+        }
+
     </style>
 </head>
 <body>
@@ -133,16 +187,27 @@
             </div>
         </div>
     </header>
+
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Wiping Tears, Spreading Smiles</h1>
             <p>"He Who wipes tears of others despite his own tears, is a Divine Soul." - Inspired by Avadhoota Nadananda's vision, we serve the most vulnerable.</p>
-            <a href="donate.html" class="btn btn-donate demi text-white py-2 px-4 mx-2">Donate Now</a>
-            <a href="get-involved.html" class="btn btn-outline-light demi py-2 px-4 mx-2">Volunteer With Us</a>
+            <a href="donate.html" class="btn btn-donate demi text-white py-2 px-4 mx-2 mt-3">Donate Now</a>
+            <a href="get-involved.html" class="btn btn-outline-light demi py-2 px-4 mx-2 mt-3">Volunteer With Us</a>
         </div>
     </section>
+
+    <!-- **** NEW Longevity Highlight Section **** -->
+    <section class="longevity-highlight text-center py-4">
+        <div class="container">
+            <!-- The span ID allows JS to update the number -->
+            <h3 class="demi text-red"><i class="fas fa-calendar-check mr-2"></i>Since 2011: <span id="years-of-service"></span>+ Years of Dedicated Service</h3>
+            <p class="font-l">Building trust and making a tangible difference in Kurnool, year after year.</p>
+        </div>
+    </section>
+    <!-- **** End Longevity Highlight Section **** -->
 
     <!-- Impact Section -->
     <section class="impact-section">
@@ -153,7 +218,7 @@
                     <div class="impact-card">
                         <div class="icon"><i class="fas fa-utensils"></i></div>
                         <h3>700+</h3>
-                        <p>Meals distributed daily (Kshuda Nivarana)</p>
+                        <p>Meals distributed daily (Kshuda Nivarana)</p> <!-- Kept daily -->
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -182,7 +247,8 @@
         <div class="container">
             <h2 class="text-center mb-5 demi text-red">Where We Make a Difference</h2>
             <div class="row">
-                <div class="col-md-4">
+                <!-- No d-flex needed here if not aiming for equal height -->
+                <div class="col-md-4 mb-4"> <!-- Added mb-4 for spacing on mobile -->
                     <div class="focus-card">
                         <img src="images/food-delivery.png" alt="Food Distribution Icon">
                         <h3>Nourishing Lives</h3>
@@ -190,7 +256,7 @@
                         <a href="our-work.html#food" class="btn btn-link text-red">See Details <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="focus-card">
                         <img src="images/healthcare.png" alt="Medical Aid Icon">
                         <h3>Healing Hands</h3>
@@ -198,7 +264,7 @@
                         <a href="our-work.html#medical" class="btn btn-link text-red">See Details <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="focus-card">
                         <img src="images/education_c.svg" alt="Education Icon">
                         <h3>Empowering Futures</h3>
@@ -222,7 +288,7 @@
                             <blockquote>
                                 "Ashraya Trust gave me the medical help I couldn't afford. I can now work again without pain. They are truly a blessing."
                             </blockquote>
-                            <cite>– Beneficiary Name, Kurnool</cite> <!-- !! REPLACE with real story -->
+                            <cite>– Beneficiary Name, Kurnool</cite> <!-- !! REPLACE !! -->
                         </div>
                     </div>
                 </div>
@@ -233,11 +299,10 @@
                             <blockquote>
                                 "Volunteering during Ugadi Seva was exhausting but incredibly rewarding. Seeing the gratitude on the pilgrims' faces makes it all worthwhile."
                             </blockquote>
-                            <cite>– Volunteer Name</cite> <!-- !! REPLACE with real story -->
+                            <cite>– Volunteer Name</cite> <!-- !! REPLACE !! -->
                         </div>
                     </div>
                 </div>
-                <!-- Add more stories as needed -->
             </div>
             <div class="text-center mt-4">
                 <a href="get-involved.html" class="btn btn-outline-danger demi">Share Your Story or Join Us</a>
@@ -289,14 +354,13 @@
                 <div class="col-md-3 mb-3">
                     <h5 class="demi mb-3">Connect</h5>
                     <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;"><i class="fab fa-facebook-f"></i></a>
-                    <!-- Add other social icons here -->
                     <h5 class="demi mt-4 mb-3">Support Us</h5>
                     <a href="donate.html" class="btn btn-donate demi text-white py-2 px-4">Donate Now</a>
                 </div>
             </div>
             <hr style="border-top: 1px solid rgba(255,255,255,0.2);">
             <div class="text-center lite" style="font-size: 0.9em;">
-                &copy; <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved. <!-- Add Privacy Policy link if needed -->
+                © <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -304,8 +368,7 @@
 
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<!-- Add Bootstrap JS if needed for toggler/carousel -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>-->
 <script>
     // Mobile nav toggle
     $('.navbar-toggle').on('click', function(event){
@@ -325,6 +388,20 @@
 
     // Dynamic Copyright Year
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+    // Calculate and display years of service
+    (function() {
+        const startYear = 2011;
+        const currentYear = new Date().getFullYear();
+        const years = currentYear - startYear;
+        const yearsSpan = document.getElementById('years-of-service');
+        if (yearsSpan && years > 0) {
+            yearsSpan.textContent = years; // Display the calculated number
+        } else if (yearsSpan) {
+            yearsSpan.textContent = "1"; // Fallback if calculation fails or is 0/negative
+        }
+    })();
+
 
     // Ensure carousel starts if using Bootstrap JS
     $('.carousel').carousel();
