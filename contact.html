@@ -178,8 +178,23 @@
                     </ul>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <h5 class="demi mb-3">Connect</h5>
-                    <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;"><i class="fab fa-facebook-f"></i></a>
+                    <div class="social-icons">
+                        <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+
+                        <!-- Add Instagram -->
+                        <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>
+
+                        <!-- Add Twitter (or X) -->
+                        <!--                        <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Twitter"> <i class="fab fa-twitter"></i> </a>-->
+                        <!-- Or use fa-x-twitter if you prefer the X logo -->
+                        <!-- <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="X (Twitter)"> <i class="fab fa-x-twitter"></i> </a> -->
+
+                        <!-- Add YouTube -->
+                        <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
+
+                        <!-- Add LinkedIn (Optional) -->
+                        <!-- <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="LinkedIn"> <i class="fab fa-linkedin-in"></i> </a> -->
+                    </div>
                     <h5 class="demi mt-4 mb-3">Support Us</h5>
                     <a href="donate.html" class="btn btn-donate demi text-white py-2 px-4">Donate Now</a>
                 </div>
@@ -222,6 +237,34 @@
     // Dynamic Copyright Year
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
+    // **** ADDED Web Share API Logic ****
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const shareButton = document.getElementById('share-button');
+
+        if (navigator.share) {
+            // Show the button only if the API is supported
+            shareButton.style.display = 'inline-block'; // Or 'block' if you want it full width
+
+            shareButton.addEventListener('click', async () => {
+                const shareData = {
+                    title: 'Ashraya Trust - Serving the Needy', // Customize title
+                    text: 'Support Ashraya Trust in their mission to provide food, medical aid, and education to the needy in Kurnool.', // Customize text
+                    url: window.location.origin // Shares the main website URL (e.g., https://ashrayatrust.org)
+                    // Or use window.location.href to share the specific get-involved page
+                };
+                try {
+                    await navigator.share(shareData);
+                    console.log('Ashraya Trust page shared successfully');
+                } catch (err) {
+                    console.error('Share failed:', err.message);
+                }
+            });
+        } else {
+            // Optional: You could add alternative sharing links here if the API isn't supported
+            console.log('Web Share API not supported.');
+            // shareButton will remain hidden as per the inline style
+        }
+    });
     // You might add JavaScript for form validation or AJAX submission here
 </script>
 </body>
