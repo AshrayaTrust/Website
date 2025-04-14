@@ -5,33 +5,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Ashraya Trust">
-    <title>Donate to Ashraya Trust - Support Our Work</title>
-    <meta name="description" content="Make a secure online donation to Ashraya Trust. Your contribution supports food distribution, medical aid, and education for the needy in Kurnool. 80G benefits available.">
+    <title>Donate to Ashraya Trust - Support Our Initiatives</title> <!-- Updated Title -->
+    <meta name="description" content="Support Ashraya Trust's initiatives like food distribution, medical aid, education, Gurukulam, and Ugadi Seva through secure Razorpay Payment Pages. 80G benefits available.">
     <script src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="images/favicon.png">
     <link href="app.css" rel="stylesheet">
     <style>
         body { font-family: "Nunito", sans-serif; }
-        /* Add specific donate page styles */
+
+        /* Page Header */
         .page-header { height: 40vh; min-height: 250px; background: url('images/about-guriji.png') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
         .page-header-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1; }
         .page-header-content { position: relative; z-index: 2; }
+        .page-header h1 { margin-bottom: 0.2em; font-size: 2.5em;}
+        .page-header .lead { font-size: 1.1em; }
 
-        .donation-form-section { padding: 4rem 0; background-color: #f8f9fa; }
-        .donation-form { background-color: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .donation-options .btn { margin: 5px; font-size: 1.1em; }
-        .frequency-options .btn { margin-right: 10px; }
-        .payment-placeholder { border: 1px dashed #ccc; padding: 2rem; text-align: center; color: #6c757d; margin-top: 1.5rem; border-radius: 5px; }
-        .bank-details { background-color: #F0EAE7; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; }
-        .secure-info { text-align: center; margin-top: 1.5rem; color: #6c757d; }
-        .secure-info i { color: #28a745; margin-right: 5px; }
+        /* Donation Options Section */
+        .donation-options-section { padding: 3rem 0; background-color: #f8f9fa; }
+        .donation-card {
+            background-color: #fff;
+            padding: 2rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            height: 100%; /* Ensure cards have equal height in a row */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Push button to bottom */
+            border: 1px solid #eee;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .donation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .donation-icon {
+            font-size: 3em;
+            color: #A70D17; /* Brand Red */
+            margin-bottom: 1rem;
+        }
+        .donation-card h4 {
+            color: #A70D17; /* Brand Red */
+            font-weight: 600; /* Demi-bold */
+            margin-bottom: 0.75rem;
+            font-size: 1.4em;
+        }
+        .donation-card p {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+            flex-grow: 1; /* Allow paragraph to take space */
+            margin-bottom: 1.5rem; /* Space before button */
+        }
+        .donation-card .btn-donate {
+            width: 100%; /* Make button full width of card */
+            padding: 0.7rem 1rem;
+            font-size: 1.05em;
+        }
+        .donation-card .suggestion {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: -1rem; /* Pull suggestion closer to description */
+            margin-bottom: 1.5rem;
+        }
 
-        /* Re-use blink from index.html if needed */
+        .bank-details { background-color: #F0EAE7; padding: 1.5rem; border-radius: 8px; margin-top: 3rem; }
+        .tax-info { text-align: center; margin-top: 2rem; padding: 1rem; background-color: var(--brand-beige); border-radius: 5px; }
+
+        /* Blink animation */
         .blink { animation: blinker 1.5s linear infinite; color: white; font-family: sans-serif; background: #A70D17; font-weight: 600; padding: 0.2em 0; }
         @keyframes blinker { 50% { opacity: 0; } }
-
-        /* Active button style */
-        .btn-outline-danger.active { background-color: #A70D17; color: white; }
     </style>
 </head>
 <body>
@@ -41,7 +84,10 @@
         <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
             <marquee class="blink">80G Tax Benefits For Donations</marquee>
             <div class="social d-flex align-items-center">
-                <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white px-2"><i class="fab fa-facebook-f"></i></a>
+                <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"> <i class="fab fa-facebook-f"></i> </a>
+                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>
+
+                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
             </div>
         </div>
         <div class="site-navigation w-100 text-uppercase pb-3 text-red position-relative alt-nav" style="background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
@@ -103,102 +149,118 @@
         </div>
     </section>
 
-    <!-- Main Content -->
-    <section class="donation-form-section">
+    <!-- Donation Options Section -->
+    <section class="donation-options-section">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="donation-form">
-                        <h2 class="text-center demi text-red mb-4">Make a Donation</h2>
-                        <p class="text-center lite mb-4">Choose an amount and frequency. Every rupee helps us serve the needy.</p>
-
-                        <form id="donationForm">
-                            <!-- Frequency Options -->
-                            <div class="form-group text-center frequency-options mb-4">
-                                <button type="button" class="btn btn-outline-danger active" data-frequency="single">One Time</button>
-                                <button type="button" class="btn btn-outline-danger" data-frequency="monthly">Monthly</button>
-                                <input type="hidden" name="donation_frequency" id="donation_frequency" value="single">
-                            </div>
-
-                            <!-- Amount Options -->
-                            <div class="form-group text-center donation-options mb-4">
-                                <button type="button" class="btn btn-outline-danger amount-btn" data-amount="500">₹500</button>
-                                <button type="button" class="btn btn-outline-danger amount-btn" data-amount="1000">₹1000</button>
-                                <button type="button" class="btn btn-outline-danger amount-btn" data-amount="2500">₹2500</button>
-                                <button type="button" class="btn btn-outline-danger amount-btn" data-amount="5000">₹5000</button>
-                            </div>
-
-                            <!-- Custom Amount -->
-                            <div class="form-group mb-4">
-                                <label for="custom_amount">Or Enter Custom Amount (INR)</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">₹</span>
-                                    </div>
-                                    <input type="number" class="form-control" id="custom_amount" name="custom_amount" placeholder="e.g., 1500">
-                                </div>
-                            </div>
-
-                            <!-- Personal Details -->
-                            <h4 class="demi text-red mt-4 mb-3">Your Details</h4>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="donor_name">Full Name <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="donor_name" name="donor_name" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="donor_email">Email Address <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" id="donor_email" name="donor_email" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="donor_phone">Phone Number <span class="text-danger">*</span></label>
-                                    <input type="tel" class="form-control" id="donor_phone" name="donor_phone" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="donor_pan">PAN Card (For 80G Receipt)</label>
-                                    <input type="text" class="form-control" id="donor_pan" name="donor_pan" placeholder="Optional">
-                                </div>
-                            </div>
-
-                            <!-- Payment Gateway Placeholder -->
-                            <div class="payment-placeholder">
-                                <h4 class="demi">Payment Gateway Integration</h4>
-                                <p>[[ Placeholder: Integrate Razorpay/Stripe/etc. here for secure online payments (Cards, UPI, Netbanking) ]]</p>
-                                <p>This section will contain the payment elements provided by the chosen gateway.</p>
-                                <button type="submit" class="btn btn-donate demi text-white btn-lg mt-3" disabled>Proceed to Secure Payment (Disabled)</button>
-                            </div>
-
-                            <div class="secure-info mt-4">
-                                <p><i class="fas fa-lock"></i> Your donation is processed securely.</p>
-                                <p>All donations are eligible for tax exemption under Section 80G of the Income Tax Act.</p>
-                            </div>
-
-                        </form>
-                    </div> <!-- end .donation-form -->
-
-                    <!-- Bank Transfer Details -->
-                    <div class="bank-details mt-5">
-                        <h4 class="text-center demi text-red mb-3">Alternative: Bank Transfer (NEFT/IMPS)</h4>
-                        <p class="text-center lite">You can also donate directly to our bank account:</p>
-                        <p class="text-center font-l demi">
-                            Account Name: Ashraya Trust, Kurnool <br>
-                            Bank: Karnataka Bank <br>
-                            Account Type: SB (Savings Bank) <br>
-                            Account No: 4282500100979801 <br>
-                            IFSC Code: KARB0000428
-                        </p>
-                        <p class="text-center lite mt-3" style="font-size: 0.9em;">After transferring, please email your Name, PAN (optional), Amount, and Transaction ID to [Your Trust Email Placeholder - e.g., donations@ashrayatrust.org] for the 80G receipt.</p>
-                    </div>
-
+            <div class="text-center mb-5">
+                <h2 class="demi text-red">Choose How You Want to Help</h2>
+                <p class="font-l lite col-lg-8 mx-auto">Select a specific initiative to support or make a general contribution. Every donation makes a difference.</p>
+                <div class="tax-info">
+                    <p class="mb-0"><i class="fas fa-check-circle text-success"></i> All donations are eligible for tax exemption under Section 80G of the Income Tax Act.</p>
                 </div>
             </div>
-        </div>
+
+            <div class="row">
+                <!-- Kshuda Nivarana Card -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="donation-card">
+                        <div class="donation-icon"><i class="fas fa-utensils"></i></div>
+                        <h4>Kshuda Nivarana - Feed the Hungry</h4>
+                        <p>Support our daily distribution of nutritious meals to patients' attendants, travelers, and the homeless.</p>
+                        <p class="suggestion"><small>Suggested: ₹1000 (Sponsors ~10 meals)</small></p>
+                        <a href="[RAZORPAY_KSHUDA_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-donate demi text-white">
+                            Donate for Food
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Rugna Nivarana Card -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="donation-card">
+                        <div class="donation-icon"><i class="fas fa-first-aid"></i></div>
+                        <h4>Rugna Nivarana - Medical Aid</h4>
+                        <p>Help us provide free medical checkups, medicines, and support through our weekly camps and mobile dispensary.</p>
+                        <p class="suggestion"><small>Suggested: ₹2500 (Supports camp supplies)</small></p>
+                        <a href="[RAZORPAY_RUGNA_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-donate demi text-white">
+                            Donate for Medical Aid
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Educational Assistance Card -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="donation-card">
+                        <div class="donation-icon"><i class="fas fa-book-reader"></i></div>
+                        <h4>Educational Assistance</h4>
+                        <p>Sponsor a child's education. Your support covers fees, books, uniforms, transport, and enrichment classes.</p>
+                        <p class="suggestion"><small>Suggested: ₹5000 (Supports a child for a term)</small></p>
+                        <a href="[RAZORPAY_EDUCATION_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-donate demi text-white">
+                            Sponsor Education
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AksharaTara Gurukulam Card -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="donation-card">
+                        <div class="donation-icon"><i class="fas fa-school"></i></div>
+                        <h4>AksharaTara Gurukulam</h4>
+                        <p>Contribute to our visionary Gurukulam project, blending ancient wisdom with modern learning for holistic child development.</p>
+                        <p class="suggestion"><small>Suggested: ₹10000 (Supports infrastructure/learning)</small></p>
+                        <a href="[RAZORPAY_GURUKULAM_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-donate demi text-white">
+                            Support Gurukulam
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ugadi Yatri Seva Card -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="donation-card">
+                        <div class="donation-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h4>Ugadi Yatri Seva</h4>
+                        <p>Help us serve lakhs of pilgrims walking to Srisailam with food, medical aid, wound care, and massage during the annual Ugadi walkathon.</p>
+                        <p class="suggestion"><small>Suggested: ₹1500 (Supports seva materials)</small></p>
+                        <a href="[RAZORPAY_UGADI_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-donate demi text-white">
+                            Support Ugadi Seva
+                        </a>
+                    </div>
+                </div>
+
+                <!-- General Donation Card -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="donation-card">
+                        <div class="donation-icon"><i class="fas fa-donate"></i></div>
+                        <h4>General Donation</h4>
+                        <p>Your contribution will be used where the need is greatest across all our service activities. Donate any amount securely.</p>
+                        <p class="suggestion"><small>Any amount welcome</small></p>
+                        <a href="[RAZORPAY_GENERAL_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-donate demi text-white">
+                            Donate Any Amount
+                        </a>
+                    </div>
+                </div>
+
+            </div> <!-- End Row -->
+
+            <!-- Bank Transfer Details -->
+            <div class="bank-details mt-4">
+                <h4 class="text-center demi text-red mb-3">Alternative: Bank Transfer (NEFT/IMPS)</h4>
+                <p class="text-center lite">You can also donate directly to our bank account:</p>
+                <p class="text-center font-l demi">
+                    Account Name: Ashraya Trust, Kurnool <br>
+                    Bank: Karnataka Bank <br>
+                    Account Type: SB (Savings Bank) <br>
+                    Account No: 4282500100979801 <br>
+                    IFSC Code: KARB0000428
+                </p>
+                <p class="text-center lite mt-3" style="font-size: 0.9em;">After transferring, please email your Name, PAN (optional), Amount, and Transaction ID to [Your Trust Email Placeholder - e.g., donations@ashrayatrust.org] for the 80G receipt.</p>
+            </div>
+
+        </div> <!-- End Container -->
     </section>
 
-    <!-- Footer (Use the same footer structure as index.html) -->
+    <!-- Footer -->
     <footer class="footer text-white">
+        <!-- ... (Your existing footer code remains unchanged) ... -->
         <div class="container py-4">
             <div class="row">
                 <div class="col-md-4 mb-3">
@@ -229,22 +291,12 @@
                     </ul>
                 </div>
                 <div class="col-md-3 mb-3">
+                    <h5 class="demi mb-3">Connect</h5>
                     <div class="social-icons">
                         <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-
-                        <!-- Add Instagram -->
                         <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>
-
-                        <!-- Add Twitter (or X) -->
-                        <!--                        <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Twitter"> <i class="fab fa-twitter"></i> </a>-->
-                        <!-- Or use fa-x-twitter if you prefer the X logo -->
-                        <!-- <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="X (Twitter)"> <i class="fab fa-x-twitter"></i> </a> -->
-
-                        <!-- Add YouTube -->
+                        <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Twitter"> <i class="fab fa-twitter"></i> </a>
                         <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
-
-                        <!-- Add LinkedIn (Optional) -->
-                        <!-- <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="LinkedIn"> <i class="fab fa-linkedin-in"></i> </a> -->
                     </div>
                     <h5 class="demi mt-4 mb-3">Support Us</h5>
                     <a href="donate.html" class="btn btn-donate demi text-white py-2 px-4">Donate Now</a>
@@ -252,7 +304,7 @@
             </div>
             <hr style="border-top: 1px solid rgba(255,255,255,0.2);">
             <div class="text-center lite" style="font-size: 0.9em;">
-                &copy; <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved.
+                © <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -288,79 +340,7 @@
     // Dynamic Copyright Year
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
-    // Donation Form Logic
-    $(document).ready(function() {
-        // Frequency toggle
-        $('.frequency-options .btn').on('click', function() {
-            $('.frequency-options .btn').removeClass('active');
-            $(this).addClass('active');
-            $('#donation_frequency').val($(this).data('frequency'));
-        });
-
-        // Amount selection
-        $('.amount-btn').on('click', function() {
-            $('.amount-btn').removeClass('active');
-            $(this).addClass('active');
-            $('#custom_amount').val(''); // Clear custom amount
-            // You might want to set a hidden field with the selected amount here
-            // $('#selected_amount').val($(this).data('amount'));
-            console.log("Selected amount:", $(this).data('amount'));
-        });
-
-        // Clear preset amount if custom amount is entered
-        $('#custom_amount').on('input', function() {
-            if ($(this).val()) {
-                $('.amount-btn').removeClass('active');
-                // $('#selected_amount').val($(this).val());
-                console.log("Custom amount entered:", $(this).val());
-            }
-        });
-
-        // Basic form submission handler (replace with payment gateway logic)
-        $('#donationForm').on('submit', function(e) {
-            e.preventDefault(); // Prevent actual submission for now
-            alert('Form submitted (placeholder). Implement payment gateway integration here.');
-            // Collect form data: frequency, amount (preset or custom), name, email, phone, pan
-            const formData = {
-                frequency: $('#donation_frequency').val(),
-                amount: $('.amount-btn.active').data('amount') || $('#custom_amount').val(),
-                name: $('#donor_name').val(),
-                email: $('#donor_email').val(),
-                phone: $('#donor_phone').val(),
-                pan: $('#donor_pan').val()
-            };
-            console.log("Donation Data:", formData);
-            // --> Send this data to your backend / payment gateway initiation
-        });
-    });
-    // **** ADDED Web Share API Logic ****
-    document.addEventListener('DOMContentLoaded', (event) => {
-        const shareButton = document.getElementById('share-button');
-
-        if (navigator.share) {
-            // Show the button only if the API is supported
-            shareButton.style.display = 'inline-block'; // Or 'block' if you want it full width
-
-            shareButton.addEventListener('click', async () => {
-                const shareData = {
-                    title: 'Ashraya Trust - Serving the Needy', // Customize title
-                    text: 'Support Ashraya Trust in their mission to provide food, medical aid, and education to the needy in Kurnool.', // Customize text
-                    url: window.location.origin // Shares the main website URL (e.g., https://ashrayatrust.org)
-                    // Or use window.location.href to share the specific get-involved page
-                };
-                try {
-                    await navigator.share(shareData);
-                    console.log('Ashraya Trust page shared successfully');
-                } catch (err) {
-                    console.error('Share failed:', err.message);
-                }
-            });
-        } else {
-            // Optional: You could add alternative sharing links here if the API isn't supported
-            console.log('Web Share API not supported.');
-            // shareButton will remain hidden as per the inline style
-        }
-    });
+    // No donation form JS needed anymore unless you add interactive elements later
 </script>
 </body>
 </html>
