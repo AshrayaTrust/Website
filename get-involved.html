@@ -26,12 +26,18 @@
         /* Re-use blink from index.html if needed */
         .blink { animation: blinker 1.5s linear infinite; color: white; font-family: sans-serif; background: #A70D17; font-weight: 600; padding: 0.2em 0; }
         @keyframes blinker { 50% { opacity: 0; } }
+
+        /* Style for the generic share button */
+        #share-button {
+            /* Add any specific styling if needed, otherwise relies on btn classes */
+        }
     </style>
 </head>
 <body>
 <div id="app" class="get-involved-page">
-    <!-- Header (Use the same header structure as about.html) -->
+    <!-- Header (Unchanged) -->
     <header>
+        <!-- ... (Your existing header code remains unchanged) ... -->
         <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
             <marquee class="blink">80G Tax Benefits For Donations</marquee>
             <div class="social d-flex align-items-center">
@@ -64,8 +70,8 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Nav (Use the same structure as index.html) -->
-        <div id="mobile-nav" class="d-lg-none"> <!-- Show only on smaller screens -->
+        <!-- Mobile Nav -->
+        <div id="mobile-nav" class="d-lg-none">
             <div class="wrapper" style="background: #fff; padding: 10px; border-bottom: 1px solid #eee;">
                 <div class="mobile-top d-flex align-items-center justify-content-between">
                     <a class="" href="index.html"><img src="images/Ashraya-logo.png" class="w-50 img-fluid" alt="Ashraya Trust Logo"/></a>
@@ -88,8 +94,9 @@
         </div>
     </header>
 
-    <!-- Page Header -->
+    <!-- Page Header (Unchanged) -->
     <section class="page-header">
+        <!-- ... (Page Header HTML remains the same) ... -->
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
             <h1>Get Involved</h1>
@@ -97,8 +104,9 @@
         </div>
     </section>
 
-    <!-- Volunteer Section -->
+    <!-- Volunteer Section (Unchanged) -->
     <section class="volunteer-section">
+        <!-- ... (Volunteer Section HTML remains the same) ... -->
         <div class="container">
             <h2 class="text-center demi text-red mb-4">Volunteer With Us</h2>
             <p class="text-center lite mb-5">Become a part of the Ashraya family and experience the joy of selfless service. We welcome volunteers for various activities, especially during events like Ugadi Seva.</p>
@@ -124,12 +132,6 @@
                     <div class="volunteer-form">
                         <!-- Embed Google Form -->
                         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfeQvIo30SqyLKawsNdoUcycdxHgkRmvcBBMPhHfXG_pIyUqA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-                        <!-- OR: Placeholder for a native form to be built -->
-                        <!-- <form> -->
-                        <!--    <p class="text-center">[[ Native Volunteer Form Placeholder ]]</p> -->
-                        <!--    Include fields: Name, Email, Phone, Area of Interest, Availability -->
-                        <!--    <button type="submit" class="btn btn-outline-danger w-100">Submit Application</button> -->
-                        <!-- </form> -->
                     </div>
                 </div>
             </div>
@@ -154,7 +156,11 @@
                         <div class="icon"><i class="fas fa-bullhorn"></i></div>
                         <h4 class="demi">Spread the Word</h4>
                         <p class="lite">Share our mission and work with your friends, family, and social networks.</p>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://ashrayatrust.org" target="_blank" class="btn btn-outline-primary demi"><i class="fab fa-facebook-f mr-2"></i>Share</a>
+                        <!-- **** MODIFIED SHARE BUTTON **** -->
+                        <button id="share-button" class="btn btn-outline-danger demi" style="display: none;"> <!-- Initially hidden -->
+                            <i class="fas fa-share-alt mr-2"></i>Share Our Work
+                        </button>
+                        <!-- **** END MODIFIED SHARE BUTTON **** -->
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -186,8 +192,9 @@
     </section>
 
 
-    <!-- Footer (Use the same footer structure as index.html) -->
+    <!-- Footer (Unchanged) -->
     <footer class="footer text-white">
+        <!-- ... (Footer HTML remains the same) ... -->
         <div class="container py-4">
             <div class="row">
                 <div class="col-md-4 mb-3">
@@ -219,14 +226,30 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <h5 class="demi mb-3">Connect</h5>
-                    <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;"><i class="fab fa-facebook-f"></i></a>
+                    <div class="social-icons">
+                        <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+
+                        <!-- Add Instagram -->
+                        <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>
+
+                        <!-- Add Twitter (or X) -->
+<!--                        <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Twitter"> <i class="fab fa-twitter"></i> </a>-->
+                        <!-- Or use fa-x-twitter if you prefer the X logo -->
+                        <!-- <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="X (Twitter)"> <i class="fab fa-x-twitter"></i> </a> -->
+
+                        <!-- Add YouTube -->
+                        <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
+
+                        <!-- Add LinkedIn (Optional) -->
+                        <!-- <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="LinkedIn"> <i class="fab fa-linkedin-in"></i> </a> -->
+                    </div>
                     <h5 class="demi mt-4 mb-3">Support Us</h5>
                     <a href="donate.html" class="btn btn-donate demi text-white py-2 px-4">Donate Now</a>
                 </div>
             </div>
             <hr style="border-top: 1px solid rgba(255,255,255,0.2);">
             <div class="text-center lite" style="font-size: 0.9em;">
-                &copy; <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved.
+                © <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -259,8 +282,39 @@
         $('#sidebar-nav').slideUp(200); // Use slideUp
     });
 
-    // Dynamic Copyright Year
+    // Dynamic Copyright Year (Unchanged)
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+    // **** ADDED Web Share API Logic ****
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const shareButton = document.getElementById('share-button');
+
+        if (navigator.share) {
+            // Show the button only if the API is supported
+            shareButton.style.display = 'inline-block'; // Or 'block' if you want it full width
+
+            shareButton.addEventListener('click', async () => {
+                const shareData = {
+                    title: 'Ashraya Trust - Serving the Needy', // Customize title
+                    text: 'Support Ashraya Trust in their mission to provide food, medical aid, and education to the needy in Kurnool.', // Customize text
+                    url: window.location.origin // Shares the main website URL (e.g., https://ashrayatrust.org)
+                    // Or use window.location.href to share the specific get-involved page
+                };
+                try {
+                    await navigator.share(shareData);
+                    console.log('Ashraya Trust page shared successfully');
+                } catch (err) {
+                    console.error('Share failed:', err.message);
+                }
+            });
+        } else {
+            // Optional: You could add alternative sharing links here if the API isn't supported
+            console.log('Web Share API not supported.');
+            // shareButton will remain hidden as per the inline style
+        }
+    });
+    // **** END Web Share API Logic ****
+
 </script>
 </body>
 </html>
