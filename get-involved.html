@@ -275,18 +275,18 @@
 
     // **** ADDED Web Share API Logic ****
     document.addEventListener('DOMContentLoaded', (event) => {
-        const shareButton = document.getElementById('share-button');
+        const shareButton = document.getElementById('share-button'); // Make sure you have an element with id="share-button" if using this
 
-        if (navigator.share) {
+        // Check if the button exists before adding listener
+        if (shareButton && navigator.share) {
             // Show the button only if the API is supported
-            shareButton.style.display = 'inline-block'; // Or 'block' if you want it full width
+            shareButton.style.display = 'inline-block'; // Or 'block'
 
             shareButton.addEventListener('click', async () => {
                 const shareData = {
                     title: 'Ashraya Trust - Serving the Needy', // Customize title
                     text: 'Support Ashraya Trust in their mission to provide food, medical aid, and education to the needy in Kurnool.', // Customize text
-                    url: window.location.origin // Shares the main website URL (e.g., https://ashrayatrust.org)
-                    // Or use window.location.href to share the specific get-involved page
+                    url: window.location.origin // Shares the main website URL
                 };
                 try {
                     await navigator.share(shareData);
@@ -295,10 +295,10 @@
                     console.error('Share failed:', err.message);
                 }
             });
-        } else {
-            // Optional: You could add alternative sharing links here if the API isn't supported
-            console.log('Web Share API not supported.');
-            // shareButton will remain hidden as per the inline style
+        } else if (shareButton) {
+            // Handle case where button exists but API isn't supported (optional)
+            console.log('Web Share API not supported or share button not found.');
+            shareButton.style.display = 'none'; // Ensure it's hidden
         }
     });
     // **** END Web Share API Logic ****

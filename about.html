@@ -15,6 +15,12 @@
     <link href="app.css" rel="stylesheet">
 
     <style>
+        body.sidebar-open {
+            overflow-x: hidden;
+            /* Optional: Sometimes needed on mobile to prevent body scroll behind fixed nav */
+            /* position: fixed; */
+            /* width: 100%; */
+        }
         body { font-family: "Nunito", sans-serif; }
 
         /* Page Header (Unchanged) */
@@ -180,7 +186,7 @@
                     <i class="fas fa-bars navbar-toggle collapsed" data-target="#sidebar-nav" style="font-size: 1.5em; cursor: pointer; color: #404041;"></i>
                 </div>
             </div>
-            <div class="" id="sidebar-nav" style="display: none; position: fixed; top: 0; left: 0; height: 100%; width: 80%; background: #404041; z-index: 9999; padding-top: 60px; overflow-y: auto;">
+            <div class="" id="sidebar-nav" style="display: none; position: fixed; top: 0; left: 0; height: 100%; width: 80%; max-width: 80%; /* <-- Added max-width */ background: #404041; z-index: 9999; padding-top: 60px; overflow-y: auto; overflow-x: hidden; /* <-- Added overflow-x */">
                 <i class="fas fa-times navbar-toggle" style="position: absolute; top: 20px; right: 20px; font-size: 1.8em; color: white; cursor: pointer;"></i>
                 <div class="sidebar-wrapper px-3">
                     <ul class='navbar-nav mr-auto'>
@@ -452,24 +458,39 @@
     // Mobile nav toggle
     $('.navbar-toggle').on('click', function(event){
         event.stopPropagation(); // Prevent event bubbling
-        var target = $(this).data('target');
-        // Use slideToggle for a smoother effect, or just toggle
-        $(target).slideToggle(200); // Adjust speed as needed
+        var targetSelector = $(this).data('target'); // Get selector like '#sidebar-nav'
+        var $target = $(targetSelector); // Get the jQuery object for the sidebar
+
+        // Use slideToggle and add/remove class in the callback
+        $target.slideToggle(200, function() {
+            // This function runs *after* the slide animation completes
+            if ($target.is(":visible")) {
+                $('body').addClass('sidebar-open'); // Add class when sidebar is visible
+            } else {
+                $('body').removeClass('sidebar-open'); // Remove class when sidebar is hidden
+            }
+        });
     });
 
     // Close mobile nav if clicked outside
     $(document).on('click', function(event) {
-        if (!$(event.target).closest('#sidebar-nav, .navbar-toggle').length) {
+        var $sidebar = $('#sidebar-nav');
+        // Check if the click is outside the sidebar AND outside the toggle button
+        if (!$sidebar.is(event.target) && $sidebar.has(event.target).length === 0 && !$(event.target).closest('.navbar-toggle').length) {
             // Check if the sidebar is currently visible before hiding
-            if ($('#sidebar-nav').is(":visible")) {
-                $('#sidebar-nav').slideUp(200); // Use slideUp to match slideToggle
+            if ($sidebar.is(":visible")) {
+                $sidebar.slideUp(200, function() {
+                    $('body').removeClass('sidebar-open'); // Remove class on close
+                });
             }
         }
     });
 
     // Close mobile nav using the close icon inside
     $('#sidebar-nav .fa-times').on('click', function(){
-        $('#sidebar-nav').slideUp(200); // Use slideUp
+        $('#sidebar-nav').slideUp(200, function() {
+            $('body').removeClass('sidebar-open'); // Remove class on close
+        });
     });
 
     // Dynamic Copyright Year
@@ -484,18 +505,18 @@
 
     // **** ADDED Web Share API Logic ****
     document.addEventListener('DOMContentLoaded', (event) => {
-        const shareButton = document.getElementById('share-button');
+        const shareButton = document.getElementById('share-button'); // Make sure you have an element with id="share-button" if using this
 
-        if (navigator.share) {
+        // Check if the button exists before adding listener
+        if (shareButton && navigator.share) {
             // Show the button only if the API is supported
-            shareButton.style.display = 'inline-block'; // Or 'block' if you want it full width
+            shareButton.style.display = 'inline-block'; // Or 'block'
 
             shareButton.addEventListener('click', async () => {
                 const shareData = {
                     title: 'Ashraya Trust - Serving the Needy', // Customize title
                     text: 'Support Ashraya Trust in their mission to provide food, medical aid, and education to the needy in Kurnool.', // Customize text
-                    url: window.location.origin // Shares the main website URL (e.g., https://ashrayatrust.org)
-                    // Or use window.location.href to share the specific get-involved page
+                    url: window.location.origin // Shares the main website URL
                 };
                 try {
                     await navigator.share(shareData);
@@ -504,10 +525,10 @@
                     console.error('Share failed:', err.message);
                 }
             });
-        } else {
-            // Optional: You could add alternative sharing links here if the API isn't supported
-            console.log('Web Share API not supported.');
-            // shareButton will remain hidden as per the inline style
+        } else if (shareButton) {
+            // Handle case where button exists but API isn't supported (optional)
+            console.log('Web Share API not supported or share button not found.');
+            shareButton.style.display = 'none'; // Ensure it's hidden
         }
     });
 </script>
