@@ -7,6 +7,7 @@
     <meta name="author" content="Ashraya Trust">
     <title>Donate to Ashraya Trust - Support Our Initiatives</title> <!-- Updated Title -->
     <meta name="description" content="Support Ashraya Trust's initiatives like food distribution, medical aid, education, Gurukulam, and Ugadi Seva through secure Razorpay Payment Pages. 80G benefits available.">
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="images/favicon.png">
     <link href="app.css" rel="stylesheet">
@@ -75,18 +76,27 @@
         /* Blink animation */
         .blink { animation: blinker 1.5s linear infinite; color: white; font-family: sans-serif; background: #A70D17; font-weight: 600; padding: 0.2em 0; }
         @keyframes blinker { 50% { opacity: 0; } }
+
+        /* Copy Button Style */
+        .copy-btn {
+            font-size: 0.7em; /* Smaller font for copy button */
+            padding: 0.2em 0.5em;
+            vertical-align: middle; /* Align with text */
+        }
+        .copy-btn .fas, .copy-btn .far {
+            margin-right: 3px;
+        }
     </style>
 </head>
 <body>
 <div id="app" class="donate-page">
-    <!-- Header (Use the same header structure as about.html) -->
+    <!-- Header -->
     <header>
         <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
             <marquee class="blink">80G Tax Benefits For Donations</marquee>
             <div class="social d-flex align-items-center">
                 <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"> <i class="fab fa-facebook-f"></i> </a>
-<!--                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->
-
+                <!--                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->
                 <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
             </div>
         </div>
@@ -116,8 +126,8 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Nav (Use the same structure as index.html) -->
-        <div id="mobile-nav" class="d-lg-none"> <!-- Show only on smaller screens -->
+        <!-- Mobile Nav -->
+        <div id="mobile-nav" class="d-lg-none">
             <div class="wrapper" style="background: #fff; padding: 10px; border-bottom: 1px solid #eee;">
                 <div class="mobile-top d-flex align-items-center justify-content-between">
                     <a class="" href="index.html"><img src="images/Ashraya-logo.png" class="w-50 img-fluid" alt="Ashraya Trust Logo"/></a>
@@ -245,20 +255,26 @@
             <div class="bank-details mt-4">
                 <h4 class="text-center demi text-red mb-3">Alternative: Bank Transfer (NEFT/IMPS)</h4>
                 <p class="text-center lite">You can also donate directly to our bank account:</p>
-                <p class="text-center font-l demi">
+                <div class="text-center font-l demi"> <!-- Changed from p to div for better structure -->
                     Account Name: Ashraya Trust, Kurnool <br>
                     Bank: Karnataka Bank <br>
                     Account Type: SB (Savings Bank) <br>
-                    Account No: 4282500100979801 <br>
-                    IFSC Code: KARB0000428
-                </p>
+                    Account No: <span id="account-no">4282500100979801</span>
+                    <button class="btn btn-sm btn-outline-secondary ml-2 copy-btn" data-clipboard-target="#account-no" title="Copy Account Number">
+                        <i class="far fa-copy"></i> Copy
+                    </button> <br>
+                    IFSC Code: <span id="ifsc-code">KARB0000428</span>
+                    <button class="btn btn-sm btn-outline-secondary ml-2 copy-btn" data-clipboard-target="#ifsc-code" title="Copy IFSC Code">
+                        <i class="far fa-copy"></i> Copy
+                    </button>
+                </div>
                 <p class="text-center lite mt-3" style="font-size: 0.9em;">After transferring, please email your Name, PAN (optional), Amount, and Transaction ID to [Your Trust Email Placeholder - e.g., donations@ashrayatrust.org] for the 80G receipt.</p>
             </div>
 
         </div> <!-- End Container -->
     </section>
 
-    <!-- Footer (Copied from about.html) -->
+    <!-- Footer -->
     <footer class="footer text-white">
         <div class="container py-4">
             <div class="row">
@@ -280,7 +296,7 @@
                     </ul>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <h5 class="demi mb-3">Legal</h5> <!-- ** ADDED LEGAL SECTION ** -->
+                    <h5 class="demi mb-3">Legal</h5>
                     <ul class="list-unstyled">
                         <li><a href="terms-conditions.html" class="text-white lite">Terms & Conditions</a></li>
                         <li><a href="privacy-policy.html" class="text-white lite">Privacy Policy</a></li>
@@ -291,7 +307,7 @@
                 <div class="col-md-3 mb-3">
                     <div class="social-icons">
                         <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-<!--                        <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->
+                        <!--                        <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->
                         <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
                     </div>
                     <h5 class="demi mt-4 mb-3">Support Us</h5>
@@ -314,14 +330,12 @@
     $('.navbar-toggle').on('click', function(event){
         event.stopPropagation(); // Prevent event bubbling
         var target = $(this).data('target');
-        // Use slideToggle for a smoother effect, or just toggle
         $(target).slideToggle(200); // Adjust speed as needed
     });
 
     // Close mobile nav if clicked outside
     $(document).on('click', function(event) {
         if (!$(event.target).closest('#sidebar-nav, .navbar-toggle').length) {
-            // Check if the sidebar is currently visible before hiding
             if ($('#sidebar-nav').is(":visible")) {
                 $('#sidebar-nav').slideUp(200); // Use slideUp to match slideToggle
             }
@@ -336,7 +350,55 @@
     // Dynamic Copyright Year
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
-    // No donation form JS needed anymore unless you add interactive elements later
+    // Copy to Clipboard functionality
+    document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-clipboard-target');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const textToCopy = targetElement.innerText;
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    // Success feedback: Temporarily change button text
+                    const originalHTML = button.innerHTML; // Store original HTML including icon
+                    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    button.disabled = true; // Briefly disable
+                    setTimeout(() => {
+                        button.innerHTML = originalHTML; // Restore original HTML
+                        button.disabled = false;
+                    }, 2000); // Revert after 2 seconds
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                    // Optional: Provide error feedback to the user
+                    alert('Failed to copy text.');
+                });
+            }
+        });
+    });
+
+    // Placeholder links - Replace these with your actual Razorpay Payment Page links
+    const razorpayLinks = {
+        food: "YOUR_RAZORPAY_KSHUDA_LINK",
+        medical: "YOUR_RAZORPAY_RUGNA_LINK",
+        education: "YOUR_RAZORPAY_EDUCATION_LINK",
+        gurukulam: "YOUR_RAZORPAY_GURUKULAM_LINK",
+        ugadi: "YOUR_RAZORPAY_UGADI_LINK",
+        general: "YOUR_RAZORPAY_GENERAL_LINK"
+    };
+
+    document.querySelector('a[href="[RAZORPAY_KSHUDA_LINK]"]').href = razorpayLinks.food;
+    document.querySelector('a[href="[RAZORPAY_RUGNA_LINK]"]').href = razorpayLinks.medical;
+    document.querySelector('a[href="[RAZORPAY_EDUCATION_LINK]"]').href = razorpayLinks.education;
+    document.querySelector('a[href="[RAZORPAY_GURUKULAM_LINK]"]').href = razorpayLinks.gurukulam;
+    document.querySelector('a[href="[RAZORPAY_UGADI_LINK]"]').href = razorpayLinks.ugadi;
+    document.querySelector('a[href="[RAZORPAY_GENERAL_LINK]"]').href = razorpayLinks.general;
+
+    // Placeholder for Trust Email
+    const trustEmail = "donations@ashrayatrust.org"; // Replace with your actual email
+    document.querySelectorAll('a[href="mailto:[Placeholder: info@ashrayatrust.org]"]').forEach(el => el.href = `mailto:${trustEmail}`);
+    document.querySelectorAll('a[href="mailto:[Your Trust Email Placeholder - e.g., donations@ashrayatrust.org]"]').forEach(el => el.href = `mailto:${trustEmail}`);
+    document.body.innerHTML = document.body.innerHTML.replace(/\[Your Trust Email Placeholder - e\.g\., donations@ashrayatrust\.org\]/g, trustEmail);
+
+
 </script>
 </body>
 </html>
