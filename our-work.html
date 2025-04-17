@@ -708,35 +708,6 @@
     $('.carousel').carousel({
         interval: false // Disable auto-sliding
     });
-
-    // **** ADDED Web Share API Logic ****
-    document.addEventListener('DOMContentLoaded', (event) => {
-        const shareButton = document.getElementById('share-button');
-
-        if (navigator.share) {
-            // Show the button only if the API is supported
-            shareButton.style.display = 'inline-block'; // Or 'block' if you want it full width
-
-            shareButton.addEventListener('click', async () => {
-                const shareData = {
-                    title: 'Ashraya Trust - Serving the Needy', // Customize title
-                    text: 'Support Ashraya Trust in their mission to provide food, medical aid, and education to the needy in Kurnool.', // Customize text
-                    url: window.location.origin // Shares the main website URL (e.g., https://ashrayatrust.org)
-                    // Or use window.location.href to share the specific get-involved page
-                };
-                try {
-                    await navigator.share(shareData);
-                    console.log('Ashraya Trust page shared successfully');
-                } catch (err) {
-                    console.error('Share failed:', err.message);
-                }
-            });
-        } else {
-            // Optional: You could add alternative sharing links here if the API isn't supported
-            console.log('Web Share API not supported.');
-            // shareButton will remain hidden as per the inline style
-        }
-    });
 </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Ashraya Trust">
-    <title>Donate to Ashraya Trust - Support Our Initiatives</title> <!-- Updated Title -->
+    <title>Donate to Ashraya Trust - Support Our Initiatives</title>
     <meta name="description" content="Support Ashraya Trust's initiatives like food distribution, medical aid, education, Gurukulam, and Ugadi Seva through secure Razorpay Payment Pages. 80G benefits available.">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
@@ -29,65 +29,33 @@
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             text-align: center;
-            height: 100%; /* Ensure cards have equal height in a row */
+            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Push button to bottom */
+            justify-content: space-between;
             border: 1px solid #eee;
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
-        .donation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
-        .donation-icon {
-            font-size: 3em;
-            color: #A70D17; /* Brand Red */
-            margin-bottom: 1rem;
-        }
-        .donation-card h4 {
-            color: #A70D17; /* Brand Red */
-            font-weight: 600; /* Demi-bold */
-            margin-bottom: 0.75rem;
-            font-size: 1.4em;
-        }
-        .donation-card p {
-            color: #555;
-            font-size: 0.95em;
-            line-height: 1.6;
-            flex-grow: 1; /* Allow paragraph to take space */
-            margin-bottom: 1.5rem; /* Space before button */
-        }
-        .donation-card .btn-donate {
-            width: 100%; /* Make button full width of card */
-            padding: 0.7rem 1rem;
-            font-size: 1.05em;
-        }
-        .donation-card .suggestion {
-            font-size: 0.9em;
-            color: #6c757d;
-            margin-top: -1rem; /* Pull suggestion closer to description */
-            margin-bottom: 1.5rem;
-        }
+        .donation-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+        .donation-icon { font-size: 3em; color: #A70D17; margin-bottom: 1rem; }
+        .donation-card h4 { color: #A70D17; font-weight: 600; margin-bottom: 0.75rem; font-size: 1.4em; }
+        .donation-card p { color: #555; font-size: 0.95em; line-height: 1.6; flex-grow: 1; margin-bottom: 1.5rem; }
+        .donation-card .btn-donate { width: 100%; padding: 0.7rem 1rem; font-size: 1.05em; }
+        .donation-card .suggestion { font-size: 0.9em; color: #6c757d; margin-top: -1rem; margin-bottom: 1.5rem; }
 
         .bank-details { background-color: #F0EAE7; padding: 1.5rem; border-radius: 8px; margin-top: 3rem; }
         .tax-info { text-align: center; margin-top: 2rem; padding: 1rem; background-color: var(--brand-beige); border-radius: 5px; }
 
         /* Blink animation */
-        .blink { animation: blinker 1.5s linear infinite; color: white; font-family: sans-serif; background: #A70D17; font-weight: 600; padding: 0.2em 0; }
+        .blink { animation: blinker 1.5s linear infinite; color: white; background: #A70D17; font-weight: 600; padding: 0.2em 0; }
         @keyframes blinker { 50% { opacity: 0; } }
 
         /* Copy Button Style */
-        .copy-btn {
-            font-size: 0.7em; /* Smaller font for copy button */
-            padding: 0.2em 0.5em;
-            vertical-align: middle; /* Align with text */
-        }
-        .copy-btn .fas, .copy-btn .far {
-            margin-right: 3px;
-        }
+        .copy-btn { font-size: 0.7em; padding: 0.2em 0.5em; vertical-align: middle; }
+        .copy-btn .fas, .copy-btn .far { margin-right: 3px; }
     </style>
 </head>
+
 <body>
 <div id="app" class="donate-page">
     <!-- Header -->
@@ -255,23 +223,27 @@
             <div class="bank-details mt-4">
                 <h4 class="text-center demi text-red mb-3">Alternative: Bank Transfer (NEFT/IMPS)</h4>
                 <p class="text-center lite">You can also donate directly to our bank account:</p>
-                <div class="text-center font-l demi"> <!-- Changed from p to div for better structure -->
+                <div class="text-center font-l demi">
                     Account Name: Ashraya Trust, Kurnool <br>
                     Bank: Karnataka Bank <br>
                     Account Type: SB (Savings Bank) <br>
                     Account No: <span id="account-no">4282500100979801</span>
-                    <button class="btn btn-sm btn-outline-secondary ml-2 copy-btn" data-clipboard-target="#account-no" title="Copy Account Number">
+                    <button class="btn btn-sm btn-outline-secondary ml-2 copy-btn"
+                            data-clipboard-target="#account-no" title="Copy Account Number">
                         <i class="far fa-copy"></i> Copy
                     </button> <br>
                     IFSC Code: <span id="ifsc-code">KARB0000428</span>
-                    <button class="btn btn-sm btn-outline-secondary ml-2 copy-btn" data-clipboard-target="#ifsc-code" title="Copy IFSC Code">
+                    <button class="btn btn-sm btn-outline-secondary ml-2 copy-btn"
+                            data-clipboard-target="#ifsc-code" title="Copy IFSC Code">
                         <i class="far fa-copy"></i> Copy
                     </button>
                 </div>
-                <p class="text-center lite mt-3" style="font-size: 0.9em;">After transferring, please email your Name, PAN (optional), Amount, and Transaction ID to [Your Trust Email Placeholder - e.g., donations@ashrayatrust.org] for the 80G receipt.</p>
+                <p class="text-center lite mt-3" style="font-size: 0.9em;">
+                    After transferring, please email your Name, PAN (optional), Amount, and Transaction ID to
+                    donations@ashrayatrust.org for the 80G receipt.
+                </p>
             </div>
-
-        </div> <!-- End Container -->
+        </div>
     </section>
 
     <!-- Footer -->
@@ -325,80 +297,169 @@
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    // Mobile nav toggle
-    $('.navbar-toggle').on('click', function(event){
-        event.stopPropagation(); // Prevent event bubbling
-        var target = $(this).data('target');
-        $(target).slideToggle(200); // Adjust speed as needed
-    });
 
-    // Close mobile nav if clicked outside
-    $(document).on('click', function(event) {
+<!-- BEGIN main script block -->
+<script>
+    /* ---------------- Mobile nav toggle ---------------- */
+    $('.navbar-toggle').on('click', function (event) {
+        event.stopPropagation();
+        var target = $(this).data('target');
+        $(target).slideToggle(200);
+    });
+    $(document).on('click', function (event) {
         if (!$(event.target).closest('#sidebar-nav, .navbar-toggle').length) {
-            if ($('#sidebar-nav').is(":visible")) {
-                $('#sidebar-nav').slideUp(200); // Use slideUp to match slideToggle
-            }
+            if ($('#sidebar-nav').is(":visible")) $('#sidebar-nav').slideUp(200);
         }
     });
+    $('#sidebar-nav .fa-times').on('click', function () { $('#sidebar-nav').slideUp(200); });
 
-    // Close mobile nav using the close icon inside
-    $('#sidebar-nav .fa-times').on('click', function(){
-        $('#sidebar-nav').slideUp(200); // Use slideUp
-    });
-
-    // Dynamic Copyright Year
+    /* ---------------- Misc dynamic replacements ---------------- */
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
-    // Copy to Clipboard functionality
-    document.querySelectorAll('.copy-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const targetId = button.getAttribute('data-clipboard-target');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const textToCopy = targetElement.innerText;
-                navigator.clipboard.writeText(textToCopy).then(() => {
-                    // Success feedback: Temporarily change button text
-                    const originalHTML = button.innerHTML; // Store original HTML including icon
-                    button.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                    button.disabled = true; // Briefly disable
-                    setTimeout(() => {
-                        button.innerHTML = originalHTML; // Restore original HTML
-                        button.disabled = false;
-                    }, 2000); // Revert after 2 seconds
-                }).catch(err => {
-                    console.error('Failed to copy: ', err);
-                    // Optional: Provide error feedback to the user
-                    alert('Failed to copy text.');
-                });
+    // Placeholder links - replace with real Razorpay Payment‑Page URLs
+    const razorpayLinks = {
+        food:     "YOUR_RAZORPAY_KSHUDA_LINK",
+        medical:  "YOUR_RAZORPAY_RUGNA_LINK",
+        education:"YOUR_RAZORPAY_EDUCATION_LINK",
+        gurukulam:"YOUR_RAZORPAY_GURUKULAM_LINK",
+        ugadi:    "YOUR_RAZORPAY_UGADI_LINK",
+        general:  "YOUR_RAZORPAY_GENERAL_LINK"
+    };
+    document.querySelector('a[href="[RAZORPAY_KSHUDA_LINK]"]').href   = razorpayLinks.food;
+    document.querySelector('a[href="[RAZORPAY_RUGNA_LINK]"]').href    = razorpayLinks.medical;
+    document.querySelector('a[href="[RAZORPAY_EDUCATION_LINK]"]').href= razorpayLinks.education;
+    document.querySelector('a[href="[RAZORPAY_GURUKULAM_LINK]"]').href= razorpayLinks.gurukulam;
+    document.querySelector('a[href="[RAZORPAY_UGADI_LINK]"]').href    = razorpayLinks.ugadi;
+    document.querySelector('a[href="[RAZORPAY_GENERAL_LINK]"]').href  = razorpayLinks.general;
+
+    /* ----------------------------------------------------------------
+       Robust “Copy to Clipboard” helper
+       – works in HTTPS (Clipboard API) and plain HTTP (execCommand fallback)
+    ---------------------------------------------------------------- */
+    // function copyText(text) {
+    //     if (navigator.clipboard && window.isSecureContext) {
+    //         return navigator.clipboard.writeText(text);
+    //     }
+    //     return new Promise((resolve, reject) => {
+    //         const ta = document.createElement('textarea');
+    //         ta.value = text;
+    //         ta.style.position = 'fixed';
+    //         ta.style.top = '-1000px';
+    //         document.body.appendChild(ta);
+    //         ta.focus();
+    //         ta.select();
+    //         try {
+    //             document.execCommand('copy') ? resolve() : reject();
+    //         } catch (err) { reject(err); }
+    //         finally { ta.remove(); }
+    //     });
+    // }
+    //
+    // function showCopied(btn, originalHTML) {
+    //     btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+    //     btn.disabled  = true;
+    //     setTimeout(() => { btn.innerHTML = originalHTML; btn.disabled = false; }, 2000);
+    // }
+    //
+    // document.querySelectorAll('.copy-btn').forEach(btn => {
+    //     const targetSelector = btn.dataset.clipboardTarget;
+    //     const targetEl = document.querySelector(targetSelector);
+    //     if (!targetEl) return;                  // guard against missing span
+    //     const originalHTML = btn.innerHTML;
+    //
+    //     btn.addEventListener('click', () => {
+    //         const text = targetEl.innerText.trim();
+    //         copyText(text)
+    //             .then(() => showCopied(btn, originalHTML))
+    //             .catch(err => {
+    //                 console.error('Copy failed:', err);
+    //                 alert('Could not copy. Please copy manually.');
+    //             });
+    //     });
+    // });
+
+    /**
+     * Copies text to the clipboard using the modern navigator.clipboard API.
+     * Requires a secure context (HTTPS or localhost).
+     * @param {string} text The text to copy.
+     * @returns {Promise<void>} A promise that resolves on success or rejects on failure.
+     */
+    async function copyText(text) {
+        // Check if Clipboard API is available and context is secure
+        if (navigator.clipboard && window.isSecureContext) {
+            try {
+                await navigator.clipboard.writeText(text);
+                // Promise resolves implicitly if writeText succeeds
+                console.log('Text copied successfully using Clipboard API.');
+            } catch (err) {
+                console.error('Failed to copy text using Clipboard API:', err);
+                // Propagate the error to be caught by the caller
+                throw new Error('Clipboard write failed');
+            }
+        } else {
+            // Clipboard API not available or context insecure
+            console.warn('Clipboard API not available or context is insecure. Cannot copy automatically.');
+            // Reject the promise as copying is not possible with the preferred method
+            throw new Error('Clipboard API not available or context is insecure.');
+        }
+    }
+
+    /**
+     * Shows a temporary "Copied!" message on the button.
+     * @param {HTMLButtonElement} btn The button element.
+     * @param {string} originalHTML The original innerHTML of the button.
+     */
+    function showCopied(btn, originalHTML) {
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        btn.disabled = true;
+        setTimeout(() => {
+            // Check if the button still exists before resetting
+            if (document.body.contains(btn)) {
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+            }
+        }, 2000);
+    }
+
+    // --- Event Listener Setup ---
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        const targetSelector = btn.dataset.clipboardTarget;
+        if (!targetSelector) {
+            console.warn('Button missing data-clipboard-target attribute:', btn);
+            return;
+        }
+        const targetEl = document.querySelector(targetSelector);
+        if (!targetEl) {
+            console.warn(`Target element "${targetSelector}" not found for button:`, btn);
+            return; // Guard against missing target element
+        }
+
+        const originalHTML = btn.innerHTML;
+
+        btn.addEventListener('click', async () => { // Use async for await
+            const text = targetEl.innerText.trim();
+            if (!text) {
+                console.warn('Target element has no text to copy:', targetEl);
+                // Optionally show a message to the user
+                // alert("Nothing to copy.");
+                return; // Don't attempt to copy empty text
+            }
+
+            try {
+                await copyText(text); // Await the copy operation
+                showCopied(btn, originalHTML);
+            } catch (err) {
+                console.error('Copy operation failed:', err);
+                // Provide more specific feedback if possible based on the error
+                let message = 'Could not copy text. Please copy manually.';
+                if (err && err.message && err.message.includes('Clipboard API not available')) {
+                    message = 'Cannot copy automatically (requires HTTPS or localhost). Please copy manually.';
+                }
+                alert(message);
             }
         });
     });
-
-    // Placeholder links - Replace these with your actual Razorpay Payment Page links
-    const razorpayLinks = {
-        food: "YOUR_RAZORPAY_KSHUDA_LINK",
-        medical: "YOUR_RAZORPAY_RUGNA_LINK",
-        education: "YOUR_RAZORPAY_EDUCATION_LINK",
-        gurukulam: "YOUR_RAZORPAY_GURUKULAM_LINK",
-        ugadi: "YOUR_RAZORPAY_UGADI_LINK",
-        general: "YOUR_RAZORPAY_GENERAL_LINK"
-    };
-
-    document.querySelector('a[href="[RAZORPAY_KSHUDA_LINK]"]').href = razorpayLinks.food;
-    document.querySelector('a[href="[RAZORPAY_RUGNA_LINK]"]').href = razorpayLinks.medical;
-    document.querySelector('a[href="[RAZORPAY_EDUCATION_LINK]"]').href = razorpayLinks.education;
-    document.querySelector('a[href="[RAZORPAY_GURUKULAM_LINK]"]').href = razorpayLinks.gurukulam;
-    document.querySelector('a[href="[RAZORPAY_UGADI_LINK]"]').href = razorpayLinks.ugadi;
-    document.querySelector('a[href="[RAZORPAY_GENERAL_LINK]"]').href = razorpayLinks.general;
-
-    // Placeholder for Trust Email
-    const trustEmail = "donations@ashrayatrust.org"; // Replace with your actual email
-    document.querySelectorAll('a[href="mailto:[Placeholder: info@ashrayatrust.org]"]').forEach(el => el.href = `mailto:${trustEmail}`);
-    document.querySelectorAll('a[href="mailto:[Your Trust Email Placeholder - e.g., donations@ashrayatrust.org]"]').forEach(el => el.href = `mailto:${trustEmail}`);
-    document.body.innerHTML = document.body.innerHTML.replace(/\[Your Trust Email Placeholder - e\.g\., donations@ashrayatrust\.org\]/g, trustEmail);
-
-
 </script>
+<!-- END main script block -->
 </body>
 </html>
