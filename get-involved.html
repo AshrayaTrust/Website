@@ -24,6 +24,50 @@
         .way-to-help-card .icon { font-size: 3em; color: #A70D17; margin-bottom: 1rem; }
 
 
+        /* Re-use blink from index.html if needed */
+        .marquee-container {
+            background: #A70D17; /* Original background color */
+            color: white;        /* Original text color */
+            overflow: hidden;    /* Crucial: Hides the text outside the container */
+            position: relative;  /* Needed for absolute positioning if used, good practice */
+            width: 100%;         /* Take full width of its parent space */
+            box-sizing: border-box; /* Include padding in width calculations */
+            padding: 0.2em 0;    /* Original padding */
+            /* Ensure it aligns correctly within the flex container if needed */
+            display: flex;       /* Use flex to vertically center content if padding isn't enough */
+            align-items: center; /* Vertically center text */
+        }
+
+        .marquee-content {
+            display: inline-block; /* Treat as a block, but inline for width calculation */
+            white-space: nowrap;   /* Prevent text from wrapping */
+            font-family: sans-serif; /* Or inherit from body */
+            font-weight: 600;      /* Original font weight */
+            will-change: transform; /* Performance hint for the browser */
+
+            /* Animation properties */
+            animation: scroll-left 15s linear infinite; /* Name, Duration, Timing, Iteration */
+
+            /* Start the text off-screen to the right */
+            padding-left: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Pause animation on hover (optional but good UX) */
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* Define the scrolling animation */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0); /* Start position (respecting padding-left) */
+            }
+            100% {
+                /* Move left by its own calculated width (content + padding-left) */
+                transform: translateX(-100%);
+            }
+        }
         /* Style for the generic share button */
         #share-button {
             /* Add any specific styling if needed, otherwise relies on btn classes */
