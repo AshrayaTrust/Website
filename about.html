@@ -132,8 +132,7 @@
         .team-section .card-img-top { height: 200px; object-fit: cover; background-color: #eee; }
         .team-section .card-title { color: var(--brand-red); }
 
-        .blink { animation: blinker 1.5s linear infinite; color: white; font-family: sans-serif; background: #A70D17; font-weight: 600; padding: 0.2em 0; }
-        @keyframes blinker { 50% { opacity: 0; } }
+
 
     </style>
 </head>
@@ -144,7 +143,9 @@
     <header>
         <!-- ... (Your existing header code remains unchanged) ... -->
         <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
-            <marquee class="blink">80G Tax Benefits For Donations</marquee>
+                        <div class="marquee-container flex-grow-1"> <!-- Added flex-grow-1 -->
+                <div class="marquee-content">80G Tax Benefits For Donations</div>
+            </div>
             <div class="social d-flex align-items-center">
                 <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"> <i class="fab fa-facebook-f"></i> </a>
 <!--                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->

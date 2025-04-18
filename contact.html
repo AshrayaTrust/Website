@@ -22,8 +22,49 @@
         #map-placeholder { height: 400px; background-color: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #6c757d; border: 1px dashed #ccc; margin-top: 2rem;}
 
         /* Re-use blink from index.html if needed */
-        .blink { animation: blinker 1.5s linear infinite; color: white; font-family: sans-serif; background: #A70D17; font-weight: 600; padding: 0.2em 0; }
-        @keyframes blinker { 50% { opacity: 0; } }
+        .marquee-container {
+            background: #A70D17; /* Original background color */
+            color: white;        /* Original text color */
+            overflow: hidden;    /* Crucial: Hides the text outside the container */
+            position: relative;  /* Needed for absolute positioning if used, good practice */
+            width: 100%;         /* Take full width of its parent space */
+            box-sizing: border-box; /* Include padding in width calculations */
+            padding: 0.2em 0;    /* Original padding */
+            /* Ensure it aligns correctly within the flex container if needed */
+            display: flex;       /* Use flex to vertically center content if padding isn't enough */
+            align-items: center; /* Vertically center text */
+        }
+
+        .marquee-content {
+            display: inline-block; /* Treat as a block, but inline for width calculation */
+            white-space: nowrap;   /* Prevent text from wrapping */
+            font-family: sans-serif; /* Or inherit from body */
+            font-weight: 600;      /* Original font weight */
+            will-change: transform; /* Performance hint for the browser */
+
+            /* Animation properties */
+            animation: scroll-left 15s linear infinite; /* Name, Duration, Timing, Iteration */
+
+            /* Start the text off-screen to the right */
+            padding-left: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Pause animation on hover (optional but good UX) */
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* Define the scrolling animation */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0); /* Start position (respecting padding-left) */
+            }
+            100% {
+                /* Move left by its own calculated width (content + padding-left) */
+                transform: translateX(-100%);
+            }
+        }
 
         /* Re-enable form that was hidden */
         #contact-form-wrapper { display: block !important; }
@@ -36,7 +77,9 @@
     <!-- Header (Use the same header structure as about.html) -->
     <header>
         <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
-            <marquee class="blink">80G Tax Benefits For Donations</marquee>
+                        <div class="marquee-container flex-grow-1"> <!-- Added flex-grow-1 -->
+                <div class="marquee-content">80G Tax Benefits For Donations</div>
+            </div>
             <div class="social d-flex align-items-center">
                 <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"> <i class="fab fa-facebook-f"></i> </a>
 <!--                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->
