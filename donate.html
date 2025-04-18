@@ -65,7 +65,7 @@
             <div class="social d-flex align-items-center">
                 <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"> <i class="fab fa-facebook-f"></i> </a>
                 <!--                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->
-                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
+                <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
             </div>
         </div>
         <div class="site-navigation w-100 text-uppercase pb-3 text-red position-relative alt-nav" style="background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
@@ -280,7 +280,7 @@
                     <div class="social-icons">
                         <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <!--                        <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->
-                        <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
+                        <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
                     </div>
                     <h5 class="demi mt-4 mb-3">Support Us</h5>
                     <a href="donate.html" class="btn btn-donate demi text-white py-2 px-4">Donate Now</a>
@@ -331,52 +331,6 @@
     document.querySelector('a[href="[RAZORPAY_GURUKULAM_LINK]"]').href= razorpayLinks.gurukulam;
     document.querySelector('a[href="[RAZORPAY_UGADI_LINK]"]').href    = razorpayLinks.ugadi;
     document.querySelector('a[href="[RAZORPAY_GENERAL_LINK]"]').href  = razorpayLinks.general;
-
-    /* ----------------------------------------------------------------
-       Robust “Copy to Clipboard” helper
-       – works in HTTPS (Clipboard API) and plain HTTP (execCommand fallback)
-    ---------------------------------------------------------------- */
-    // function copyText(text) {
-    //     if (navigator.clipboard && window.isSecureContext) {
-    //         return navigator.clipboard.writeText(text);
-    //     }
-    //     return new Promise((resolve, reject) => {
-    //         const ta = document.createElement('textarea');
-    //         ta.value = text;
-    //         ta.style.position = 'fixed';
-    //         ta.style.top = '-1000px';
-    //         document.body.appendChild(ta);
-    //         ta.focus();
-    //         ta.select();
-    //         try {
-    //             document.execCommand('copy') ? resolve() : reject();
-    //         } catch (err) { reject(err); }
-    //         finally { ta.remove(); }
-    //     });
-    // }
-    //
-    // function showCopied(btn, originalHTML) {
-    //     btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-    //     btn.disabled  = true;
-    //     setTimeout(() => { btn.innerHTML = originalHTML; btn.disabled = false; }, 2000);
-    // }
-    //
-    // document.querySelectorAll('.copy-btn').forEach(btn => {
-    //     const targetSelector = btn.dataset.clipboardTarget;
-    //     const targetEl = document.querySelector(targetSelector);
-    //     if (!targetEl) return;                  // guard against missing span
-    //     const originalHTML = btn.innerHTML;
-    //
-    //     btn.addEventListener('click', () => {
-    //         const text = targetEl.innerText.trim();
-    //         copyText(text)
-    //             .then(() => showCopied(btn, originalHTML))
-    //             .catch(err => {
-    //                 console.error('Copy failed:', err);
-    //                 alert('Could not copy. Please copy manually.');
-    //             });
-    //     });
-    // });
 
     /**
      * Copies text to the clipboard using the modern navigator.clipboard API.
