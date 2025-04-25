@@ -23,16 +23,8 @@
               href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap">
     </noscript>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- ② fetch the CSS file ASAP, but don’t block render -->
-    <link rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap"
-          as="style"
-          onload="this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet"
-              href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap">
-    </noscript>
+    <link rel="preload" href="images/Ashraya-logo.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="images/about-guriji.webp" as="image" fetchpriority="high">
     <!-- Add specific homepage styles if needed -->
     <style>
         /* --- Existing styles from your provided code --- */
