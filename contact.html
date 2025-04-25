@@ -9,7 +9,18 @@
     <meta name="description" content="Get in touch with Ashraya Trust. Find our contact details, address, location map, and send us a message through our contact form.">
     <script defer src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="images/favicon.webp">
-    <link href="app.min.css" rel="stylesheet">
+        <link href="app.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- ② fetch the CSS file ASAP, but don’t block render -->
+    <link rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap"
+          as="style"
+          onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap">
+    </noscript>
     <style>
         body { font-family: "Nunito", sans-serif; }
         /* Add specific contact page styles */
