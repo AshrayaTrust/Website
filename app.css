@@ -16214,7 +16214,7 @@ input:checked + .slider:before {
 }
 
 .fundraise-1 {
-  background-image: url("../images/Step-1-Background.png");
+  background-image: url("../images/Step-1-Background.webp");
 }
 
 @media (max-width: 992px) {
@@ -16230,7 +16230,7 @@ input:checked + .slider:before {
 }
 
 .fundraise-2 {
-  background-image: url("../images/Step-2-Background.png");
+  background-image: url("../images/Step-2-Background.webp");
 }
 
 @media (max-width: 1200px) {
@@ -16252,7 +16252,7 @@ input:checked + .slider:before {
 }
 
 .fundraise-3 {
-  background-image: url("../images/Step-3-Background.png");
+  background-image: url("../images/Step-3-Background.webp");
 }
 
 .fundraise-3.parallax {
@@ -16272,7 +16272,7 @@ input:checked + .slider:before {
 }
 
 .fundraise-4 {
-  background-image: url("../images/Step-4-Background.png");
+  background-image: url("../images/Step-4-Background.webp");
 }
 
 @media (max-width: 1200px) {
@@ -17279,7 +17279,7 @@ a:hover {
 .theme-section .theme-section-education .theme-right .cta .title,
 .theme-section .theme-section-education .theme-right .cta-land .title {
   padding: 1rem;
-  background-image: url("../images/downloaded-assets/Background-Box.png");
+  background-image: url("../images/downloaded-assets/Background-Box.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -17426,7 +17426,7 @@ a:hover {
 .theme-section .theme-section-livelihood .theme-left .cta .title,
 .theme-section .theme-section-livelihood .theme-left .cta-land .title {
   padding: 1rem;
-  background-image: url("../images/downloaded-assets/Background-Box.png");
+  background-image: url("../images/downloaded-assets/Background-Box.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -17770,7 +17770,7 @@ a:hover {
 .theme-section .theme-section-gender .theme-right .cta .title,
 .theme-section .theme-section-gender .theme-right .cta-land .title {
   padding: 1rem;
-  background-image: url("../images/downloaded-assets/Background-Box.png");
+  background-image: url("../images/downloaded-assets/Background-Box.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -18020,11 +18020,11 @@ a:hover {
 }
 
 .carousel-control-prev-icon {
-  background-image: url("../images/chevron-left.png");
+  background-image: url("../images/chevron-left.webp");
 }
 
 .carousel-control-next-icon {
-  background-image: url("../images/chevron-right.png");
+  background-image: url("../images/chevron-right.webp");
 }
 
 #app-donate a:before,
@@ -18971,7 +18971,7 @@ body.BBFormStopBackgroundScroll {
 }
 
 #bboxdonation_gift_fldUKGiftAid:before {
-  content: url("../images/1024px-Gift_Aid_UK_Logo.png");
+  content: url("../images/1024px-Gift_Aid_UK_Logo.webp");
   text-align: center;
   display: block;
   margin-bottom: 1em;
@@ -19598,7 +19598,7 @@ body.BBFormStopBackgroundScroll {
 }
 
 .ambedkar {
-  background-image: url("../images/ashraya-guruji-1.png");
+  background-image: url("../images/ashraya-guruji-1.webp");
   background-position: 65% 50%;
   background-repeat: no-repeat;
   background-size: 15%;
