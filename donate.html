@@ -278,27 +278,73 @@
             <!-- Bank Transfer Details -->
             <div class="bank-details mt-4">
                 <h4 class="text-center demi text-red mb-3">Alternative: Bank Transfer (NEFT/IMPS)</h4>
-                <p class="text-center lite">You can also donate directly to our bank account:</p>
+                <p class="text-center lite mb-1">You can also donate directly to our bank account:</p>
+                <p class="text-center text-warning small mb-2">
+                    <strong>Important: This account is for domestic (India) transfers only.</strong><br>
+                    For overseas/international donations, please contact us first at <a href="mailto:jaimaa@ashrayatrust.org" class="text-red demi">jaimaa@ashrayatrust.org</a> for instructions, as FCRA regulations apply.
+                </p>
                 <div class="text-center font-l demi">
                     Account Name: Ashraya Trust, Kurnool <br>
                     Bank: Karnataka Bank <br>
                     Account Type: SB (Savings Bank) <br>
                     Account No: <span id="account-no">4282500100979801</span>
-                    <button class="btn btn-sm btn-outline-secondary ml-2 copy-btn"
+                    <button class="btn btn-sm btn-outline-secondary ml-1 copy-btn"
                             data-clipboard-target="#account-no" title="Copy Account Number">
                         <i class="far fa-copy"></i> Copy
                     </button> <br>
                     IFSC Code: <span id="ifsc-code">KARB0000428</span>
-                    <button class="btn btn-sm btn-outline-secondary ml-2 copy-btn"
+                    <button class="btn btn-sm btn-outline-secondary ml-1 copy-btn"
                             data-clipboard-target="#ifsc-code" title="Copy IFSC Code">
                         <i class="far fa-copy"></i> Copy
                     </button>
                 </div>
                 <p class="text-center lite mt-3" style="font-size: 0.9em;">
-                    After transferring, please email your Name, PAN, Amount, Screenshot and Transaction ID to
-                    Whatsapp no 9949993461 for the 80G receipt.
+                    After transferring (domestic only), please share your Name, PAN, Amount, Screenshot/Transaction ID via Email to <a href="mailto:jaimaa@ashrayatrust.org" class="text-red demi">jaimaa@ashrayatrust.org</a> or WhatsApp to 9949993461 for the 80G receipt.
                 </p>
             </div>
+            <!-- Donate In-Kind Section -->
+            <div class="in-kind-details mt-5 pt-4" style="background-color: #fff; border-top: 2px solid var(--brand-beige); border-radius: 8px;">
+                <div class="container"> <!-- Added container for better padding control if needed -->
+                    <h3 class="text-center demi text-red mb-3">Donate Goods (In-Kind)</h3>
+                    <p class="text-center lite mb-3 col-lg-9 mx-auto">
+                        Beyond monetary support, your contribution of essential goods directly aids our beneficiaries. We gratefully accept new or gently used items in good condition.
+                    </p>
+                    <h5 class="text-center demi mt-4 mb-3">Items We Often Need:</h5>
+
+                    <!-- Centered List using Grid -->
+                    <div class="row justify-content-center mb-3">
+                        <div class="col-lg-8 col-md-10">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled text-left mb-2">
+                                        <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>Rice, Dal, Cooking Oil, Vegetables</li>
+                                        <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>Wheat Flour (Atta), Sugar, Salt</li>
+                                        <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>Spices (Turmeric, Chilli powder etc.)</li>
+                                        <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>Tea Powder</li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled text-left mb-2">
+                                        <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>Notebooks, Pens, Pencils</li>
+                                        <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>School Bags, Geometry Boxes</li>
+                                        <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>Blankets (Clean, good condition)</li>
+                                        <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>New/Gently Used Clothing (Clean)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-center lite mt-2 mb-3"><small>Please ensure food items are within their expiry date and all items are clean and functional.</small></p>
+                    <p class="text-center lite mb-4">
+                        Due to storage limitations and specific needs, please contact us before bringing donations to arrange a suitable time and confirm requirements.
+                    </p>
+                    <div class="text-center pb-4">
+                        <a href="contact.html" class="btn btn-outline-danger demi py-2 px-4">Contact Us to Arrange Donation</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End Donate In-Kind Section -->
         </div>
     </section>
 
@@ -306,14 +352,27 @@
     <footer class="footer text-white">
         <div class="container py-4">
             <div class="row">
-                <div class="col-md-4 mb-3">
-                    <h5 class="demi mb-3">Ashraya Trust</h5>
-                    <p class="lite">Serving the Needy since 2011. Inspired by Avadhoota Nadananda.</p>
-                    <p class="lite">Plot No. 294, Vishnu Township, <br>NH-44, Kurnool, AP 518003</p>
-                    <p class="lite"><a href="tel:+919949319928" class="text-white">Nagaraju: +91 99493 19928</a></p>
-                    <p class="lite"><a href="tel:+919441011586" class="text-white">Rama Reddy: +91 94410 11586</a></p>
+                <!-- Contact Info + Social -->
+                <div class="col-lg-4 col-md-5 mb-4">
+                    <h5 class="demi mb-3">Contact Us</h5>
+                    <p class="lite mb-1"><strong>Address:</strong> Ashraya Trust, Plot No. 294, Vishnu Township, NH-44, Kurnool, AP 518003</p>
+                    <!-- **** REMOVED bottom margin from first phone number **** -->
+                    <p class="lite mb-0"><strong>Phone:</strong> <a href="tel:+919949319928" class="text-white">Nagaraju: +91 99493 19928</a></p>
+                    <!-- Margin below second Phone (before Email) -->
+                    <p class="lite mb-0">
+                        <strong>Phone:</strong> <a href="tel:+919441011586" class="text-white">Rama Reddy: +91 94410 11586</a>
+                    </p>
+                    <p class="lite mb-1"><strong>Email:</strong> <a href="mailto:jaimaa@ashrayatrust.org" class="text-white">jaimaa@ashrayatrust.org</a></p>
+                    <div class="social-icons">
+                        <strong>Follow Us:</strong>
+                        <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block ml-2 mr-2" style="font-size: 1.4em;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="text-white d-inline-block mr-2" style="font-size: 1.4em;" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <!-- Add other icons here if needed -->
+                    </div>
                 </div>
-                <div class="col-md-2 mb-3">
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-3 mb-4">
                     <h5 class="demi mb-3">Quick Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="about.html" class="text-white lite">About Us</a></li>
@@ -323,7 +382,9 @@
                         <li><a href="contact.html" class="text-white lite">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 mb-3">
+
+                <!-- Legal Links -->
+                <div class="col-lg-3 col-md-4 mb-4">
                     <h5 class="demi mb-3">Legal</h5>
                     <ul class="list-unstyled">
                         <li><a href="terms-conditions.html" class="text-white lite">Terms & Conditions</a></li>
@@ -331,15 +392,6 @@
                         <li><a href="cancellation-refund.html" class="text-white lite">Cancellation & Refund</a></li>
                         <li><a href="shipping-policy.html" class="text-white lite">Shipping & Delivery</a></li>
                     </ul>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <div class="social-icons">
-                        <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <!--                        <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->
-                        <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
-                    </div>
-                    <h5 class="demi mt-4 mb-3">Support Us</h5>
-                    <a href="donate.html" class="btn btn-donate demi text-white py-2 px-4">Donate Now</a>
                 </div>
             </div>
             <hr style="border-top: 1px solid rgba(255,255,255,0.2);">
