@@ -107,6 +107,68 @@
                 transform: translateX(-100%);
             }
         }
+
+        /* --- Styles for Monthly Subscription Section --- */
+        .subscription-section {
+            padding: 3rem 0;
+            background-color: #ffffff; /* White background to differentiate */
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        .subscription-card {
+            background-color: #fff;
+            border: 1px solid var(--brand-beige);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            height: 100%; /* For equal height cards in a row */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .subscription-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+        }
+        .subscription-card .tier-icon {
+            font-size: 2.5em; /* Slightly smaller icon */
+            color: var(--brand-red);
+            margin-bottom: 0.8rem;
+        }
+        .subscription-card h5 { /* Tier Name */
+            font-weight: 600; /* Demi-bold */
+            color: var(--brand-red);
+            margin-bottom: 0.5rem;
+            font-size: 1.2em;
+        }
+        .subscription-card .amount { /* Amount */
+            font-size: 1.4em;
+            font-weight: 700; /* Bold */
+            color: var(--brand-dark-grey);
+            margin-bottom: 1rem;
+        }
+        .subscription-card .description { /* Description Text */
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.5;
+            flex-grow: 1; /* Pushes button down */
+            margin-bottom: 1.2rem;
+        }
+        .subscription-card .btn-subscribe {
+            width: 100%;
+            padding: 0.6rem 1rem;
+            font-size: 1em;
+            background-color: var(--brand-green); /* Use donate green */
+            border-color: var(--brand-green);
+        }
+        .subscription-card .btn-subscribe:hover {
+            background-color: #008a75; /* Darker green */
+            border-color: #008a75;
+        }
+        /* --- End Subscription Styles --- */
     </style>
 </head>
 
@@ -274,6 +336,140 @@
                 </div>
 
             </div> <!-- End Row -->
+            <!-- == Monthly Recurring Donation Section == -->
+            <div class="subscription-section mt-5">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h2 class="demi text-red"><i class="fas fa-sync-alt mr-2"></i>Become an Eternal Flame of Seva</h2>
+                        <p class="font-l lite col-lg-9 mx-auto">Your consistent monthly support provides the steady foundation Ashraya Trust needs to sustain and grow all our Seva activities. Choose a level that resonates with your spirit of giving.</p>
+                        <p class="small text-muted">(You can modify or cancel your subscription anytime via Razorpay)</p>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <!-- Tier 1: Ankuram -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="subscription-card">
+                                <div> <!-- Wrapper for content above button -->
+                                    <div class="tier-icon"><i class="fas fa-seedling"></i></div>
+                                    <h5>Ankuram (The Seedling)</h5>
+                                    <div class="amount">₹250 / month</div>
+                                    <p class="description">Plant a seed of regular support. Your monthly ₹250 nurtures the very core of our daily operations, ensuring the groundwork for all Seva is always ready.</p>
+                                </div>
+                                <a href="[RZP_PLAN_ANKURAM_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-subscribe demi text-white">Subscribe</a>
+                            </div>
+                        </div>
+
+                        <!-- Tier 2: Karuna Dhara -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="subscription-card">
+                                <div>
+                                    <div class="tier-icon"><i class="fas fa-water"></i></div>
+                                    <h5>Karuna Dhara (Stream of Compassion)</h5>
+                                    <div class="amount">₹500 / month</div>
+                                    <p class="description">Let your compassion flow steadily. Your ₹500 each month significantly contributes to the resources needed across all our programs, consistently touching lives.</p>
+                                </div>
+                                <a href="[RZP_PLAN_KARUNA_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-subscribe demi text-white">Subscribe</a>
+                            </div>
+                        </div>
+
+                        <!-- Tier 3: Maitri Shakti -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="subscription-card">
+                                <div>
+                                    <div class="tier-icon"><i class="fas fa-heart"></i></div>
+                                    <h5>Maitri Shakti (Power of Loving-Kindness)</h5>
+                                    <div class="amount">₹1000 / month</div>
+                                    <p class="description">Radiate loving-kindness through tangible action. Your ₹1000 monthly contribution provides a vital boost to our resources, enhancing our capacity to serve consistently.</p>
+                                </div>
+                                <a href="[RZP_PLAN_MAITRI_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-subscribe demi text-white">Subscribe</a>
+                            </div>
+                        </div>
+
+                        <!-- Tier 4: Jyoti Patha -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="subscription-card">
+                                <div>
+                                    <div class="tier-icon"><i class="fas fa-lightbulb"></i></div>
+                                    <h5>Jyoti Patha (Path of Light)</h5>
+                                    <div class="amount">₹1500 / month</div>
+                                    <p class="description">Illuminate the way forward. Your monthly commitment provides substantial support, strengthening our ability to deliver essential aid and education across the board.</p>
+                                </div>
+                                <a href="[RZP_PLAN_JYOTI_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-subscribe demi text-white">Subscribe</a>
+                            </div>
+                        </div>
+
+                        <!-- Tier 5: Samarpan Deepa -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="subscription-card">
+                                <div>
+                                    <div class="tier-icon"><i class="fas fa-praying-hands"></i></div> <!-- Changed icon -->
+                                    <h5>Samarpan Deepa (Lamp of Dedication)</h5>
+                                    <div class="amount">₹2000 / month</div>
+                                    <p class="description">Keep the lamp of dedicated service burning brightly. Your devoted monthly offering noticeably expands Ashraya's reach, uplifting lives across all Seva activities.</p>
+                                </div>
+                                <a href="[RZP_PLAN_SAMARPAN_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-subscribe demi text-white">Subscribe</a>
+                            </div>
+                        </div>
+
+                        <!-- Tier 6: Abhaya Hastam -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="subscription-card">
+                                <div>
+                                    <div class="tier-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                                    <h5>Abhaya Hastam (Hand of Fearlessness)</h5>
+                                    <div class="amount">₹2500 / month</div>
+                                    <p class="description">Offer a strong hand of support. Your contribution bolsters our capacity significantly, enabling robust service delivery across all initiatives.</p>
+                                </div>
+                                <a href="[RZP_PLAN_ABHAYA_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-subscribe demi text-white">Subscribe</a>
+                            </div>
+                        </div>
+
+                        <!-- Tier 7: Seva Adhara -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="subscription-card">
+                                <div>
+                                    <div class="tier-icon"><i class="fas fa-hands-helping"></i></div> <!-- Changed icon -->
+                                    <h5>Seva Adhara (Foundation of Service)</h5>
+                                    <div class="amount">₹3000 / month</div>
+                                    <p class="description">Become a key pillar supporting our service foundation. Your donation significantly strengthens our operational base, ensuring consistent execution of all Seva.</p>
+                                </div>
+                                <a href="[RZP_PLAN_ADHARA_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-subscribe demi text-white">Subscribe</a>
+                            </div>
+                        </div>
+
+                        <!-- Tier 8: Kalyan Vriksha -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="subscription-card">
+                                <div>
+                                    <div class="tier-icon"><i class="fas fa-tree"></i></div>
+                                    <h5>Kalyan Vriksha (Auspicious Tree)</h5>
+                                    <div class="amount">₹4000 / month</div>
+                                    <p class="description">Nurture the growth of our mission like an auspicious tree. Your generosity allows Ashraya's activities to flourish and expand, offering wider refuge.</p>
+                                </div>
+                                <a href="[RZP_PLAN_VRIKSHA_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-subscribe demi text-white">Subscribe</a>
+                            </div>
+                        </div>
+
+                        <!-- Tier 9: Amrita Sindhu -->
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="subscription-card">
+                                <div>
+                                    <div class="tier-icon"><i class="fas fa-tint"></i></div> <!-- Changed icon -->
+                                    <h5>Amrita Sindhu (Ocean of Nectar)</h5>
+                                    <div class="amount">₹5000+ / month</div>
+                                    <p class="description">Become a boundless source of sustenance. Your profound generosity deeply empowers every aspect of Ashraya's service and allows us to dream bigger.</p>
+                                </div>
+                                <a href="[RZP_PLAN_AMRITA_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-subscribe demi text-white">Subscribe</a>
+                            </div>
+                        </div>
+
+                    </div> <!-- End Row -->
+                    <div class="tax-info mt-4"> <!-- Re-emphasize tax benefit -->
+                        <p class="mb-0"><i class="fas fa-check-circle text-success"></i> All recurring donations are eligible for tax exemption under Section 80G.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- == End Monthly Recurring Donation Section == -->
 
             <!-- Bank Transfer Details -->
             <div class="bank-details mt-4">
@@ -306,7 +502,7 @@
                 </p>
             </div>
             <!-- Donate In-Kind Section -->
-            <div class="in-kind-details mt-5 pt-4" style="background-color: #fff; border-top: 2px solid var(--brand-beige); border-radius: 8px;">
+            <div class="in-kind-details mt-7 pt-4" style="background-color: #fff; border-top: 2px solid var(--brand-beige); border-radius: 8px;">
                 <div class="container"> <!-- Added container for better padding control if needed -->
                     <h3 class="text-center demi text-red mb-3">Donate Goods (In-Kind)</h3>
                     <p class="text-center lite mb-3 col-lg-9 mx-auto">
