@@ -238,8 +238,64 @@
             border: 1px dashed #ccc; /* Dashed border */
             margin-top: 1.5rem;
         }
+        /* --- Responsive Tab Styles --- */
+        @media (max-width: 767.98px) { /* Target screens smaller than Bootstrap 'md' breakpoint */
+            .donation-tabs {
+                border-bottom: none; /* Remove bottom border on the container */
+                margin-bottom: 1rem; /* Add some space below the stacked tabs */
+            }
 
+            .donation-tabs .nav-item {
+                margin-bottom: 5px; /* Add space between stacked tabs */
+                margin-right: 0; /* Remove any horizontal margin */
+                width: 100%; /* Make each tab take full width */
+            }
+
+            .donation-tabs .nav-link {
+                border: 1px solid var(--brand-border-color); /* Add a full border */
+                border-radius: .35rem; /* Apply border radius to all corners */
+                text-align: center; /* Center the text */
+                /* Ensure bottom border is shown */
+                background-color: var(--brand-white); /* Give a clearer background */
+                margin-bottom: -1px; /* Overlap borders slightly like vertical button group */
+                transition: none; /* Disable hover transitions which might look odd when stacked */
+            }
+
+            /* Style for the active tab when stacked */
+            .donation-tabs .nav-link.active {
+                border-color: var(--brand-red); /* Highlight border */
+                background-color: var(--brand-red); /* Red background */
+                color: var(--brand-white); /* White text */
+                /* Ensure consistent border color */
+                font-weight: bold; /* Make text bold */
+            }
+
+            /* Adjust hover for stacked tabs */
+            .donation-tabs .nav-link:hover {
+                background-color: var(--brand-beige); /* Lighter hover background */
+                border-color: var(--brand-border-color); /* Keep standard border on hover unless active */
+                color: var(--brand-red);
+            }
+            .donation-tabs .nav-link.active:hover {
+                background-color: #8a0a12; /* Slightly darker red on hover when active */
+                border-color: #8a0a12;
+                color: var(--brand-white);
+            }
+
+            /* Remove center alignment for the container itself on mobile */
+            .donation-tabs.justify-content-center {
+                justify-content: flex-start !important;
+            }
+
+            /* Add a bit more top padding to the content area when tabs are stacked */
+            .tab-content > .tab-pane {
+                padding-top: 1rem;
+            }
+        }
+
+        /* --- End Responsive Tab Styles --- */
     </style>
+
 </head>
 
 <body>
