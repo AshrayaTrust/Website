@@ -25,6 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="images/Ashraya-logo.webp" as="image" fetchpriority="high">
     <link rel="preload" href="images/about-guriji.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="images/mobile.webp" as="image" fetchpriority="high">
     <!-- Add specific homepage styles if needed -->
     <style>
         /* --- Existing styles from your provided code --- */
@@ -182,6 +183,15 @@
             100% {
                 /* Move left by its own calculated width (content + padding-left) */
                 transform: translateX(-100%);
+            }
+        }
+        @media (max-width: 768px) {
+            /* Adjust breakpoint if needed */
+            .hero-section{
+                /* Your hero image */
+                height: 50vh;
+                /*min-height: 400px;*/
+                background: url('images/mobile.webp') no-repeat center top;
             }
         }
 

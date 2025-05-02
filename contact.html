@@ -23,6 +23,7 @@
     </noscript>
     <link rel="preload" href="images/Ashraya-logo.webp" as="image" fetchpriority="high">
     <link rel="preload" href="images/about-guriji.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="images/mobile.webp" as="image" fetchpriority="high">
     <style>
         body { font-family: "Nunito", sans-serif; }
         /* Add specific contact page styles */
@@ -76,6 +77,16 @@
             100% {
                 /* Move left by its own calculated width (content + padding-left) */
                 transform: translateX(-100%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Adjust breakpoint if needed */
+            .page-header{
+                /* Your hero image */
+                height: 50vh;
+                /*min-height: 400px;*/
+                background: url('images/mobile.webp') no-repeat center top;
             }
         }
 

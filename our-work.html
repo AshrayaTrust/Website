@@ -27,6 +27,7 @@
 
     <link rel="preload" href="images/Ashraya-logo.webp" as="image" fetchpriority="high">
     <link rel="preload" href="images/about-guriji.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="images/mobile.webp" as="image" fetchpriority="high">
     <style>
         .carousel-control-next {
             position: absolute; /* Position it within the carousel container */
@@ -194,6 +195,17 @@
             .project-carousel { margin-bottom: 1.5rem;}
             .google-gallery-btn { display: block; width: 100%; margin-top: 1.5rem; } /* Full width button on mobile */
         }
+
+        @media (max-width: 768px) {
+            /* Adjust breakpoint if needed */
+            .page-header{
+                /* Your hero image */
+                height: 50vh;
+                /*min-height: 400px;*/
+                background: url('images/mobile.webp') no-repeat center top;
+            }
+        }
+
         @media (max-width: 575.98px) {
             .project-section h2 { font-size: 1.6em; }
             .project-carousel .carousel-item img { max-height: 280px; }

@@ -24,6 +24,7 @@
     </noscript>
     <link rel="preload" href="images/Ashraya-logo.webp" as="image" fetchpriority="high">
     <link rel="preload" href="images/about-guriji.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="images/mobile.webp" as="image" fetchpriority="high">
     <style>
         :root {
             --brand-red: #A70D17;       /* The main red color used throughout the site */
@@ -290,6 +291,16 @@
             /* Add a bit more top padding to the content area when tabs are stacked */
             .tab-content > .tab-pane {
                 padding-top: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Adjust breakpoint if needed */
+            .page-header{
+                /* Your hero image */
+                height: 50vh;
+                /*min-height: 400px;*/
+                background: url('images/mobile.webp') no-repeat center top;
             }
         }
 

@@ -23,6 +23,7 @@
     </noscript>
     <link rel="preload" href="images/Ashraya-logo.webp" as="image" fetchpriority="high">
     <link rel="preload" href="images/about-guriji.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="images/mobile.webp" as="image" fetchpriority="high">
     <style>
         body { font-family: "Nunito", sans-serif; }
         /* Add specific get-involved page styles */
@@ -84,6 +85,16 @@
         /* Style for the generic share button */
         #share-button {
             /* Add any specific styling if needed, otherwise relies on btn classes */
+        }
+
+        @media (max-width: 768px) {
+            /* Adjust breakpoint if needed */
+            .page-header {
+                /* Your hero image */
+                height: 50vh;
+                /*min-height: 400px;*/
+                background: url('images/mobile.webp') no-repeat center top;
+            }
         }
     </style>
 </head>
