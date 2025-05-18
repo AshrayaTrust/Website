@@ -249,6 +249,10 @@
                 </div>
                 <div class="second-nav d-flex align-items-center">
                     <nav class="navbar p-0 navbar-expand-lg">
+                        <!-- **** ADDED DESKTOP SHARE BUTTON **** -->
+                        <a href="#" class="py-2 px-4 btn btn-outline-danger demi mr-3 share-trigger" style="border-radius: 20px; display: none;">
+                            <i class="fas fa-share-alt mr-1"></i> Share
+                        </a>
                         <a class="py-2 px-4 btn pulse demi text-white" href="donate.html" style="border-radius: 20px;">DONATE</a>
                     </nav>
                 </div>
@@ -271,6 +275,12 @@
                         <li class='nav-item py-2'><a class="nav-link demi text-white" href="our-work.html">Our Work</a></li>
                         <li class='nav-item py-2'><a class="nav-link demi text-white" href="get-involved.html">Get Involved</a></li>
                         <li class='nav-item py-2'><a class="nav-link demi text-white" href="contact.html">Contact</a></li>
+                        <!-- **** ADDED MOBILE SHARE LINK **** -->
+                        <li class='nav-item py-2'>
+                            <a class="nav-link demi text-white share-trigger" href="#" style="display: none;">
+                                <i class="fas fa-share-alt mr-2"></i>Share Our Work
+                            </a>
+                        </li>
                         <li class='nav-item mt-3'><a class="btn btn-donate d-block text-center text-white" href="donate.html">Donate Now</a></li>
                     </ul>
                 </div>
@@ -611,6 +621,61 @@
             shareButton.style.display = 'none'; // Ensure it's hidden
         }
     });
+
+    // **** REVISED Web Share API Logic for all share triggers ****
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const shareTriggers = document.querySelectorAll('.share-trigger');
+
+        const shareAction = async (e) => {
+            // For <a> tags, prevent default navigation if event object 'e' is passed
+            if (e && typeof e.preventDefault === 'function') {
+                e.preventDefault();
+            }
+            const shareData = {
+                title: 'Ashraya Trust - Serving the Needy', // Customize title
+                text: 'Support Ashraya Trust in their mission to provide food, medical aid, and education to the needy in Kurnool.', // Customize text
+                url: window.location.origin // Shares the main website URL (e.g., https://www.yourngo.org)
+            };
+            try {
+                // Check navigator.share again inside the async function, in case support changed
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    console.log('Ashraya Trust page shared successfully');
+                } else {
+                    console.log('Web Share API became unavailable or was not supported when trying to share.');
+                    // Optionally hide the trigger if it was somehow clicked without API support
+                    if (e && e.currentTarget) {
+                        e.currentTarget.style.display = 'none';
+                    }
+                }
+            } catch (err) {
+                console.error('Share failed:', err.message);
+                // Errors can happen if user cancels, or if sharing is not possible (e.g. no apps)
+            }
+        };
+
+        if (shareTriggers.length > 0 && navigator.share) {
+            shareTriggers.forEach(trigger => {
+                // Set display based on context. 'inline-block' is a good general choice.
+                // For <a> inside <li> (mobile nav), Bootstrap's .nav-link usually handles block display.
+                // Explicitly setting it here ensures visibility.
+                trigger.style.display = 'inline-block';
+                trigger.addEventListener('click', shareAction);
+            });
+        } else {
+            shareTriggers.forEach(trigger => {
+                trigger.style.display = 'none'; // Ensure all share triggers are hidden if API not supported
+            });
+            if (shareTriggers.length > 0 && !navigator.share) {
+                console.log('Web Share API not supported. Share buttons/links are hidden.');
+            } else if (shareTriggers.length === 0) {
+                // This case should ideally not happen if elements are correctly added with 'share-trigger' class
+                console.log('No elements with class "share-trigger" found.');
+            }
+        }
+    });
+    // **** END REVISED Web Share API Logic ****
+
 </script>
 </body>
 </html>
