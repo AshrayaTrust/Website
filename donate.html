@@ -1,224 +1,1113 @@
 <!DOCTYPE html>
 <html lang="en">
-	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Ashraya Trust">
-	<title>Donation</title>
-	<meta name="description" content="Ashraya Trust was established in June 2011 by Avadhoota Nadananda. The Sadh guru has constituted a team to oversee and implement the objectives of Ashraya Trust and the main objective lies in SERVING the NEEDY" />    
-    <script src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
-    <link href="app.css" rel="stylesheet">
-    <link rel="shortcut icon" href="images/favicon.png" >
+    <title>Donate to Ashraya Trust - Support Our Initiatives</title>
+    <meta name="description" content="Support Ashraya Trust's initiatives like food distribution, medical aid, education, Gurukulam, and Ugadi Seva through secure Razorpay Payment Pages. 80G benefits available.">
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="images/favicon.webp">
+    <link href="app.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- ② fetch the CSS file ASAP, but don’t block render -->
+    <link rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap"
+          as="style"
+          onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap">
+    </noscript>
+    <link rel="preload" href="images/Ashraya-logo.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="images/about-guriji.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="images/mobile.webp" as="image" fetchpriority="high">
+    <style>
+        :root {
+            --brand-red: #A70D17;       /* The main red color used throughout the site */
+            --brand-green: #00A88F;     /* A suitable green for subscription buttons (adjust if you have a specific brand green) */
+            --brand-beige: #F0EAE7;     /* A light beige/off-white used for backgrounds/borders */
+            --brand-dark-grey: #404041; /* A dark grey used for text elements, like the subscription amount */
+            --brand-light-grey-bg: #f8f9fa; /* Standard light grey background */
+            --brand-border-color: #dee2e6; /* Standard border color */
+            --brand-white: #ffffff;       /* White */
+            --brand-text-color: #555;     /* Standard paragraph text color */
+        }
+        body { font-family: "Nunito", sans-serif; }
+
+        /* Page Header */
+        .page-header { height: 40vh; min-height: 250px; background: url('images/about-guriji.webp') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
+        .page-header-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1; }
+        .page-header-content { position: relative; z-index: 2; }
+        .page-header h1 { margin-bottom: 0.2em; font-size: 2.5em;}
+        .page-header .lead { font-size: 1.1em; }
+
+        /* Donation Options Section */
+        .donation-options-section { padding: 3rem 0; background-color: #f8f9fa; } /* Increased top/bottom padding */
+
+        /* Tab Styles */
+        .donation-tabs { margin-bottom: 2rem; border-bottom: 2px solid #dee2e6; }
+        .donation-tabs .nav-item { margin-bottom: -2px; } /* Overlap border */
+        .donation-tabs .nav-link {
+            border: 1px solid transparent;
+            border-top-left-radius: .35rem;
+            border-top-right-radius: .35rem;
+            padding: 0.75rem 1.25rem;
+            font-size: 1.05em;
+            font-weight: 600; /* Demi-bold */
+            color: #A70D17; /* Brand Red */
+            background-color: transparent;
+            border-bottom: 2px solid transparent; /* Add space for active border */
+            transition: all 0.2s ease-in-out;
+        }
+        .donation-tabs .nav-link:hover,
+        .donation-tabs .nav-link:focus {
+            border-color: #e9ecef #e9ecef #dee2e6;
+            background-color: #e9ecef; /* Light background on hover */
+            color: #8a0a12; /* Slightly darker red */
+        }
+        .donation-tabs .nav-link.active {
+            color: #A70D17; /* Brand Red */
+            background-color: #fff; /* White background for active */
+            border-color: #dee2e6 #dee2e6 #fff; /* Match border */
+            border-bottom: 2px solid #A70D17; /* Red underline for active */
+        }
+        /* Add padding to tab content */
+        .tab-content > .tab-pane { padding: 2rem 0; }
+        /* Ensure fade effect works */
+        .tab-content > .tab-pane { display: none; }
+        .tab-content > .active { display: block; }
+
+
+        .donation-card {
+            background-color: #fff;
+            padding: 2rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #eee;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            margin-bottom: 1.5rem; /* Add margin between cards */
+        }
+        .donation-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+        .donation-icon { font-size: 3em; color: #A70D17; margin-bottom: 1rem; }
+        .donation-card h4 { color: #A70D17; font-weight: 600; margin-bottom: 0.75rem; font-size: 1.4em; }
+        .donation-card p { color: #555; font-size: 0.95em; line-height: 1.6; flex-grow: 1; margin-bottom: 1.5rem; }
+        .donation-card .btn-donate { width: 100%; padding: 0.7rem 1rem; font-size: 1.05em; }
+        .donation-card .suggestion { font-size: 0.9em; color: #6c757d; margin-top: -1rem; margin-bottom: 1.5rem; }
+
+        .bank-details { background-color: #F0EAE7; padding: 1.5rem; border-radius: 8px; /* Removed margin-top */ }
+        .tax-info { text-align: center; margin-top: 1.5rem; margin-bottom: 2.5rem; padding: 1rem; background-color: var(--brand-beige); border-radius: 5px; }
+
+
+        /* Copy Button Style */
+        .copy-btn { font-size: 0.7em; padding: 0.2em 0.5em; vertical-align: middle; }
+        .copy-btn .fas, .copy-btn .far { margin-right: 3px; }
+        /* Re-use blink from index.html if needed */
+        .marquee-container {
+            background: #A70D17; /* Original background color */
+            color: white;        /* Original text color */
+            overflow: hidden;    /* Crucial: Hides the text outside the container */
+            position: relative;  /* Needed for absolute positioning if used, good practice */
+            width: 100%;         /* Take full width of its parent space */
+            box-sizing: border-box; /* Include padding in width calculations */
+            padding: 0.2em 0;    /* Original padding */
+            /* Ensure it aligns correctly within the flex container if needed */
+            display: flex;       /* Use flex to vertically center content if padding isn't enough */
+            align-items: center; /* Vertically center text */
+        }
+
+        .marquee-content {
+            display: inline-block; /* Treat as a block, but inline for width calculation */
+            white-space: nowrap;   /* Prevent text from wrapping */
+            font-family: sans-serif; /* Or inherit from body */
+            font-weight: 600;      /* Original font weight */
+            will-change: transform; /* Performance hint for the browser */
+
+            /* Animation properties */
+            animation: scroll-left 15s linear infinite; /* Name, Duration, Timing, Iteration */
+
+            /* Start the text off-screen to the right */
+            padding-left: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Pause animation on hover (optional but good UX) */
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* Define the scrolling animation */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0); /* Start position (respecting padding-left) */
+            }
+            100% {
+                /* Move left by its own calculated width (content + padding-left) */
+                transform: translateX(-100%);
+            }
+        }
+
+        /* --- Styles for Monthly Subscription Section --- */
+        .subscription-section {
+            padding: 2rem 0; /* Adjusted padding */
+            background-color: transparent; /* Inherit from tab pane */
+            border: none; /* Remove borders as it's inside a tab */
+        }
+        .subscription-card {
+            background-color: #fff;
+            border: 1px solid var(--brand-beige);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            height: 100%; /* For equal height cards in a row */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .subscription-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+        }
+        .subscription-card .tier-icon {
+            color: #A70D17;
+            font-size: 2.5em; /* Slightly smaller icon */
+            margin-bottom: 0.8rem;
+        }
+        .subscription-card h5 { /* Tier Name */
+            font-weight: 600; /* Demi-bold */
+            color: var(--brand-red);
+            margin-bottom: 0.5rem;
+            font-size: 1.2em;
+        }
+        .subscription-card .amount { /* Amount */
+            font-size: 1.4em;
+            font-weight: 700; /* Bold */
+            color: var(--brand-dark-grey);
+            margin-bottom: 1rem;
+        }
+        .subscription-card .description { /* Description Text */
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.5;
+            flex-grow: 1; /* Pushes button down */
+            margin-bottom: 1.2rem;
+        }
+        /* Removed .subscription-card .btn-subscribe styles as they are no longer used */
+
+        /* --- NEW STYLES FOR RAZORPAY BUTTON INTEGRATION --- */
+        .subscription-card .razorpay-form-wrapper {
+            width: 100%;
+            padding: 0 !important;
+            margin: 0 !important;
+            border: none !important; /* Ensure no border on the form adds to its size */
+            display: block; /* Ensure it's block to contain children properly */
+            overflow: hidden !important; /* THIS SHOULD BE THE KEY FOR CLIPPING */
+            box-sizing: border-box !important;
+            min-width: 0; /* Prevent implicit min-width based on content */
+            position: relative; /* Establishes a containing block for absolutely positioned children if any */
+        }
+
+        /* Target all direct children and key Razorpay elements within the form wrapper */
+        .subscription-card .razorpay-form-wrapper > *, /* Catches the .razorpay-subscription-button div */
+        .subscription-card .razorpay-form-wrapper .razorpay-subscription-button,
+        .subscription-card .razorpay-form-wrapper .subscription-button-widget,
+        .subscription-card .razorpay-form-wrapper .SubscriptionButton {
+            width: 100% !important;
+            max-width: 100% !important; /* Explicitly prevent exceeding 100% */
+            min-width: 0 !important;    /* Override any min-width set by Razorpay */
+            box-sizing: border-box !important; /* Critical for width calculations with padding/border */
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            border-left: none !important; /* Ensure no borders contribute to overflow */
+            border-right: none !important;
+        }
+
+        /* Reset all padding and margin for the main Razorpay containers for good measure */
+        .subscription-card .razorpay-form-wrapper .razorpay-subscription-button,
+        .subscription-card .razorpay-form-wrapper .subscription-button-widget {
+            padding: 0 !important;
+            margin: 0 !important;
+            border: none !important; /* Also remove all borders from these containers */
+        }
+
+        /* Hide the item-label generated by Razorpay button script */
+        .subscription-card .razorpay-form-wrapper .item-label {
+            display: none !important;
+        }
+
+        /* The actual <button type="submit"> element */
+        .subscription-card .razorpay-form-wrapper .SubscriptionButton {
+            /* Most properties handled by the general rule above.
+               Razorpay's theme should handle internal button padding and appearance.
+               Its border-box will ensure its padding is contained. */
+            margin-bottom: 5px !important; /* Add a little space before branding if needed */
+        }
+
+        /* Styling for the Razorpay branding text/link */
+        .subscription-card .razorpay-form-wrapper .SubscriptionButton-rzpBranding {
+            /* width, box-sizing, horizontal padding/margin already handled by the general rule above */
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+            text-align: center;
+            background-color: #fff; /* Ensure it has a white background like in screenshot */
+            /* If the branding itself has a border making it look wider, reset it */
+            border: none !important;
+        }
+
+        /* Match font-weight of old buttons if Razorpay theme doesn't. */
+        .subscription-card .razorpay-form-wrapper .SubscriptionButton-text {
+            font-weight: 600;
+        }
+        /* --- END NEW STYLES FOR RAZORPAY BUTTON INTEGRATION --- */
+        /* --- Styles for In-Kind Section --- */
+        .in-kind-details {
+            background-color: #fff;
+            border: 1px solid #eee; /* Add subtle border */
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem; /* Add space above bank details */
+        }
+        .in-kind-details h3 {
+            margin-bottom: 1.5rem; /* Space below heading */
+        }
+        .in-kind-details h5 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .in-kind-details .list-unstyled i { vertical-align: middle; }
+        .in-kind-details .contact-info-box {
+            background-color: #f8f9fa; /* Light grey background */
+            padding: 1rem 1.5rem;
+            border-radius: 5px;
+            border: 1px dashed #ccc; /* Dashed border */
+            margin-top: 1.5rem;
+        }
+        /* --- Responsive Tab Styles --- */
+        @media (max-width: 767.98px) { /* Target screens smaller than Bootstrap 'md' breakpoint */
+            .donation-tabs {
+                border-bottom: none; /* Remove bottom border on the container */
+                margin-bottom: 1rem; /* Add some space below the stacked tabs */
+            }
+
+            .donation-tabs .nav-item {
+                margin-bottom: 5px; /* Add space between stacked tabs */
+                margin-right: 0; /* Remove any horizontal margin */
+                width: 100%; /* Make each tab take full width */
+            }
+
+            .donation-tabs .nav-link {
+                border: 1px solid var(--brand-border-color); /* Add a full border */
+                border-radius: .35rem; /* Apply border radius to all corners */
+                text-align: center; /* Center the text */
+                /* Ensure bottom border is shown */
+                background-color: var(--brand-white); /* Give a clearer background */
+                margin-bottom: -1px; /* Overlap borders slightly like vertical button group */
+                transition: none; /* Disable hover transitions which might look odd when stacked */
+            }
+
+            /* Style for the active tab when stacked */
+            .donation-tabs .nav-link.active {
+                border-color: var(--brand-red); /* Highlight border */
+                background-color: var(--brand-red); /* Red background */
+                color: var(--brand-white); /* White text */
+                /* Ensure consistent border color */
+                font-weight: bold; /* Make text bold */
+            }
+
+            /* Adjust hover for stacked tabs */
+            .donation-tabs .nav-link:hover {
+                background-color: var(--brand-beige); /* Lighter hover background */
+                border-color: var(--brand-border-color); /* Keep standard border on hover unless active */
+                color: var(--brand-red);
+            }
+            .donation-tabs .nav-link.active:hover {
+                background-color: #8a0a12; /* Slightly darker red on hover when active */
+                border-color: #8a0a12;
+                color: var(--brand-white);
+            }
+
+            /* Remove center alignment for the container itself on mobile */
+            .donation-tabs.justify-content-center {
+                justify-content: flex-start !important;
+            }
+
+            /* Add a bit more top padding to the content area when tabs are stacked */
+            .tab-content > .tab-pane {
+                padding-top: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Adjust breakpoint if needed */
+            .page-header{
+                /* Your hero image */
+                height: 60vh;
+                background-size: cover;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: white;
+                position: relative;
+                min-height: 400px;
+                background: url('images/mobile.webp') no-repeat center top;
+            }
+        }
+
+        /* --- End Responsive Tab Styles --- */
+    </style>
+
 </head>
 
 <body>
-    <div id="app" class="about-us">
-         <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
-<marquee class="blink">80G Tax Benefits For Donations</marquee>
-    <div class="social d-flex align-items-center">
-		<a class="" target="_blank" href="https://www.facebook.com/TARASHRAYA"/> <i class="fab fa-facebook-f"></i> </a>
-		<!-- <a class="" target="_blank" href="https://twitter.com/Ashraya_trust_uk?lang=en"/> <i class="fab fa-twitter"></i> </a>
-		<a class="pr-3" target="_blank" href="https://www.instagram.com/Ashrayatrust"/> <i class="fab fa-instagram"></i> </a> -->
-    </div>
-</div>
-        <div class="site-navigation w-100 text-uppercase pb-3 text-white position-absolute">
-    <div class="container-fluid d-flex align-items-center">
-
-        <div class="main-nav d-flex align-items-center mr-auto">
-
-            <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html"><img src="images/Ashraya-logo.png" class="main-logo img-fluid"/></a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse ml-2 " id="navbarText" style="font-weight:500!important">
-                    <ul class='navbar-nav mr-auto d-flex align-items-center justify-content-between'><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi" href="about-us.html" target="_self">About Us</a></li><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi" href="about-guruji.html" target="_self">About Guruji</a><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi" href="projects.html" target="_self">Our Projects</a></li><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link dropdown demi" href="get-invloved.html" target="_self">Get Involved</a><ul><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi dropdown" href="donate.html" target="_self">Join a campaign</a><ul><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi" href="coronavirus-crisis.html" target="_self">Coronavirus Crisis</a></li></ul></li><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi" href="donate.html" target="_self">Fundraise for us</a><ul><li class='border-right border-white nav-item text-center position-relative text-white'><a class="nav-link demi" href="legacies.html" target="_self">Leave a gift in your will</a></li></ul></li></ul></li></ul>
-
+<div id="app" class="donate-page">
+    <!-- Header (Keep As Is) -->
+    <header>
+        <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
+            <div class="marquee-container flex-grow-1"> <!-- Added flex-grow-1 -->
+                <div class="marquee-content">80G Tax Benefits For Donations</div>
+            </div>
+            <div class="social d-flex align-items-center">
+                <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"> <i class="fab fa-facebook-f"></i> </a>
+                <!--                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->
+                <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
+            </div>
+        </div>
+        <div class="site-navigation w-100 text-uppercase pb-3 text-red position-relative alt-nav" style="background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div class="container-fluid d-flex align-items-center">
+                <div class="main-nav d-flex align-items-center mr-auto">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="index.html"><img src="images/Ashraya-logo.webp" class="main-logo img-fluid" alt="Ashraya Trust Logo" fetchpriority="high"/></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-bars text-dark"></i>
+                        </button>
+                        <div class="collapse navbar-collapse ml-2" id="navbarText">
+                            <ul class='navbar-nav mr-auto d-flex align-items-center'>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="index.html">Home</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="about.html">About Us</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="our-work.html">Our Work</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="get-involved.html">Get Involved</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
-            </nav>
-        </div>
-        <div class="second-nav d-flex align-items-center">
-
-            <a class="cart pr-3 text-white position-relative border-right d-none" href="shop/cart.html"><i class="fas fa-shopping-cart"></i><span class="rounded-circle position-absolute text-white count">0</span></a>
-            <nav class="navbar p-0 navbar-expand-lg">	
-                <a class="py-1 px-5 px-md-4 btn pulse demi py-lg-3 px-lg-5" href="donate.html">DONATE</a>
-            </nav>
-
-        </div>
-    </div>
-</div>
-<div id="mobile-nav">
-    <div class="wrapper">
-        <div class="mobile-top d-flex align-items-center">
-            <a class="" href="index.html"><img src="images/Ashraya-logo.png" class="w-50 img-fluid"/></a>
-
-            <i class="fas fa-bars navbar-toggle collapsed" data-toggle="slide-collapse" data-target="#sidebar-nav" aria-expanded="false"></i>
-        </div>
-    </div>
-    <div class="mobile-buttons d-flex">
-        <a class="btn btn-fundraise" href="donate.html">FUNDRAISE</a>
-        <a class=" btn btn-donate" href="donate.html">DONATE</a>
-    </div>
-    <div class="" id="sidebar-nav" style="width: 80%; display: none;">
-
-        <div class="sidebar-wrapper">
-            <ul class='navbar-nav mr-auto'>
-				<li class='nav-item'><a class="nav-link demi" href="index.html">Home</a></li>
-				<li class='nav-item'><a class="nav-link demi" href="about-us.html">About Us</a></li>
-				<li class='nav-item'><a class="nav-link demi" href="about-guruji.html">About Guriji</a></li>
-				<li class='nav-item'><a class="nav-link demi" href="projects.html">Our Projects</a></li>
-				<li class='nav-item'><a class="nav-link dropdown demi" href="get-invloved.html">Get Involved</a></li>
-				<li class='nav-item'><a class="nav-link demi" href="contact.html">Contact Us</a></li>
-			</ul>            
-        </div>
-
-    </div>
-
-</div>
-                    <div id="carousel" class="carousel slide mb-5 mb-lg-0" data-ride="carousel">
-            <div class="carousel-inner">
-                                                <div class="carousel-item active" style="background-image:url('images/about-guriji.png');
-                        background-position:bottom center">
-                                                    <div class="w-100 h100 mask_bottom" style="mask-image: linear-gradient(to top, black, transparent 75% );
-                                -webkit-mask-image: linear-gradient(to top, black , transparent 75%);"></div>
-                                                                                        <div class="carousel-caption py-5">
-                        <p class="font-xl mb-2 text-uppercase text-white">About us</p>
-                        <h1><div>‘We Serve’</div></h1>
-                                            </div>
+                <div class="second-nav d-flex align-items-center">
+                    <nav class="navbar p-0 navbar-expand-lg">
+                        <!-- **** ADDED DESKTOP SHARE BUTTON **** -->
+                        <a href="#" class="py-2 px-4 btn btn-outline-danger demi mr-3 share-trigger" style="border-radius: 20px; display: none;">
+                            <i class="fas fa-share-alt mr-1"></i> Share
+                        </a>
+                        <a class="py-2 px-4 btn pulse demi text-white" href="donate.html" style="border-radius: 20px;">DONATE</a>
+                    </nav>
                 </div>
-                            <div class="vr wow vrGrowCarousel d-none d-lg-block slow"></div>
+            </div>
         </div>
-            
-</div>
-                        
+        <!-- Mobile Nav (Keep As Is) -->
+        <div id="mobile-nav" class="d-lg-none">
+            <div class="wrapper" style="background: #fff; padding: 10px; border-bottom: 1px solid #eee;">
+                <div class="mobile-top d-flex align-items-center justify-content-between">
+                    <a class="" href="index.html"><img src="images/Ashraya-logo.webp" class="w-50 img-fluid" alt="Ashraya Trust Logo" fetchpriority="high"/></a>
+                    <i class="fas fa-bars navbar-toggle collapsed" data-target="#sidebar-nav" style="font-size: 1.5em; cursor: pointer; color: #404041;"></i>
+                </div>
+            </div>
+            <div class="" id="sidebar-nav" style="display: none; position: fixed; top: 0; left: 0; height: 100%; width: 80%; background: #404041; z-index: 9999; padding-top: 60px; overflow-y: auto;">
+                <i class="fas fa-times navbar-toggle" style="position: absolute; top: 20px; right: 20px; font-size: 1.8em; color: white; cursor: pointer;"></i>
+                <div class="sidebar-wrapper px-3">
+                    <ul class='navbar-nav mr-auto'>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="index.html">Home</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="about.html">About Us</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="our-work.html">Our Work</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="get-involved.html">Get Involved</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="contact.html">Contact</a></li>
+                        <!-- **** ADDED MOBILE SHARE LINK **** -->
+                        <li class='nav-item py-2'>
+                            <a class="nav-link demi text-white share-trigger" href="#" style="display: none;">
+                                <i class="fas fa-share-alt mr-2"></i>Share Our Work
+                            </a>
+                        </li>
+                        <li class='nav-item mt-3'><a class="btn btn-donate d-block text-center text-white" href="donate.html">Donate Now</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
 
-            <div id="content about-us" class="beige-overlay-t top-tear ">
-       <div class="gutenberg__content wp-embed-responsive"><!-- wp:group {"className":"top-content pb-5 pb-md-0"} -->
-<div class="wp-block-group top-content pb-5 pb-md-0"><div class="wp-block-group__inner-container"><!-- wp:group {"className":"container pb-md-4"} -->
-<div class="wp-block-group container pb-md-4"><div class="wp-block-group__inner-container"><!-- wp:columns -->
-<div class="wp-block-columns"><!-- wp:column {"width":7} -->
-<div class="wp-block-column" style="flex-basis:7%"></div>
-<!-- /wp:column -->
+    <!-- Page Header (Keep As Is) -->
+    <section class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>Support Ashraya Trust</h1>
+            <p class="lead">Your contribution directly impacts lives.</p>
+        </div>
+    </section>
 
-<!-- wp:column {"width":93} -->
-<div class="wp-block-column" style="flex-basis:93%"><!-- wp:heading {"level":3,"className":"text-red demi"} -->
-<!-- <h3 class="text-red demi"> For Volunteer Please </h3> -->
-<p class="text-red demi font-xl">For Donation  </p>
-<p class="font-xl demi">
-Ashraya Trust,  Kurnool <br>
-Karnataka Bank <br>
-SB A/c. 4282500100979801 <br>
-IFSC code KARB0000428</p>
-<!-- /wp:heading --></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns -->
-
-<div class="wp-block-column" style="flex-basis:50%">
-
-</div>
-
-
-<!-- /wp:column --></div>
-<!-- /wp:columns -->
-
-<!-- wp:columns {"className":"pb-5"} -->
-<div class="wp-block-columns pb-5"><!-- wp:column -->
-<div class="wp-block-column"></div>
-<!-- /wp:column -->
-
-<!-- wp:column -->
-<div class="wp-block-column"></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns --></div></div>
-<!-- /wp:group --></div></div>
-<!-- /wp:group -->
-
-
-<footer class="footer text-white">
-    <div class="d-none d-sm-flex">
+    <!-- Donation Options Section with Tabs -->
+    <section class="donation-options-section">
         <div class="container">
-            <div class="footer-top pb-2 mt-3 d-flex align-items-center position-relative">
-                <div>
-                    <a href="donate.html" class="btn py-1 px-5 text-uppercase pulse py-lg-3 px-lg-5">Donate</a>
+            <div class="text-center mb-4"> <!-- Adjusted margin -->
+                <h2 class="demi text-red">Choose How You Want to Help</h2>
+                <p class="font-l lite col-lg-8 mx-auto">Select a donation type below. Every contribution makes a difference.</p>
+                <div class="tax-info">
+                    <p class="mb-0"><i class="fas fa-check-circle text-success"></i> All monetary donations are eligible for tax exemption under Section 80G of the Income Tax Act.</p>
                 </div>
-                <div class="social d-flex ml-auto align-items-center">
-                    <div class="icons d-none d-md-block">
-						<a class="" target="_blank" href="https://www.facebook.com/TARASHRAYA"/> <i class="fab fa-facebook-f"></i> </a>                                                    
-						<!-- <a target="_blank" href="https://twitter.com/Ashraya_trust_uk?lang=en"/> <i class="fab fa-twitter"></i> </a>
-						<a target="_blank" href="https://www.instagram.com/Ashrayatrust"/> <i class="fab fa-instagram"></i> </a> -->                                                                                             
+            </div>
+
+            <!-- Nav Tabs -->
+            <ul class="nav nav-tabs donation-tabs justify-content-center" id="donationTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="onetime-tab" data-toggle="tab" href="#onetime" role="tab" aria-controls="onetime" aria-selected="true">
+                        <i class="fas fa-gift mr-1"></i> One-Time Donation
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="monthly-tab" data-toggle="tab" href="#monthly" role="tab" aria-controls="monthly" aria-selected="false">
+                        <i class="fas fa-sync-alt mr-1"></i> Monthly Support
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab" aria-controls="other" aria-selected="false">
+                        <i class="fas fa-hands-helping mr-1"></i> Other Ways to Give
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="donationTabContent">
+
+                <!-- One-Time Donation Tab Pane -->
+                <div class="tab-pane fade show active" id="onetime" role="tabpanel" aria-labelledby="onetime-tab">
+                    <div class="text-center mb-4">
+                        <h3 class="demi text-red">Support a Specific Cause or Give Generally</h3>
+                        <p class="lite">Choose an initiative close to your heart or make a general contribution towards our overall mission.</p>
                     </div>
-                    <div>
-                        <a class="btn rounded-10 py-1 px-5 ml-3 up-white-g py-lg-3 px-lg-5" href="contact.html">CONTACT</a>
+                    <div class="row justify-content-center">
+                        <!-- Kshuda Nivarana Card -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="donation-card">
+                                <div class="donation-icon"><i class="fas fa-utensils"></i></div>
+                                <h4>Kshuda Nivarana - Feed the Hungry</h4>
+                                <p>Support our daily distribution of nutritious meals to patients' attendants, travelers, and the homeless.</p>
+                                <p class="suggestion"><small>Suggested: ₹500 (Sponsors ~10 meals)</small></p>
+                                <a href="[RAZORPAY_KSHUDA_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-donate demi text-white">
+                                    Donate for Food
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Rugna Nivarana Card -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="donation-card">
+                                <div class="donation-icon"><i class="fas fa-first-aid"></i></div>
+                                <h4>Rugna Nivarana - Medical Aid</h4>
+                                <p>Help us provide free medical checkups, medicines, and support through our weekly camps and mobile dispensary.</p>
+                                <p class="suggestion"><small>Suggested: ₹2500 (Supports camp supplies)</small></p>
+                                <a href="[RAZORPAY_RUGNA_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-donate demi text-white">
+                                    Donate for Medical Aid
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Educational Assistance Card -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="donation-card">
+                                <div class="donation-icon"><i class="fas fa-book-reader"></i></div>
+                                <h4>Educational Assistance</h4>
+                                <p>Sponsor a child's education. Your support covers fees, books, uniforms, transport, and enrichment classes.</p>
+                                <p class="suggestion"><small>Suggested: ₹1500 (Supports a child for a month)</small></p>
+                                <a href="[RAZORPAY_EDUCATION_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-donate demi text-white">
+                                    Sponsor Education
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- AksharaTara Gurukulam Card -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="donation-card">
+                                <div class="donation-icon"><i class="fas fa-school"></i></div>
+                                <h4>AksharaTara Gurukulam</h4>
+                                <p>Contribute to our visionary Gurukulam project, blending ancient wisdom with modern learning for holistic child development.</p>
+                                <p class="suggestion"><small>Suggested: ₹2000 (Supports infrastructure/learning)</small></p>
+                                <a href="[RAZORPAY_GURUKULAM_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-donate demi text-white">
+                                    Support Gurukulam
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Ugadi Yatri Seva Card -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="donation-card">
+                                <div class="donation-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                                <h4>Ugadi Yatri Seva</h4>
+                                <p>Help us serve lakhs of pilgrims walking to Srisailam with food, medical aid, wound care, and massage during the annual Ugadi walkathon.</p>
+                                <p class="suggestion"><small>Suggested: ₹1500 (Supports seva materials)</small></p>
+                                <a href="[RAZORPAY_UGADI_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-donate demi text-white">
+                                    Support Ugadi Seva
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- General Donation Card -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="donation-card">
+                                <div class="donation-icon"><i class="fas fa-donate"></i></div>
+                                <h4>General Donation</h4>
+                                <p>Your contribution will be used where the need is greatest across all our service activities. Donate any amount securely.</p>
+                                <p class="suggestion"><small>Any amount welcome</small></p>
+                                <a href="[RAZORPAY_GENERAL_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-donate demi text-white">
+                                    Donate Any Amount
+                                </a>
+                            </div>
+                        </div>
+                    </div> <!-- End Row for One-Time -->
+                </div> <!-- End One-Time Tab Pane -->
+
+                <!-- Monthly Support Tab Pane -->
+                <div class="tab-pane fade" id="monthly" role="tabpanel" aria-labelledby="monthly-tab">
+                    <!-- == Monthly Recurring Donation Section == -->
+                    <div class="subscription-section">
+                        <div class="text-center mb-5">
+                            <h2 class="demi text-red"><i class="fas fa-sync-alt mr-2"></i>Become an Eternal Flame of Seva</h2>
+                            <p class="font-l lite col-lg-9 mx-auto">Your consistent monthly support provides the steady foundation Ashraya Trust needs to sustain and grow all our Seva activities. Choose a level that resonates with your spirit of giving.</p>
+                            <p class="small text-muted">(You can modify or cancel your subscription anytime via Razorpay)</p>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <!-- Tier 1: Ankuram -->
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="subscription-card">
+                                    <div> <!-- Wrapper for content above button -->
+                                        <div class="tier-icon"><i class="fas fa-seedling"></i></div>
+                                        <h5>Ankuram (The Seedling)</h5>
+                                        <div class="amount">₹250 / month</div>
+                                        <p class="description">Plant a seed of regular support. Your monthly ₹250 nurtures the very core of our daily operations, ensuring the groundwork for all Seva is always ready.</p>
+                                    </div>
+                                    <form class="razorpay-form-wrapper">
+                                        <script src="https://cdn.razorpay.com/static/widget/subscription-button.js" data-subscription_button_id="pl_QSpdwlPvGxCHXK" data-button_theme="brand-color" async> </script>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Tier 2: Karuna Dhara -->
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="subscription-card">
+                                    <div>
+                                        <div class="tier-icon"><i class="fas fa-water"></i></div>
+                                        <h5>Karuna Dhara (Stream of Compassion)</h5>
+                                        <div class="amount">₹500 / month</div>
+                                        <p class="description">Let your compassion flow steadily. Your ₹500 each month significantly contributes to the resources needed across all our programs, consistently touching lives.</p>
+                                    </div>
+                                    <form class="razorpay-form-wrapper">
+                                        <!-- IMPORTANT: This ID is the same as Ankuram. Please verify in Razorpay dashboard. -->
+                                        <script src="https://cdn.razorpay.com/static/widget/subscription-button.js" data-subscription_button_id="pl_QSpdziyOJmUDbL" data-button_theme="brand-color" async> </script>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Tier 3: Maitri Shakti -->
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="subscription-card">
+                                    <div>
+                                        <div class="tier-icon"><i class="fas fa-heart"></i></div>
+                                        <h5>Maitri Shakti (Power of Loving-Kindness)</h5>
+                                        <div class="amount">₹1000 / month</div>
+                                        <p class="description">Radiate loving-kindness through tangible action. Your ₹1000 monthly contribution provides a vital boost to our resources, enhancing our capacity to serve consistently.</p>
+                                    </div>
+                                    <form class="razorpay-form-wrapper">
+                                        <script src="https://cdn.razorpay.com/static/widget/subscription-button.js" data-subscription_button_id="pl_QSpkFyafZCQzN5" data-button_theme="brand-color" async> </script>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Tier 4: Jyoti Patha -->
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="subscription-card">
+                                    <div>
+                                        <div class="tier-icon"><i class="fas fa-lightbulb"></i></div>
+                                        <h5>Jyoti Patha (Path of Light)</h5>
+                                        <div class="amount">₹1500 / month</div>
+                                        <p class="description">Illuminate the way forward. Your monthly commitment provides substantial support, strengthening our ability to deliver essential aid and education across the board.</p>
+                                    </div>
+                                    <form class="razorpay-form-wrapper">
+                                        <script src="https://cdn.razorpay.com/static/widget/subscription-button.js" data-subscription_button_id="pl_QSplUMQVWlZ1gM" data-button_theme="brand-color" async> </script>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Tier 5: Samarpan Deepa -->
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="subscription-card">
+                                    <div>
+                                        <div class="tier-icon"><i class="fas fa-praying-hands"></i></div>
+                                        <h5>Samarpan Deepa (Lamp of Dedication)</h5>
+                                        <div class="amount">₹2000 / month</div>
+                                        <p class="description">Keep the lamp of dedicated service burning brightly. Your devoted monthly offering noticeably expands Ashraya's reach, uplifting lives across all Seva activities.</p>
+                                    </div>
+                                    <form class="razorpay-form-wrapper">
+                                        <script src="https://cdn.razorpay.com/static/widget/subscription-button.js" data-subscription_button_id="pl_QSpmtdLFC8kWe3" data-button_theme="brand-color" async> </script>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Tier 6: Abhaya Hastam -->
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="subscription-card">
+                                    <div>
+                                        <div class="tier-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                                        <h5>Abhaya Hastam (Hand of Fearlessness)</h5>
+                                        <div class="amount">₹2500 / month</div>
+                                        <p class="description">Offer a strong hand of support. Your contribution bolsters our capacity significantly, enabling robust service delivery across all initiatives.</p>
+                                    </div>
+                                    <form class="razorpay-form-wrapper">
+                                        <script src="https://cdn.razorpay.com/static/widget/subscription-button.js" data-subscription_button_id="pl_QSpooeOFAE4zVm" data-button_theme="brand-color" async> </script>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Tier 7: Seva Adhara -->
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="subscription-card">
+                                    <div>
+                                        <div class="tier-icon"><i class="fas fa-hands-helping"></i></div>
+                                        <h5>Seva Adhara (Foundation of Service)</h5>
+                                        <div class="amount">₹3000 / month</div>
+                                        <p class="description">Become a key pillar supporting our service foundation. Your donation significantly strengthens our operational base, ensuring consistent execution of all Seva.</p>
+                                    </div>
+                                    <form class="razorpay-form-wrapper">
+                                        <script src="https://cdn.razorpay.com/static/widget/subscription-button.js" data-subscription_button_id="pl_QSprVYVOG05Kbp" data-button_theme="brand-color" async> </script>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Tier 8: Kalyan Vriksha -->
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="subscription-card">
+                                    <div>
+                                        <div class="tier-icon"><i class="fas fa-tree"></i></div>
+                                        <h5>Kalyan Vriksha (Auspicious Tree)</h5>
+                                        <div class="amount">₹4000 / month</div>
+                                        <p class="description">Nurture the growth of our mission like an auspicious tree. Your generosity allows Ashraya's activities to flourish and expand, offering wider refuge.</p>
+                                    </div>
+                                    <form class="razorpay-form-wrapper">
+                                        <script src="https://cdn.razorpay.com/static/widget/subscription-button.js" data-subscription_button_id="pl_QSpsb8aHVYvgTU" data-button_theme="brand-color" async> </script>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Tier 9: Amrita Sindhu -->
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="subscription-card">
+                                    <div>
+                                        <div class="tier-icon"><i class="fas fa-tint"></i></div>
+                                        <h5>Amrita Sindhu (Ocean of Nectar)</h5>
+                                        <div class="amount">₹5000 / month</div>
+                                        <p class="description">Become a boundless source of sustenance. Your profound generosity deeply empowers every aspect of Ashraya's service and allows us to dream bigger.</p>
+                                    </div>
+                                    <form class="razorpay-form-wrapper">
+                                        <script src="https://cdn.razorpay.com/static/widget/subscription-button.js" data-subscription_button_id="pl_QSptf7f5MZrIzX" data-button_theme="brand-color" async> </script>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div> <!-- End Row for Monthly -->
+                        <div class="tax-info mt-4"> <!-- Re-emphasize tax benefit -->
+                            <p class="mb-0"><i class="fas fa-check-circle text-success"></i> All recurring donations are eligible for tax exemption under Section 80G.</p>
+                        </div>
                     </div>
+                    <!-- == End Monthly Recurring Donation Section == -->
+                </div> <!-- End Monthly Support Tab Pane -->
 
+                <!-- Other Ways to Give Tab Pane -->
+                <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10"> <!-- Wider column for this content -->
+                            <!-- Bank Transfer Details -->
+                            <div class="bank-details mb-5"> <!-- Added bottom margin -->
+                                <h4 class="text-center demi text-red mb-3">Alternative: Bank Transfer (NEFT/IMPS)</h4>
+                                <p class="text-center lite mb-1">You can also donate directly to our bank account:</p>
+                                <p class="text-center text-warning small mb-2">
+                                    <strong>Important: This account is for domestic (India) transfers only.</strong><br>
+                                    For overseas/international donations, please contact us first at <a href="mailto:jaimaa@ashrayatrust.org" class="text-red demi">jaimaa@ashrayatrust.org</a> or WhatsApp to 9949993461 for instructions, as FCRA regulations apply.
+                                </p>
+                                <div class="text-center font-l demi">
+                                    Account Name: Ashraya Trust, Kurnool <br>
+                                    Bank: Karnataka Bank <br>
+                                    Account Type: SB (Savings Bank) <br>
+                                    Account No: <span id="account-no">4282500100979801</span>
+                                    <button class="btn btn-sm btn-outline-secondary ml-1 copy-btn"
+                                            data-clipboard-target="#account-no" title="Copy Account Number">
+                                        <i class="far fa-copy"></i> Copy
+                                    </button> <br>
+                                    IFSC Code: <span id="ifsc-code">KARB0000428</span>
+                                    <button class="btn btn-sm btn-outline-secondary ml-1 copy-btn"
+                                            data-clipboard-target="#ifsc-code" title="Copy IFSC Code">
+                                        <i class="far fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                                <p class="text-center lite mt-3" style="font-size: 0.9em;">
+                                    After transferring (domestic only), please share your Name, PAN, Amount, Screenshot/Transaction ID via Email to <a href="mailto:jaimaa@ashrayatrust.org" class="text-red demi"><i class="far fa-envelope"></i> jaimaa@ashrayatrust.org</a> or WhatsApp to
+                                    <a href="https://wa.me/919949993461" target="_blank" rel="noopener noreferrer" class="text-success demi">
+                                        <i class="fab fa-whatsapp"></i> 9949993461
+                                    </a> for the 80G receipt.
+                                </p>
+                            </div>
+
+                            <!-- Donate In-Kind Section -->
+                            <div class="in-kind-details">
+                                <h3 class="text-center demi text-red mb-3">Donate Goods (In-Kind)</h3>
+                                <p class="text-center lite mb-3 col-lg-10 mx-auto">
+                                    Beyond monetary support, your contribution of essential goods directly aids our beneficiaries. We gratefully accept new or gently used items in good condition.
+                                </p>
+                                <h5 class="text-center demi mt-4 mb-3">Items We Often Need:</h5>
+
+                                <!-- Centered List using Grid -->
+                                <div class="row justify-content-center mb-3">
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <ul class="list-unstyled text-left mb-2">
+                                                    <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>Rice, Dal, Cooking Oil, Vegetables</li>
+                                                    <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>Wheat Flour (Atta), Sugar, Salt</li>
+                                                    <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>Spices (Turmeric, Chilli powder etc.)</li>
+                                                    <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>Tea Powder</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <ul class="list-unstyled text-left mb-2">
+                                                    <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>Notebooks, Pens, Pencils</li>
+                                                    <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>School Bags, Geometry Boxes</li>
+                                                    <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>Blankets (Clean, good condition)</li>
+                                                    <li class="lite mb-1"><i class="fas fa-caret-right text-red mr-2"></i>New/Gently Used Clothing (Clean)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="text-center lite mt-2 mb-3"><small>Please ensure food items are within their expiry date and all items are clean and functional.</small></p>
+                                <div class="contact-info-box text-center">
+                                    <p class="lite mb-2">
+                                        Due to storage limitations and specific needs, please contact us before bringing donations to arrange a suitable time and confirm requirements.
+                                    </p>
+                                    <a href="contact.html" class="btn btn-outline-danger demi py-2 px-4">Contact Us to Arrange Donation</a>
+                                </div>
+                            </div>
+                            <!-- End Donate In-Kind Section -->
+                        </div>
+                    </div> <!-- End Row for Other Ways -->
+                </div> <!-- End Other Ways Tab Pane -->
+
+            </div> <!-- End Tab Content -->
+
+        </div> <!-- End Container -->
+    </section>
+
+    <!-- Footer (Keep As Is) -->
+    <footer class="footer text-white">
+        <div class="container py-4">
+            <div class="row">
+                <!-- Contact Info + Social -->
+                <div class="col-lg-4 col-md-5 mb-4">
+                    <h5 class="demi mb-3">Contact Us</h5>
+                    <p class="lite mb-1"><strong>Address:</strong> Ashraya Trust, Plot No. 294, Vishnu Township, NH-44, Kurnool, AP 518003</p>
+                    <!-- **** REMOVED bottom margin from first phone number **** -->
+                    <p class="lite mb-0"><strong>Phone:</strong> <a href="tel:+919949319928" class="text-white">+91 9949319928(Nagaraju)</a></p>
+                    <p class="lite mb-0"><strong>Phone:</strong> <a href="tel:+918885321888" class="text-white">+91 918885321888(Ram Manikanta)</a></p>
+                    <!-- Margin below second Phone (before Email) -->
+
+                    <p class="lite mb-1"><strong>Email:</strong> <a href="mailto:jaimaa@ashrayatrust.org" class="text-white">jaimaa@ashrayatrust.org</a></p>
+                    <div class="social-icons">
+                        <strong>Follow Us:</strong>
+                        <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block ml-2 mr-2" style="font-size: 1.4em;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="text-white d-inline-block mr-2" style="font-size: 1.4em;" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <!-- Add other icons here if needed -->
+                    </div>
                 </div>
 
-            </div>
-            
-            <div class="icons d-md-none mt-3 float-right">
-                <a href="https://www.facebook.com/TARASHRAYA"/><i class="fab fa-facebook-f"></i></a>
-                <!-- <a href="#"/><i class="fab fa-twitter"></i></a>
-                <a href="#"/><i class="fab fa-instagram"></i></a> -->
-            </div>
-            <div class="mb-3 mt-4 d-flex justify-content-between">
-                <h4 class="d-none mb-0 d-md-block">Useful Links</h4>
-
-            </div>
-
-            <div class="footer-bottom d-md-flex">
-                <div class="pr-5 d-none d-md-block">
-                    <ul>
-						<li class='nav-item'><a class="nav-link demi" href="index.html">Home</a></li>
-						<li class='nav-item'><a class="nav-link demi" href="about-us.html">About Us</a></li>
-						<li class='nav-item'><a class="nav-link demi" href="about-guruji.html">About Guriji</a></li>
-						<li class='nav-item'><a class="nav-link demi" href="projects.html">Our Projects</a></li>
-					</ul>
-                </div>
-                <div class="pr-5 d-none d-md-block">
-                    <ul>
-						<li class='nav-item'><a class="nav-link demi" href="projects.html">Our Projects</a></li>
-						<li class='nav-item'><a class="nav-link dropdown demi" href="get-invloved.html">Get Involved</a></li>
-						<li><a class="nav-link" href="donate.html" target="_self">Fundraise for Us</a></li>
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-3 mb-4">
+                    <h5 class="demi mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-white lite">About Us</a></li>
+                        <li><a href="our-work.html" class="text-white lite">Our Work</a></li>
+                        <li><a href="get-involved.html" class="text-white lite">Get Involved</a></li>
+                        <li><a href="donate.html" class="text-white lite">Donate</a></li>
+                        <li><a href="contact.html" class="text-white lite">Contact</a></li>
                     </ul>
                 </div>
 
-                <div class="footer-menu  text-right ml-auto">
-                    The Ashraya Trust<br/>
-                    Plot No. 294, Vishnu Township, <br/>NH-44, Kurnool, AP 518003
+                <!-- Legal Links -->
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h5 class="demi mb-3">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="terms-conditions.html" class="text-white lite">Terms & Conditions</a></li>
+                        <li><a href="privacy-policy.html" class="text-white lite">Privacy Policy</a></li>
+                        <li><a href="cancellation-refund.html" class="text-white lite">Cancellation & Refund</a></li>
+                        <li><a href="shipping-policy.html" class="text-white lite">Shipping & Delivery</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="d-md-flex align-items-center copywright mt-4">                
+            <hr style="border-top: 1px solid rgba(255,255,255,0.2);">
+            <div class="text-center lite" style="font-size: 0.9em;">
+                © <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved.
             </div>
         </div>
-    </div>
-    <div class="d-flex d-md-none">
-        <div class="container">
-            <a href="donate.html" class="btn py-1 px-5 text-uppercase d-block mx-auto mb-4 w-75 pulse">Donate</a>
-
-            <a class="btn rounded-10 py-1 px-5 w-75 up-white-g d-block mx-auto" href="contact.html">CONTACT</a>
-            <div class="icons d-md-none mt-3 d-flex px-5 justify-content-between">
-                <a href="https://www.facebook.com/TARASHRAYA" target="_blank"/><i class="fab fa-facebook-f"></i></a>
-                <!-- <a href="#"/><i class="fab fa-twitter"></i></a>
-                <a href="#"/><i class="fab fa-instagram"></i></a> -->
-            </div>
-            <div class="footer-menu my-4">
-                 The Ashraya Trust<br/>
-				 Plot No. 294, Vishnu Township, <br/>NH-44, Kurnool, AP 518003
-            </div>
-        </div>
-    </div>
-
-</footer>
+    </footer>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Scripts (Keep As Is, Ensure jQuery and Bootstrap JS are included) -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- BEGIN main script block -->
+
 <script>
-	$('.navbar-toggle').on('click', function(){
-		event.preventDefault();
-		$('#sidebar-nav').toggle();
-	});
+    /* ---------------- Mobile nav toggle ---------------- */
+    $('.navbar-toggle').on('click', function (event) {
+        event.stopPropagation();
+        var target = $(this).data('target');
+        $(target).slideToggle(200);
+    });
+    $(document).on('click', function (event) {
+        if (!$(event.target).closest('#sidebar-nav, .navbar-toggle').length) {
+            if ($('#sidebar-nav').is(":visible")) $('#sidebar-nav').slideUp(200);
+        }
+    });
+    $('#sidebar-nav .fa-times').on('click', function () { $('#sidebar-nav').slideUp(200); });
+
+    /* ---------------- Misc dynamic replacements ---------------- */
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+    // Placeholder links for one-time donations - replace with real Razorpay Payment‑Page URLs
+    const razorpayLinks = {
+        food:     "https://rzp.io/rzp/MKuL9dNF",
+        medical:  "https://rzp.io/rzp/qlHMj7ac",
+        education:"https://rzp.io/rzp/NPXLSAKf",
+        gurukulam:"https://rzp.io/rzp/YUlhj1b5",
+        ugadi:    "https://rzp.io/rzp/JHFecC0",
+        general:  "https://rzp.io/rzp/xStFR4Z"
+    };
+    replaceLink("[RAZORPAY_KSHUDA_LINK]", razorpayLinks.food);
+    replaceLink("[RAZORPAY_RUGNA_LINK]", razorpayLinks.medical);
+    replaceLink("[RAZORPAY_EDUCATION_LINK]", razorpayLinks.education);
+    replaceLink("[RAZORPAY_GURUKULAM_LINK]", razorpayLinks.gurukulam);
+    replaceLink("[RAZORPAY_UGADI_LINK]", razorpayLinks.ugadi);
+    replaceLink("[RAZORPAY_GENERAL_LINK]", razorpayLinks.general);
+
+    // Monthly subscription links are now handled by Razorpay's embedded button scripts.
+    // The old razorpaySubscriptionLinks object and related replaceSubscriptionLink calls are removed.
+
+    /**
+     * Helper function to find an anchor tag by its placeholder href and replace it.
+     * Used for one-time donation links.
+     * @param {string} placeholder - The placeholder href value (e.g., "[RAZORPAY_KSHUDA_LINK]")
+     * @param {string} actualLink - The actual Razorpay URL to replace it with.
+     */
+    function replaceLink(placeholder, actualLink) {
+        const element = document.querySelector(`a[href="${placeholder}"]`);
+        if (element) {
+            if (actualLink && typeof actualLink === 'string' && !actualLink.toUpperCase().startsWith("REPLACE_WITH_")) {
+                element.href = actualLink;
+            } else {
+                console.warn(`Link for ${placeholder} not provided or still a placeholder. The corresponding button link will not be updated.`);
+            }
+        } else {
+            console.warn(`Could not find the element with placeholder href: ${placeholder}`);
+        }
+    }
+
+    /**
+     * Copies text to the clipboard using the modern navigator.clipboard API.
+     * Requires a secure context (HTTPS or localhost).
+     * @param {string} text The text to copy.
+     * @returns {Promise<void>} A promise that resolves on success or rejects on failure.
+     */
+    async function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+            try {
+                await navigator.clipboard.writeText(text);
+                console.log('Text copied successfully using Clipboard API.');
+            } catch (err) {
+                console.error('Failed to copy text using Clipboard API:', err);
+                throw new Error('Clipboard write failed');
+            }
+        } else {
+            console.warn('Clipboard API not available or context is insecure. Cannot copy automatically.');
+            throw new Error('Clipboard API not available or context is insecure.');
+        }
+    }
+
+    /**
+     * Shows a temporary "Copied!" message on the button.
+     * @param {HTMLButtonElement} btn The button element.
+     * @param {string} originalHTML The original innerHTML of the button.
+     */
+    function showCopied(btn, originalHTML) {
+        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        btn.disabled = true;
+        setTimeout(() => {
+            if (document.body.contains(btn)) {
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+            }
+        }, 2000);
+    }
+
+    // --- Event Listener Setup for Copy Buttons ---
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        const targetSelector = btn.dataset.clipboardTarget;
+        if (!targetSelector) {
+            console.warn('Button missing data-clipboard-target attribute:', btn);
+            return;
+        }
+        const targetEl = document.querySelector(targetSelector);
+        if (!targetEl) {
+            console.warn(`Target element "${targetSelector}" not found for button:`, btn);
+            return;
+        }
+
+        const originalHTML = btn.innerHTML;
+
+        btn.addEventListener('click', async () => {
+            const text = targetEl.innerText.trim();
+            if (!text) {
+                console.warn('Target element has no text to copy:', targetEl);
+                return;
+            }
+
+            try {
+                await copyText(text);
+                showCopied(btn, originalHTML);
+            } catch (err) {
+                console.error('Copy operation failed:', err);
+                let message = 'Could not copy text. Please copy manually.';
+                if (err && err.message && err.message.includes('Clipboard API not available')) {
+                    message = 'Cannot copy automatically (requires HTTPS or localhost). Please copy manually.';
+                }
+                alert(message);
+            }
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        // ... (any of your existing DOMContentLoaded code like replaceLink, copy-btn listeners etc.)
+
+        function autoSelectRazorpayPlan() {
+            const subscriptionForms = document.querySelectorAll('.subscription-card .razorpay-form-wrapper');
+
+            subscriptionForms.forEach(form => {
+                // Use a MutationObserver to wait for Razorpay to add its elements
+                const observer = new MutationObserver((mutationsList, obs) => {
+                    // Check for the radio button once Razorpay injects content
+                    const radioButton = form.querySelector('input[type="radio"][name="plan_id"]');
+                    if (radioButton) {
+                        if (!radioButton.checked) {
+                            radioButton.checked = true;
+                            // You can add a console.log here for debugging if needed:
+                            // console.log('Auto-checked plan for card containing:', form.closest('.subscription-card').querySelector('h5').textContent.trim());
+                        }
+                        obs.disconnect(); // Stop observing once the radio button is found and handled
+                    }
+                });
+
+                // Start observing the form for child additions
+                observer.observe(form, { childList: true, subtree: true });
+
+                // Fallback timeout, in case the mutation observer is too slow or misses for some reason.
+                // This is less reliable but acts as a safety net.
+                setTimeout(() => {
+                    const radioButton = form.querySelector('input[type="radio"][name="plan_id"]');
+                    if (radioButton && !radioButton.checked) {
+                        radioButton.checked = true;
+                        // console.log('Auto-checked plan (fallback) for card containing:', form.closest('.subscription-card').querySelector('h5').textContent.trim());
+                    }
+                    // If observer is still somehow connected, try to disconnect.
+                    // Check if observer.disconnect is a function before calling.
+                    if (typeof observer.disconnect === 'function') {
+                        try {
+                            observer.disconnect();
+                        } catch (e) { /* ignore if already disconnected or observer instance is gone */ }
+                    }
+                }, 2500); // Adjust timeout (e.g., 1500-3000ms)
+            });
+        }
+
+        // Call the function to set up observers
+        autoSelectRazorpayPlan();
+
+    }); // End of DOMContentLoaded
+
+    // **** REVISED Web Share API Logic for all share triggers ****
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const shareTriggers = document.querySelectorAll('.share-trigger');
+
+        const shareAction = async (e) => {
+            // For <a> tags, prevent default navigation if event object 'e' is passed
+            if (e && typeof e.preventDefault === 'function') {
+                e.preventDefault();
+            }
+            const shareData = {
+                title: 'Ashraya Trust - Serving the Needy', // Customize title
+                text: 'Support Ashraya Trust in their mission to provide food, medical aid, and education to the needy in Kurnool.', // Customize text
+                url: window.location.origin // Shares the main website URL (e.g., https://www.yourngo.org)
+            };
+            try {
+                // Check navigator.share again inside the async function, in case support changed
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    console.log('Ashraya Trust page shared successfully');
+                } else {
+                    console.log('Web Share API became unavailable or was not supported when trying to share.');
+                    // Optionally hide the trigger if it was somehow clicked without API support
+                    if (e && e.currentTarget) {
+                        e.currentTarget.style.display = 'none';
+                    }
+                }
+            } catch (err) {
+                console.error('Share failed:', err.message);
+                // Errors can happen if user cancels, or if sharing is not possible (e.g. no apps)
+            }
+        };
+
+        if (shareTriggers.length > 0 && navigator.share) {
+            shareTriggers.forEach(trigger => {
+                // Set display based on context. 'inline-block' is a good general choice.
+                // For <a> inside <li> (mobile nav), Bootstrap's .nav-link usually handles block display.
+                // Explicitly setting it here ensures visibility.
+                trigger.style.display = 'inline-block';
+                trigger.addEventListener('click', shareAction);
+            });
+        } else {
+            shareTriggers.forEach(trigger => {
+                trigger.style.display = 'none'; // Ensure all share triggers are hidden if API not supported
+            });
+            if (shareTriggers.length > 0 && !navigator.share) {
+                console.log('Web Share API not supported. Share buttons/links are hidden.');
+            } else if (shareTriggers.length === 0) {
+                // This case should ideally not happen if elements are correctly added with 'share-trigger' class
+                console.log('No elements with class "share-trigger" found.');
+            }
+        }
+    });
+    // **** END REVISED Web Share API Logic ****
+
 </script>
+
+<!-- END main script block -->
+
 </body>
 </html>

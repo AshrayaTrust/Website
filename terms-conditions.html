@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Ashraya Trust">
-    <title>Contact Ashraya Trust</title>
-    <meta name="description" content="Get in touch with Ashraya Trust. Find our contact details, address, location map, and send us a message through our contact form.">
+    <title>Terms and Conditions - Ashraya Trust</title>
+    <meta name="description" content="Read the Terms and Conditions for using the Ashraya Trust website and making donations.">
     <script defer src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="images/favicon.webp">
         <link href="app.min.css" rel="stylesheet">
@@ -21,19 +21,17 @@
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap">
     </noscript>
-    <link rel="preload" href="images/Ashraya-logo.webp" as="image" fetchpriority="high">
-    <link rel="preload" href="images/about-guriji.webp" as="image" fetchpriority="high">
-    <link rel="preload" href="images/mobile.webp" as="image" fetchpriority="high">
     <style>
+        /* Include styles from app.css and potentially specific page styles */
         body { font-family: "Nunito", sans-serif; }
-        /* Add specific contact page styles */
         .page-header { height: 40vh; min-height: 250px; background: url('images/about-guriji.webp') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
         .page-header-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1; }
         .page-header-content { position: relative; z-index: 2; }
-        .contact-details { background-color: #f8f9fa; padding: 2rem; border-radius: 8px; }
-        .contact-details h4 { color: #A70D17; }
-        .contact-form { background-color: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        #map-placeholder { height: 400px; background-color: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #6c757d; border: 1px dashed #ccc; margin-top: 2rem;}
+        .policy-content h3 { color: #A70D17; margin-top: 1.5rem; margin-bottom: 0.8rem; font-weight: 600; }
+        .policy-content p, .policy-content li { color: #555; line-height: 1.7; }
+        .policy-content ul { list-style: disc; padding-left: 25px; margin-top: 1rem; }
+        .policy-content { background-color: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        /* Re-use blink from index.html if needed */
 
         /* Re-use blink from index.html if needed */
         .marquee-container {
@@ -79,33 +77,11 @@
                 transform: translateX(-100%);
             }
         }
-
-        @media (max-width: 768px) {
-            /* Adjust breakpoint if needed */
-            .page-header{
-                /* Your hero image */
-                height: 60vh;
-                background-size: cover;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-                color: white;
-                position: relative;
-                min-height: 400px;
-                background: url('images/mobile.webp') no-repeat center top;
-            }
-        }
-
-        /* Re-enable form that was hidden */
-        #contact-form-wrapper { display: block !important; }
     </style>
-    <!-- Add reCAPTCHA script if using -->
-    <!-- <script defer src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 </head>
 <body>
-<div id="app" class="contact-page">
-    <!-- Header (Use the same header structure as about.html) -->
+<div id="app" class="terms-conditions-page">
+    <!-- Header (Copied from about.html) -->
     <header>
         <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
                         <div class="marquee-container flex-grow-1"> <!-- Added flex-grow-1 -->
@@ -114,7 +90,6 @@
             <div class="social d-flex align-items-center">
                 <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"> <i class="fab fa-facebook-f"></i> </a>
 <!--                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->
-
                 <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
             </div>
         </div>
@@ -122,7 +97,7 @@
             <div class="container-fluid d-flex align-items-center">
                 <div class="main-nav d-flex align-items-center mr-auto">
                     <nav class="navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="index.html"><img src="images/Ashraya-logo.webp" class="main-logo img-fluid" alt="Ashraya Trust Logo" fetchpriority="high"/></a>
+                        <a class="navbar-brand" href="index.html"><img src="images/Ashraya-logo.webp" class="main-logo img-fluid" alt="Ashraya Trust Logo"/></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                             <i class="fas fa-bars text-dark"></i>
                         </button>
@@ -148,11 +123,11 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Nav (Use the same structure as index.html) -->
-        <div id="mobile-nav" class="d-lg-none"> <!-- Show only on smaller screens -->
+        <!-- Mobile Nav (Copied from about.html) -->
+        <div id="mobile-nav" class="d-lg-none">
             <div class="wrapper" style="background: #fff; padding: 10px; border-bottom: 1px solid #eee;">
                 <div class="mobile-top d-flex align-items-center justify-content-between">
-                    <a class="" href="index.html"><img src="images/Ashraya-logo.webp" class="w-50 img-fluid" alt="Ashraya Trust Logo" fetchpriority="high"/></a>
+                    <a class="" href="index.html"><img src="images/Ashraya-logo.webp" class="w-50 img-fluid" alt="Ashraya Trust Logo"/></a>
                     <i class="fas fa-bars navbar-toggle collapsed" data-target="#sidebar-nav" style="font-size: 1.5em; cursor: pointer; color: #404041;"></i>
                 </div>
             </div>
@@ -182,55 +157,76 @@
     <section class="page-header">
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
-            <h1>Contact Us</h1>
-            <p class="lead">We'd love to hear from you.</p>
+            <h1>Terms and Conditions</h1>
+            <p class="lead">Please read these terms carefully before using our website or donating.</p>
         </div>
     </section>
 
     <!-- Main Content -->
     <main class="container py-5">
-        <div class="row">
-            <div class="col-lg-5 mb-4 mb-lg-0">
-                <div class="contact-details h-100">
-                    <h3 class="demi text-red mb-4">Get in Touch</h3>
+        <div class="policy-content">
+            <p>Welcome to the Ashraya Trust website (ashrayatrust.org). By accessing or using this website and its services, including making donations, you agree to comply with and be bound by the following terms and conditions. If you do not agree to these terms, please do not use this website.</p>
 
-                    <h4 class="demi"><i class="fas fa-phone-alt mr-2 text-red"></i>Telephone</h4>
-                    <p class="lite ml-4">Nagaraju: <a class="text-grey" href="tel:+919949319928">+919949319928</a></p>
-                    <p class="lite ml-4">Ram Manikanta: <a class="text-grey" href="tel:+918885321888">+918885321888</a></p>
+            <h3>1. Use of Website</h3>
+            <ul>
+                <li>This website is provided for informational purposes about Ashraya Trust and its activities, and to facilitate donations.</li>
+                <li>You agree to use this website only for lawful purposes and in a manner that does not infringe the rights of, restrict, or inhibit anyone else's use and enjoyment of the website.</li>
+                <li>Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offense.</li>
+            </ul>
 
-                    <h4 class="demi mt-4"><i class="fas fa-map-marker-alt mr-2 text-red"></i>Address</h4>
-                    <p class="lite ml-4">The Ashraya Trust<br>
-                        Plot No. 294, Vishnu Township,<br>
-                        NH-44, Kurnool, AP 518003<br>
-                        India
-                    </p>
+            <h3>2. Donations</h3>
+            <ul>
+                <li>Ashraya Trust is a registered non-profit organization based in Kurnool, Andhra Pradesh, India. We utilize donations to fund our charitable activities including, but not limited to, Kshuda Nivarana (Food Distribution), Rugna Nivarana (Medical Aid), Educational Assistance, AksharaTara Gurukulam, and Ugadi Seva.</li>
+                <li>We accept donations through various methods, including the Razorpay payment gateway for online transactions (including one-time and recurring donations/subscriptions) and direct bank transfers.</li>
+                <li>All online donations processed through Razorpay are subject to Razorpay's terms and conditions and privacy policy. Ashraya Trust is not responsible for any issues arising solely from the payment gateway's operations but will assist donors in resolving issues where possible.</li>
+                <li>Donations made to Ashraya Trust are generally non-refundable. Please refer to our <a href="cancellation-refund.html">Cancellation and Refund Policy</a> for details on cancellations and exceptions.</li>
+                <li>Tax Exemption: Donations made to Ashraya Trust are eligible for tax exemption under Section 80G of the Income Tax Act, 1961, India (subject to prevailing regulations). We will issue 80G receipts for eligible donations upon receiving necessary donor information (Name, Address, PAN). Receipts are typically sent via email.</li>
+            </ul>
 
-                    <h4 class="demi mt-4"><i class="fas fa-envelope mr-2 text-red"></i>Email</h4>
-                    <p class="lite ml-4"><a href="mailto:jaimaa@ashrayatrust.org" class="text-grey">jaimaa@ashrayatrust.org</a></p>
-                    <!-- Add Email if available -->
+            <h3>3. Intellectual Property</h3>
+            <ul>
+                <li>The content of this website, including text, graphics, logos, images, and software, is the property of Ashraya Trust or its content suppliers and is protected by copyright and other intellectual property laws.</li>
+                <li>You may view, download, and print pages from the website for your own personal, non-commercial use, provided that you do not modify the material or remove any copyright notices.</li>
+            </ul>
 
-                    <h4 class="demi mt-4"><i class="fas fa-share-alt mr-2 text-red"></i>Social Media</h4>
-                    <p class="lite ml-4">
-                        <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-red d-inline-block mr-3" style="font-size: 1.5em;"><i class="fab fa-facebook-f" style="color: #173e7d;"></i></a>
-                        <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube" style="color: #f83044;"></i> </a>
-                        <!-- Add other social links -->
-                    </p>
+            <h3>4. Privacy Policy</h3>
+            <ul>
+                <li>Your privacy is important to us. Our <a href="privacy-policy.html">Privacy Policy</a> explains how we collect, use, and protect your personal information. By using this website, you consent to the data practices described in the Privacy Policy.</li>
+            </ul>
 
-                    <div id="map-placeholder" class="mt-4">
-                        <!-- Placeholder for Google Maps Embed -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.4748751095376!2d78.0128673!3d15.8316196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb5e0ae91d39141%3A0x5f6feafb0ff60d9c!2sAshraya%20Trust!5e0!3m2!1sen!2sin!4v1744440927432!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
+            <h3>5. Disclaimers</h3>
+            <ul>
+                <li>The information on this website is provided "as is" without any representations or warranties, express or implied. Ashraya Trust makes no representations or warranties in relation to the information and materials provided on this website.</li>
+                <li>While we strive to keep the information up-to-date and correct, we make no warranties about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose.</li>
+                <li>Ashraya Trust does not warrant that the website will be constantly available, or available at all; or that the information on this website is complete, true, accurate or non-misleading.</li>
+            </ul>
 
-            <div class="col-lg-7">
-                <div class="contact-form">
-                    <h3 class="demi text-red mb-4">Send Us a Message</h3>
-                    <div class="google-form-embed">
-                        <iframe src="https://forms.gle/Ztrv11RMP8hyjQLY6" width="100%" height="950">Loading…</iframe>
-                    </div>
-                </div>
-            </div>
+            <h3>6. Limitation of Liability</h3>
+            <ul>
+                <li>Ashraya Trust will not be liable to you (whether under the law of contact, the law of torts or otherwise) in relation to the contents of, or use of, or otherwise in connection with, this website for any indirect, special or consequential loss; or for any business losses, loss of revenue, income, profits or anticipated savings, loss of contracts or business relationships, loss of reputation or goodwill, or loss or corruption of information or data.</li>
+            </ul>
+
+            <h3>7. Links to Other Websites</h3>
+            <ul>
+                <li>Our website may contain links to other websites of interest. However, once you have used these links to leave our site, you should note that we do not have any control over that other website. Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst visiting such sites and such sites are not governed by our terms or privacy statement.</li>
+            </ul>
+
+            <h3>8. Governing Law</h3>
+            <ul>
+                <li>These terms and conditions are governed by and construed in accordance with the laws of India. Any disputes relating to these terms and conditions will be subject to the exclusive jurisdiction of the courts of Kurnool, Andhra Pradesh.</li>
+            </ul>
+
+            <h3>9. Changes to Terms</h3>
+            <ul>
+                <li>Ashraya Trust reserves the right to revise these terms and conditions from time-to-time. Revised terms and conditions will apply to the use of this website from the date of the publication of the revised terms and conditions on this website. Please check this page regularly to ensure you are familiar with the current version.</li>
+            </ul>
+
+            <h3>10. Contact Information</h3>
+            <ul>
+                <li>If you have any questions about these Terms and Conditions, please contact us via the details provided on our <a href="contact.html">Contact page</a>.</li>
+            </ul>
+
+            <p><em>Last Updated: [April 14, 2025]</em></p>
         </div>
     </main>
 
@@ -286,34 +282,26 @@
     </footer>
 </div>
 
-<!-- Scripts -->
+<!-- Scripts (Copied from about.html) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     // Mobile nav toggle
     $('.navbar-toggle').on('click', function(event){
-        event.stopPropagation(); // Prevent event bubbling
+        event.stopPropagation();
         var target = $(this).data('target');
-        // Use slideToggle for a smoother effect, or just toggle
-        $(target).slideToggle(200); // Adjust speed as needed
+        $(target).slideToggle(200);
     });
-
-    // Close mobile nav if clicked outside
     $(document).on('click', function(event) {
         if (!$(event.target).closest('#sidebar-nav, .navbar-toggle').length) {
-            // Check if the sidebar is currently visible before hiding
             if ($('#sidebar-nav').is(":visible")) {
-                $('#sidebar-nav').slideUp(200); // Use slideUp to match slideToggle
+                $('#sidebar-nav').slideUp(200);
             }
         }
     });
-
-    // Close mobile nav using the close icon inside
     $('#sidebar-nav .fa-times').on('click', function(){
-        $('#sidebar-nav').slideUp(200); // Use slideUp
+        $('#sidebar-nav').slideUp(200);
     });
-
-    // Dynamic Copyright Year
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
     // **** REVISED Web Share API Logic for all share triggers ****

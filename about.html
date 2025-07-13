@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Ashraya Trust">
+    <title>About Ashraya Trust - Mission, Founder & Activities</title>
+    <meta name="description" content="Learn about Ashraya Trust's mission, vision, founder Avadhoota Nadananda, and our core activities: food distribution (Kshuda Nivarana), medical aid (Rugna Nivarana), educational support, AksharaTara Gurukulam, and Ugadi Seva.">
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.webp">
+    <!-- Main Stylesheet -->
+        <link href="app.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- ② fetch the CSS file ASAP, but don’t block render -->
+    <link rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap"
+          as="style"
+          onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap">
+    </noscript>
+
+    <style>
+        body.sidebar-open {
+            overflow-x: hidden;
+            /* Optional: Sometimes needed on mobile to prevent body scroll behind fixed nav */
+            /* position: fixed; */
+            /* width: 100%; */
+        }
+        body { font-family: "Nunito", sans-serif; }
+
+        /* Page Header (Unchanged) */
+        .page-header {
+            height: 40vh; min-height: 250px; background: url('images/about-guriji.webp') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative;
+        }
+        .page-header-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.55); z-index: 1; }
+        .page-header-content { position: relative; z-index: 2; }
+        .page-header h1 { margin-bottom: 0.2em; font-size: 2.5em;}
+        .page-header .lead { font-size: 1.1em; }
+
+        /* --- Founder Section with Background Image & Pseudo Overlay --- */
+        #founder {
+            /* !! Replace with your actual image path !! */
+            background: url('images/ashraya-guruji-1.webp') no-repeat scroll center top;
+            background-size: cover;
+            padding: 4rem 1rem;
+            position: relative;
+            color: var(--brand-dark-grey); /* Default color */
+            z-index: 0;
+        }
+        #founder::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white overlay */
+            z-index: 1;
+        }
+        #founder .container { position: relative; z-index: 2; } /* Content container sits above overlay */
+
+        /* --- CORRECTED Text Color Rules inside Founder Container --- */
+        /* Set default text color for specific elements INSIDE the container */
+        #founder .container h3,
+        #founder .container h4,
+        #founder .container p { /* Excluded h2 */
+            color: var(--brand-dark-grey); /* Apply dark grey ONLY to these elements */
+        }
+        /* The H2 element already has the class="... text-red ..." in HTML, let that class handle the color */
+
+        /* Keep styling for blockquote and buttons */
+        #founder .container blockquote {
+            color: var(--brand-dark-grey); /* Ensure blockquote text is dark */
+            background-color: rgba(248, 249, 250, 0.9); /* Slight background for blockquote */
+            border-left: 4px solid var(--brand-red);
+            padding: 1.5rem;
+            margin: 1.8rem 0;
+            font-size: 1.1em;
+            border-radius: 0 5px 5px 0;
+            font-style: italic;
+        }
+        /* Ensure small tag inside blockquote is also dark */
+        #founder .container blockquote small {
+            color: var(--brand-dark-grey);
+        }
+        #founder .container a.btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+            background-color: rgba(255, 255, 255, 0.7); /* Slight background for visibility */
+        }
+        #founder .container a.btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        /* --- End Founder Section Styles --- */
+
+
+        /* --- Carousel Styling --- */
+        .project-carousel {
+            margin-bottom: 1.5rem; border: 1px solid #ddd; padding: 8px; border-radius: 10px; background-color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .project-carousel .carousel-item img {
+            width: 100%; max-height: 400px; object-fit: cover; border-radius: 6px;
+        }
+        .project-carousel .carousel-control-prev-icon,
+        .project-carousel .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.6); border-radius: 50%; padding: 12px; background-size: 55%; width: 45px; height: 45px;
+        }
+        .project-carousel .carousel-control-prev,
+        .project-carousel .carousel-control-next {
+            width: 10%; opacity: 0.8; transition: opacity 0.2s ease;
+        }
+        .project-carousel:hover .carousel-control-prev,
+        .project-carousel:hover .carousel-control-next { opacity: 1; }
+        /* Ensure Bootstrap icons are defined */
+        .carousel-control-prev-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e"); }
+        .carousel-control-next-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e"); }
+        /* --- End Carousel Styling --- */
+
+
+        /* Other Section Styles (Unchanged) */
+        #mission-vision { padding: 2rem 0; margin-bottom: 2rem; }
+        .guruji-books-section { background-color: #f8f9fa; padding: 4rem 1rem; }
+        .activities-section { padding: 4rem 1rem; background-color: #ffffff; }
+        .team-section { padding: 4rem 1rem; background-color: #f8f9fa; }
+
+        /* Styles for content within sections (Unchanged) */
+        .founder-section p { font-size: 1.05em; line-height: 1.75; } /* This rule might still exist, but color is handled by #founder .container p */
+
+        .guruji-books-section .btn i { margin-right: 8px; }
+        /* ... (Rest of the existing activity and team styles) ... */
+        .activities-section .activity-item { margin-bottom: 3rem; }
+        .activities-section .activity-item:last-child { margin-bottom: 0; }
+        .activities-section .activity-item h4 { color: var(--brand-red); font-weight: 600; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--brand-beige); display: inline-block; }
+        .activities-section .activity-item h5 { color: var(--brand-dark-grey); font-weight: 500; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.2em; }
+        .activities-section .activity-item p { font-size: 1em; line-height: 1.7; color: #555; }
+        .activities-section .activity-item ul { list-style: disc; padding-left: 25px; margin-top: 1rem; }
+        .activities-section .activity-item ul li { margin-bottom: 0.5rem; color: #555; }
+
+        .team-section .card { border: 1px solid #eee; transition: box-shadow 0.3s ease; background-color: var(--white); }
+        .team-section .card:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .team-section .card-img-top { height: 200px; object-fit: cover; background-color: #eee; }
+        .team-section .card-title { color: var(--brand-red); }
+
+        /* Re-use blink from index.html if needed */
+        .marquee-container {
+            background: #A70D17; /* Original background color */
+            color: white;        /* Original text color */
+            overflow: hidden;    /* Crucial: Hides the text outside the container */
+            position: relative;  /* Needed for absolute positioning if used, good practice */
+            width: 100%;         /* Take full width of its parent space */
+            box-sizing: border-box; /* Include padding in width calculations */
+            padding: 0.2em 0;    /* Original padding */
+            /* Ensure it aligns correctly within the flex container if needed */
+            display: flex;       /* Use flex to vertically center content if padding isn't enough */
+            align-items: center; /* Vertically center text */
+        }
+
+        .marquee-content {
+            display: inline-block; /* Treat as a block, but inline for width calculation */
+            white-space: nowrap;   /* Prevent text from wrapping */
+            font-family: sans-serif; /* Or inherit from body */
+            font-weight: 600;      /* Original font weight */
+            will-change: transform; /* Performance hint for the browser */
+
+            /* Animation properties */
+            animation: scroll-left 15s linear infinite; /* Name, Duration, Timing, Iteration */
+
+            /* Start the text off-screen to the right */
+            padding-left: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Pause animation on hover (optional but good UX) */
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* Define the scrolling animation */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0); /* Start position (respecting padding-left) */
+            }
+            100% {
+                /* Move left by its own calculated width (content + padding-left) */
+                transform: translateX(-100%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Adjust breakpoint if needed */
+            .page-header{
+                /* Your hero image */
+                height: 60vh;
+                background-size: cover;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: white;
+                position: relative;
+                min-height: 400px;
+                background: url('images/mobile.webp') no-repeat center top;
+            }
+        }
+
+
+    </style>
+    <link rel="preload" href="images/Ashraya-logo.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="images/about-guriji.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="images/mobile.webp" as="image" fetchpriority="high">
+</head>
+<body>
+
+<div id="app" class="about-page">
+    <!-- Header (Standard Inner Page Header - Unchanged) -->
+    <header>
+        <!-- ... (Your existing header code remains unchanged) ... -->
+        <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
+                        <div class="marquee-container flex-grow-1"> <!-- Added flex-grow-1 -->
+                <div class="marquee-content">80G Tax Benefits For Donations</div>
+            </div>
+            <div class="social d-flex align-items-center">
+                <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"> <i class="fab fa-facebook-f"></i> </a>
+<!--                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->
+
+                <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
+            </div>
+        </div>
+        <div class="site-navigation w-100 text-uppercase pb-3 text-red position-relative alt-nav" style="background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div class="container-fluid d-flex align-items-center">
+                <div class="main-nav d-flex align-items-center mr-auto">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="index.html"><img src="images/Ashraya-logo.webp" class="main-logo img-fluid" alt="Ashraya Trust Logo" fetchpriority="high"/></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-bars text-dark"></i>
+                        </button>
+                        <div class="collapse navbar-collapse ml-2" id="navbarText">
+                            <ul class='navbar-nav mr-auto d-flex align-items-center'>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="index.html">Home</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="about.html">About Us</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="our-work.html">Our Work</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="get-involved.html">Get Involved</a></li>
+                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="second-nav d-flex align-items-center">
+                    <nav class="navbar p-0 navbar-expand-lg">
+                        <!-- **** ADDED DESKTOP SHARE BUTTON **** -->
+                        <a href="#" class="py-2 px-4 btn btn-outline-danger demi mr-3 share-trigger" style="border-radius: 20px; display: none;">
+                            <i class="fas fa-share-alt mr-1"></i> Share
+                        </a>
+                        <a class="py-2 px-4 btn pulse demi text-white" href="donate.html" style="border-radius: 20px;">DONATE</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Nav -->
+        <div id="mobile-nav" class="d-lg-none">
+            <div class="wrapper" style="background: #fff; padding: 10px; border-bottom: 1px solid #eee;">
+                <div class="mobile-top d-flex align-items-center justify-content-between">
+                    <a class="" href="index.html"><img src="images/Ashraya-logo.webp" class="w-50 img-fluid" alt="Ashraya Trust Logo" fetchpriority="high"/></a>
+                    <i class="fas fa-bars navbar-toggle collapsed" data-target="#sidebar-nav" style="font-size: 1.5em; cursor: pointer; color: #404041;"></i>
+                </div>
+            </div>
+            <div class="" id="sidebar-nav" style="display: none; position: fixed; top: 0; left: 0; height: 100%; width: 80%; max-width: 80%; /* <-- Added max-width */ background: #404041; z-index: 9999; padding-top: 60px; overflow-y: auto; overflow-x: hidden; /* <-- Added overflow-x */">
+                <i class="fas fa-times navbar-toggle" style="position: absolute; top: 20px; right: 20px; font-size: 1.8em; color: white; cursor: pointer;"></i>
+                <div class="sidebar-wrapper px-3">
+                    <ul class='navbar-nav mr-auto'>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="index.html">Home</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="about.html">About Us</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="our-work.html">Our Work</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="get-involved.html">Get Involved</a></li>
+                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="contact.html">Contact</a></li>
+                        <!-- **** ADDED MOBILE SHARE LINK **** -->
+                        <li class='nav-item py-2'>
+                            <a class="nav-link demi text-white share-trigger" href="#" style="display: none;">
+                                <i class="fas fa-share-alt mr-2"></i>Share Our Work
+                            </a>
+                        </li>
+                        <li class='nav-item mt-3'><a class="btn btn-donate d-block text-center text-white" href="donate.html">Donate Now</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header (Unchanged) -->
+    <section class="page-header">
+        <!-- ... (Page Header HTML remains the same) ... -->
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>About Ashraya Trust</h1>
+            <p class="lead">Our Mission, Our Vision, Our Inspiration, Our Work</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container-fluid px-0">
+        <div class="container py-5">
+            <!-- Mission & Vision Section -->
+            <section id="mission-vision" class="mb-5">
+                <!-- ... (Mission/Vision content remains the same) ... -->
+                <h2 class="text-center demi text-red mb-5">Our Purpose</h2>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <h3 class="demi text-red mb-3"><i class="fas fa-bullseye mr-2"></i>Our Mission</h3>
+                        <p>To serve the needy by providing essential resources like food, medical aid, and educational support, fostering self-reliance and dignity within the community.</p>
+                        <p>Established in June 2011, Ashraya Trust operates primarily in Kurnool, Andhra Pradesh, reaching out to the most vulnerable populations.</p>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <h3 class="demi text-red mb-3"><i class="fas fa-eye mr-2"></i>Our Vision</h3>
+                        <p>A society where everyone has access to basic necessities and opportunities, free from suffering caused by hunger, illness, or lack of education.</p>
+                        <p>We believe in the power of selfless service ('Seva') to not only uplift others but also to bring about inner transformation and realization for those who serve.</p>
+                    </div>
+                </div>
+            </section>
+            <hr class="my-5">
+        </div>
+
+        <!-- Founder Section -->
+        <section id="founder">
+            <div class="container">
+                <!-- This H2 should now use the .text-red class from app.css -->
+                <h2 class="text-center demi text-red mb-5">Our Guiding Light: Avadhoota Nadananda</h2>
+                <div class="row">
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                        <!-- Carousel -->
+                        <div id="carouselFounder" class="carousel slide project-carousel" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="images/guruji/img_1.webp" class="d-block w-100" alt="Avadhoota Nadananda Guruji">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/guruji/img_2.webp" class="d-block w-100" alt="Avadhoota Nadananda Guruji" fetchpriority="high"> <!-- Replace Src -->
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/guruji/img_3.webp" class="d-block w-100" alt="Avadhoota Nadananda Guruji" fetchpriority="high"> <!-- Replace Src -->
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/guruji/img_4.webp" class="d-block w-100" alt="Avadhoota Nadananda Guruji" fetchpriority="high"> <!-- Replace Src -->
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/guruji/img_5.webp" class="d-block w-100" alt="Avadhoota Nadananda Guruji" fetchpriority="high"> <!-- Replace Src -->
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/guruji/img_6.webp" class="d-block w-100" alt="Avadhoota Nadananda Guruji" fetchpriority="high"> <!-- Replace Src -->
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/guruji/img_7.webp" class="d-block w-100" alt="Avadhoota Nadananda Guruji" fetchpriority="high"> <!-- Replace Src -->
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/guruji/img_8.webp" class="d-block w-100" alt="Avadhoota Nadananda Guruji" fetchpriority="high"> <!-- Replace Src -->
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/guruji/img_9.webp" class="d-block w-100" alt="Avadhoota Nadananda Guruji" fetchpriority="high"> <!-- Replace Src -->
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselFounder" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselFounder" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <div class="text-center google-gallery-btn mt-3"> <!-- Added mt-3 for spacing -->
+                            <a href="https://photos.app.goo.gl/f1fJeL4sf1FWHsZ58" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">
+                                <i class="fab fa-google"></i> View More Guruji Photos
+                            </a>
+                        </div>
+                        <a href="https://www.facebook.com/avadhootanadananda" target="_blank" class="btn btn-outline-primary demi mt-4 d-block d-lg-inline-block">
+                            <i class="fab fa-facebook-f mr-2"></i>Follow Guruji on Facebook
+                        </a>
+                    </div>
+                    <div class="col-lg-8">
+                        <!-- ... (Founder Text Content remains the same) ... -->
+                        <h3 class="demi mb-3">An Avadhoota with a Vision and a Mission</h3>
+                        <p>Renouncing behind everything from a remote village of Kerala, Avadhoota Nadananda traveled and did penance in the Himalayan forest, searching for the truth of existence.</p>
+                        <p>Then he realized the sadhana and its accumulated energy must be utilised for the upliftment of depressed, deprived, humiliated, tormented, tortured suffering people around us - this is the real penance. On the banks of Ganga, Narmada, in cities, pilgrim centres he walked around as a parivrajaka to experience their life.</p>
+                        <blockquote class="quote">“Rich people are begging inside abode of Almighty and Poor people are begging for a morsel of food infront abode of Almighty”.<br><small>– His poignant observation.</small></blockquote>
+                        <p>He found a Mission: renunciation is not the only way to realize; service to humanity is also a path. Again he moved around entire India and created teams who understand his philosophy – <strong>‘Service to mankind is service to God’</strong>. He is visible in streets, in slums, among the leprosy patients, in hospital wards, on footpaths, in bus stands, feeding the suffering people, arranging medical camps, teaching small children and clothing them. May be it in Dhar, in Kurnool, in Bangalore, in Visakapatnam surrounded with likeminded devotees who take a vow to serve the needy.</p>
+                        <h4 class="demi mt-4 mb-2">The Guiding Principle: Vision to Serve, Mission to Realize</h4>
+                        <p>He never teaches or preaches any specific tradition or philosophy. Instead, he guides the devotees and team around him to experience oneness with ultimate reality <strong>by serving others</strong>. Devotees experience the body, the mind, the intellect complexes vanish during the service of one or two hours everyday. The journey from individual consciousness to cosmic consciousness was there, is here, and would be there through Seva.</p>
+                        <p>You will never find a rich man moving around him with bundles of notes for his needs. One can witness common man is around him who shares few bucks from their hard-saved money. For Seva, he never begs, nor does he beg for his food. He says, ”Everything is destined and it comes in time.” Thus, money flows for projects, and all are happy.</p>
+                        <p>That visionary and missionary is none other than our Guruji, Avadhoota Nadananda.</p>
+                        <h4 class="demi mt-4 mb-2">Understanding the Avadhoota Path (Insights from Mohanji)</h4>
+                        <p>Mohanji of Ammucare Charitable Trust offers a perspective: "Avadhoota once told me 'When a man becomes mad, he becomes a saint. When saint becomes mad, he becomes an Avadhoota. When Avadhoota becomes mad, he becomes Bhagwan.' Being reveling in their non-existence are Avadhootas. They are totally occupied inside, so much so that the outside world with its materials and flavours carries no meaning to them... Regular human beings... will find it difficult to understand such an existence."</p>
+                        <p>"We live in an atomic universe... made of particles. They are energy manifested into forms... This is the cause of all delusions. An Avadhoota is rooted in the energy beyond the matter within and outside of him. He is never deluded with terrestrial existence."</p>
+                        <p>"One who has nothing to do with terrestrial existence is an Avadhoota... no emotional value of any events of life... occupied in bliss supreme. They remain calm, pure and full of love always. They are spontaneous, unbound and unperturbed about how the society looks at them... Detachment is their garb. Society can only see their seemingly indifferent existence and they mark it as madness."</p>
+                        <p>Regarding Avadhoota Nadananda ji specifically, Mohanji notes: "His life purpose is to lead people towards inner awakening and his deep urge to serve the under-privileged despite his compelling physical conditions. He still sings (trained by Pandit Bhimsen Joshi) and dances despite his binding physical ailments."</p>
+                        <p>Guruji once stated to Mohanji: <strong>“Mohanji , I will remain in action for 300 years after my physical demise, just as Sai Baba of Shirdi continues to work 100 years after his physical exit. Sai Baba was the 39th Pointiff of Gyanganj . I am 48th.”</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr class="my-5">
+
+        <!-- Guruji's Books Section -->
+        <section id="guruji-books" class="guruji-books-section text-center">
+            <div class="container">
+                <!-- ... (Books content remains the same) ... -->
+                <h2 class="text-center demi text-red mb-4">Explore Guruji's Writings</h2>
+                <p class="lite col-lg-8 mx-auto mb-4">
+                    Dive deeper into the wisdom and teachings of Avadhoota Nadananda through his published works. Discover insights on spirituality, service, and the path to realization.
+                </p>
+                <a href="https://www.amazon.in/s?i=stripbooks&rh=p_27%3AAvadhoota%2BNadananda&ref=dp_byline_sr_book_1" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger demi">
+                    <i class="fas fa-book-open mr-2"></i> Find Guruji's Books on Amazon
+                </a>
+            </div>
+        </section>
+        <hr class="my-5">
+
+        <!-- Activities Section -->
+        <section id="activities" class="activities-section">
+            <div class="container">
+                <!-- ... (Activities content remains the same) ... -->
+                <h2 class="text-center demi text-red mb-5">Our Core Activities: Seva in Action</h2>
+                <p class="text-center lite col-lg-8 mx-auto mb-5">Since our inception, Ashraya Trust has focused on addressing fundamental needs within the Kurnool community through consistent and dedicated service initiatives.</p>
+                <div class="activity-item">
+                    <h4><i class="fas fa-utensils mr-2 icon-food"></i>Kshuda Nivarana (Alleviating Hunger)</h4>
+                    <p>The Kshuda Nivarana program ensures that people are fed with food at government hospitals, railway stations, bus stops and other places every single day. The beneficiaries are those who cannot afford their daily bread. Around an estimate of over 1000 food packets are distributed everyday.</p>
+                    <p>During Ugadi Yatri Seva All the enroute devotees are served hot, fresh and nutritious food along with buttermilk for 24 hours. Additionally, drinking water, tea, biscuits, snack and fruits to carry through further journey are provided.</p>
+                    <a href="our-work.html#food" class="btn btn-sm btn-outline-danger demi mt-2">See More <i class="fas fa-arrow-right fa-xs"></i></a>
+                </div>
+                <div class="activity-item">
+                    <h4><i class="fas fa-first-aid mr-2 icon-medical"></i>Rugna Nivarana (Alleviating Sickness)</h4>
+                    <p>On every Sunday the Trust runs free medical camps at the nearby rural segments and provides free medicines. It also runs a mobile dispensary.</p>
+                    <p>During Ugadi Yatri Seva Volunteers are trained by certified doctors on cleaning the wounds and wrapping bandages for all the cuts & wounds on their feet. Special ointments, antiseptic powders etc. are provided for further care. Doctors are available for all the 24 hours in reaching out to the yatris for any of their ailments. There are cases when serious injuries are treated at the camp. Both Homeo and Allopathic medicines are provided at free of cost for these yatris.</p>
+                    <a href="our-work.html#medical" class="btn btn-sm btn-outline-danger demi mt-2">See More <i class="fas fa-arrow-right fa-xs"></i></a>
+                </div>
+                <div class="activity-item">
+                    <h4><i class="fas fa-school mr-2 icon-gurukul"></i>AksharaTara Gurukulam</h4>
+                    <p><strong>The concept:</strong> Mandlem, a village near Kurnool enroute to Srisailam, houses the Asitanga Bhairava Shiva Lingam (Kshetra Palaka). This site, where lakhs find solace during Ugadi Paada Yatra, is the divine location for the AksharaTara Gurukulam.</p>
+                    <p>In Aksharatara Gurukulam, the child's aptitude, aspirations & passion are paramount. Learning is made joyous, focusing on life skills crucial for all-round personality development.</p>
+                    <p><strong>Key points of the Gurukulam are:</strong></p>
+                    <ul>
+                        <li>Integrating modern curriculum with ancient Bharateeya system in a residential programme.</li>
+                        <li>Education spans 15 years (age 5 to 20).</li>
+                        <li>First year involves detailed observation by resident Gurus in a positive environment.</li>
+                        <li>Customised curriculum formulated for each child, introduced in stages.</li>
+                        <li>Aims to teach the 64 Kalas (ancient arts/skills) by graduation.</li>
+                        <li>Parents are integrated into the Gurukulam concept through clear communication.</li>
+                    </ul>
+                    <a href="our-work.html#gurukulam" class="btn btn-sm btn-outline-danger demi mt-2">See More <i class="fas fa-arrow-right fa-xs"></i></a>
+                </div>
+                <div class="activity-item">
+                    <h4><i class="fas fa-hand-holding-heart mr-2 icon-seva"></i>Ugadi Yatri Seva</h4>
+                    <p>An annual seva activity reaching out to devotees walking from various parts of Karnataka to Srisailam for Ugadi. This month-long walkathon involves miles of travel with minimal essentials, often resulting in wounds, aches, and hunger.</p>
+                    <p>Ashraya Trust treats this as an opportunity to serve these divine souls. Preparations begin months in advance, focusing on:</p>
+                    <h5>1. Oil Massage</h5>
+                    <p>Oil Massage to male and female devotees in separate sheds by respective volunteers. The oil, prepared by Guruji with a specific Siddha formula, offers miraculous pain relief and energy restoration.</p>
+                    <h5>2. Food Counter</h5>
+                    <p>24-hour service of hot, fresh, nutritious food and buttermilk. Drinking water, tea, biscuits, snacks, and fruits are also provided.</p>
+                    <h5>3. Wound Cleaning</h5>
+                    <p>Trained volunteers clean and bandage foot wounds, providing ointments and antiseptic powders.</p>
+                    <h5>4. Medical Wing</h5>
+                    <p>Doctors (Homeo and Allopathic) available 24/7 for ailments and injuries, with free medicines provided.</p>
+                    <p><strong>The Concept of Seva:</strong> We see this as Pooja to the walking Shivas, connecting with the eternal through acts of service performed with specific devotional attitudes (Bhaavams) – like a son caring for his father (Ganapati Bhaavam), a wife for her husband (Parvati Bhaavam), a mother feeding her child (Annapoorna Bhaavam), and a disciple serving the Guru (Sishya Bhaavam).</p>
+                    <a href="our-work.html#ugadi" class="btn btn-sm btn-outline-danger demi mt-2">See More <i class="fas fa-arrow-right fa-xs"></i></a>
+                </div>
+            </div>
+        </section>
+        <hr class="my-5">
+
+        <!-- Team Section (Placeholder) -->
+        <!-- Team Section (Updated for Collage with Refined Text) -->
+        <section id="team" class="team-section text-center">
+            <div class="container">
+                <h2 class="demi text-red mb-5">Meet the Core Team</h2> <!-- Changed heading slightly -->
+                <p class="lite mb-4">
+                    Ashraya Trust thrives on the dedication of numerous volunteers inspired by Guruji's vision of Seva. While countless individuals contribute, this collage features the members of our <strong>Core Committee and Governing Body</strong> who help guide our operations and ensure our mission's success.
+                </p>
+
+                <!-- Single Collage Image -->
+                <div class="mb-4">
+<!--                    <img src="images/members.webp"  alt="Ashraya Trust Core Committee and Governing Body Collage" class="img-fluid rounded shadow-sm mx-auto d-block" style="max-width: 700px; height: auto;">-->
+                    <img src="images/members.webp" alt="Ashraya Trust Core Committee and Governing Body Collage" class="img-fluid rounded shadow-sm mx-auto d-block" fetchpriority="high">
+                    <!-- IMPORTANT: Replace "images/team-collage.jpg" with the actual path to your collage image -->
+                    <!-- Consider adding a caption below the image if the collage itself doesn't list roles -->
+                    <!-- <p class="text-muted mt-2"><small>Core Committee & Governing Body Members</small></p> -->
+                </div>
+
+                <a href="get-involved.html" class="btn btn-outline-danger demi mt-3">Join Our Volunteer Team</a> <!-- Slightly reworded button -->
+            </div>
+        </section>
+        <!-- End Team Section -->
+
+    </main>
+
+    <footer class="footer text-white">
+        <div class="container py-4">
+            <div class="row">
+                <!-- Contact Info + Social -->
+                <div class="col-lg-4 col-md-5 mb-4">
+                    <h5 class="demi mb-3">Contact Us</h5>
+                    <p class="lite mb-1"><strong>Address:</strong> Ashraya Trust, Plot No. 294, Vishnu Township, NH-44, Kurnool, AP 518003</p>
+                    <!-- **** REMOVED bottom margin from first phone number **** -->
+                                        <p class="lite mb-0"><strong>Phone:</strong> <a href="tel:+919949319928" class="text-white">+91 9949319928(Nagaraju)</a></p>
+                    <p class="lite mb-0"><strong>Phone:</strong> <a href="tel:+918885321888" class="text-white">+91 918885321888(Ram Manikanta)</a></p>
+                    <!-- Margin below second Phone (before Email) -->
+
+                    <p class="lite mb-1"><strong>Email:</strong> <a href="mailto:jaimaa@ashrayatrust.org" class="text-white">jaimaa@ashrayatrust.org</a></p>
+                    <div class="social-icons">
+                        <strong>Follow Us:</strong>
+                        <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block ml-2 mr-2" style="font-size: 1.4em;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="text-white d-inline-block mr-2" style="font-size: 1.4em;" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <!-- Add other icons here if needed -->
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-3 mb-4">
+                    <h5 class="demi mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-white lite">About Us</a></li>
+                        <li><a href="our-work.html" class="text-white lite">Our Work</a></li>
+                        <li><a href="get-involved.html" class="text-white lite">Get Involved</a></li>
+                        <li><a href="donate.html" class="text-white lite">Donate</a></li>
+                        <li><a href="contact.html" class="text-white lite">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Links -->
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h5 class="demi mb-3">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="terms-conditions.html" class="text-white lite">Terms & Conditions</a></li>
+                        <li><a href="privacy-policy.html" class="text-white lite">Privacy Policy</a></li>
+                        <li><a href="cancellation-refund.html" class="text-white lite">Cancellation & Refund</a></li>
+                        <li><a href="shipping-policy.html" class="text-white lite">Shipping & Delivery</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr style="border-top: 1px solid rgba(255,255,255,0.2);">
+            <div class="text-center lite" style="font-size: 0.9em;">
+                © <span id="copyright-year"></span> Ashraya Trust. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Mobile nav toggle
+    $('.navbar-toggle').on('click', function(event){
+        event.stopPropagation(); // Prevent event bubbling
+        var targetSelector = $(this).data('target'); // Get selector like '#sidebar-nav'
+        var $target = $(targetSelector); // Get the jQuery object for the sidebar
+
+        // Use slideToggle and add/remove class in the callback
+        $target.slideToggle(200, function() {
+            // This function runs *after* the slide animation completes
+            if ($target.is(":visible")) {
+                $('body').addClass('sidebar-open'); // Add class when sidebar is visible
+            } else {
+                $('body').removeClass('sidebar-open'); // Remove class when sidebar is hidden
+            }
+        });
+    });
+
+    // Close mobile nav if clicked outside
+    $(document).on('click', function(event) {
+        var $sidebar = $('#sidebar-nav');
+        // Check if the click is outside the sidebar AND outside the toggle button
+        if (!$sidebar.is(event.target) && $sidebar.has(event.target).length === 0 && !$(event.target).closest('.navbar-toggle').length) {
+            // Check if the sidebar is currently visible before hiding
+            if ($sidebar.is(":visible")) {
+                $sidebar.slideUp(200, function() {
+                    $('body').removeClass('sidebar-open'); // Remove class on close
+                });
+            }
+        }
+    });
+
+    // Close mobile nav using the close icon inside
+    $('#sidebar-nav .fa-times').on('click', function(){
+        $('#sidebar-nav').slideUp(200, function() {
+            $('body').removeClass('sidebar-open'); // Remove class on close
+        });
+    });
+
+    // Dynamic Copyright Year
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+    // Initialize the carousel(s) - Important!
+    $(document).ready(function(){
+        $('.carousel').carousel({
+            interval: false // Optional: Disable auto-sliding for founder images
+        });
+    });
+
+    // **** ADDED Web Share API Logic ****
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const shareButton = document.getElementById('share-button'); // Make sure you have an element with id="share-button" if using this
+
+        // Check if the button exists before adding listener
+        if (shareButton && navigator.share) {
+            // Show the button only if the API is supported
+            shareButton.style.display = 'inline-block'; // Or 'block'
+
+            shareButton.addEventListener('click', async () => {
+                const shareData = {
+                    title: 'Ashraya Trust - Serving the Needy', // Customize title
+                    text: 'Support Ashraya Trust in their mission to provide food, medical aid, and education to the needy in Kurnool.', // Customize text
+                    url: window.location.origin // Shares the main website URL
+                };
+                try {
+                    await navigator.share(shareData);
+                    console.log('Ashraya Trust page shared successfully');
+                } catch (err) {
+                    console.error('Share failed:', err.message);
+                }
+            });
+        } else if (shareButton) {
+            // Handle case where button exists but API isn't supported (optional)
+            console.log('Web Share API not supported or share button not found.');
+            shareButton.style.display = 'none'; // Ensure it's hidden
+        }
+    });
+
+    // **** REVISED Web Share API Logic for all share triggers ****
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const shareTriggers = document.querySelectorAll('.share-trigger');
+
+        const shareAction = async (e) => {
+            // For <a> tags, prevent default navigation if event object 'e' is passed
+            if (e && typeof e.preventDefault === 'function') {
+                e.preventDefault();
+            }
+            const shareData = {
+                title: 'Ashraya Trust - Serving the Needy', // Customize title
+                text: 'Support Ashraya Trust in their mission to provide food, medical aid, and education to the needy in Kurnool.', // Customize text
+                url: window.location.origin // Shares the main website URL (e.g., https://www.yourngo.org)
+            };
+            try {
+                // Check navigator.share again inside the async function, in case support changed
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                    console.log('Ashraya Trust page shared successfully');
+                } else {
+                    console.log('Web Share API became unavailable or was not supported when trying to share.');
+                    // Optionally hide the trigger if it was somehow clicked without API support
+                    if (e && e.currentTarget) {
+                        e.currentTarget.style.display = 'none';
+                    }
+                }
+            } catch (err) {
+                console.error('Share failed:', err.message);
+                // Errors can happen if user cancels, or if sharing is not possible (e.g. no apps)
+            }
+        };
+
+        if (shareTriggers.length > 0 && navigator.share) {
+            shareTriggers.forEach(trigger => {
+                // Set display based on context. 'inline-block' is a good general choice.
+                // For <a> inside <li> (mobile nav), Bootstrap's .nav-link usually handles block display.
+                // Explicitly setting it here ensures visibility.
+                trigger.style.display = 'inline-block';
+                trigger.addEventListener('click', shareAction);
+            });
+        } else {
+            shareTriggers.forEach(trigger => {
+                trigger.style.display = 'none'; // Ensure all share triggers are hidden if API not supported
+            });
+            if (shareTriggers.length > 0 && !navigator.share) {
+                console.log('Web Share API not supported. Share buttons/links are hidden.');
+            } else if (shareTriggers.length === 0) {
+                // This case should ideally not happen if elements are correctly added with 'share-trigger' class
+                console.log('No elements with class "share-trigger" found.');
+            }
+        }
+    });
+    // **** END REVISED Web Share API Logic ****
+
+</script>
+</body>
+</html>

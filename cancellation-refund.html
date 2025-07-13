@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Ashraya Trust">
-    <title>Contact Ashraya Trust</title>
-    <meta name="description" content="Get in touch with Ashraya Trust. Find our contact details, address, location map, and send us a message through our contact form.">
+    <title>Cancellation and Refund Policy - Ashraya Trust</title>
+    <meta name="description" content="Understand Ashraya Trust's policy regarding donation refunds and the cancellation of recurring donations (subscriptions).">
     <script defer src="https://kit.fontawesome.com/bc406c0a10.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="images/favicon.webp">
         <link href="app.min.css" rel="stylesheet">
@@ -21,20 +21,16 @@
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap">
     </noscript>
-    <link rel="preload" href="images/Ashraya-logo.webp" as="image" fetchpriority="high">
-    <link rel="preload" href="images/about-guriji.webp" as="image" fetchpriority="high">
-    <link rel="preload" href="images/mobile.webp" as="image" fetchpriority="high">
     <style>
+        /* Styles copied from terms-conditions.html for consistency */
         body { font-family: "Nunito", sans-serif; }
-        /* Add specific contact page styles */
         .page-header { height: 40vh; min-height: 250px; background: url('images/about-guriji.webp') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
         .page-header-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1; }
         .page-header-content { position: relative; z-index: 2; }
-        .contact-details { background-color: #f8f9fa; padding: 2rem; border-radius: 8px; }
-        .contact-details h4 { color: #A70D17; }
-        .contact-form { background-color: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        #map-placeholder { height: 400px; background-color: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #6c757d; border: 1px dashed #ccc; margin-top: 2rem;}
-
+        .policy-content h3 { color: #A70D17; margin-top: 1.5rem; margin-bottom: 0.8rem; font-weight: 600; }
+        .policy-content p, .policy-content li { color: #555; line-height: 1.7; }
+        .policy-content ul { list-style: disc; padding-left: 25px; margin-top: 1rem; }
+        .policy-content { background-color: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         /* Re-use blink from index.html if needed */
         .marquee-container {
             background: #A70D17; /* Original background color */
@@ -79,33 +75,11 @@
                 transform: translateX(-100%);
             }
         }
-
-        @media (max-width: 768px) {
-            /* Adjust breakpoint if needed */
-            .page-header{
-                /* Your hero image */
-                height: 60vh;
-                background-size: cover;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-                color: white;
-                position: relative;
-                min-height: 400px;
-                background: url('images/mobile.webp') no-repeat center top;
-            }
-        }
-
-        /* Re-enable form that was hidden */
-        #contact-form-wrapper { display: block !important; }
     </style>
-    <!-- Add reCAPTCHA script if using -->
-    <!-- <script defer src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 </head>
 <body>
-<div id="app" class="contact-page">
-    <!-- Header (Use the same header structure as about.html) -->
+<div id="app" class="cancellation-refund-page">
+    <!-- Header (Copied from terms-conditions.html) -->
     <header>
         <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
                         <div class="marquee-container flex-grow-1"> <!-- Added flex-grow-1 -->
@@ -114,7 +88,6 @@
             <div class="social d-flex align-items-center">
                 <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"> <i class="fab fa-facebook-f"></i> </a>
 <!--                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->
-
                 <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
             </div>
         </div>
@@ -122,7 +95,7 @@
             <div class="container-fluid d-flex align-items-center">
                 <div class="main-nav d-flex align-items-center mr-auto">
                     <nav class="navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="index.html"><img src="images/Ashraya-logo.webp" class="main-logo img-fluid" alt="Ashraya Trust Logo" fetchpriority="high"/></a>
+                        <a class="navbar-brand" href="index.html"><img src="images/Ashraya-logo.webp" class="main-logo img-fluid" alt="Ashraya Trust Logo"/></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                             <i class="fas fa-bars text-dark"></i>
                         </button>
@@ -148,11 +121,11 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Nav (Use the same structure as index.html) -->
-        <div id="mobile-nav" class="d-lg-none"> <!-- Show only on smaller screens -->
+        <!-- Mobile Nav (Copied from terms-conditions.html) -->
+        <div id="mobile-nav" class="d-lg-none">
             <div class="wrapper" style="background: #fff; padding: 10px; border-bottom: 1px solid #eee;">
                 <div class="mobile-top d-flex align-items-center justify-content-between">
-                    <a class="" href="index.html"><img src="images/Ashraya-logo.webp" class="w-50 img-fluid" alt="Ashraya Trust Logo" fetchpriority="high"/></a>
+                    <a class="" href="index.html"><img src="images/Ashraya-logo.webp" class="w-50 img-fluid" alt="Ashraya Trust Logo"/></a>
                     <i class="fas fa-bars navbar-toggle collapsed" data-target="#sidebar-nav" style="font-size: 1.5em; cursor: pointer; color: #404041;"></i>
                 </div>
             </div>
@@ -182,55 +155,45 @@
     <section class="page-header">
         <div class="page-header-overlay"></div>
         <div class="page-header-content">
-            <h1>Contact Us</h1>
-            <p class="lead">We'd love to hear from you.</p>
+            <h1>Cancellation & Refund Policy</h1>
+            <p class="lead">Information regarding donation cancellations and refunds.</p>
         </div>
     </section>
 
     <!-- Main Content -->
     <main class="container py-5">
-        <div class="row">
-            <div class="col-lg-5 mb-4 mb-lg-0">
-                <div class="contact-details h-100">
-                    <h3 class="demi text-red mb-4">Get in Touch</h3>
+        <div class="policy-content">
+            <p>Ashraya Trust is grateful for the support we receive from donors like you. Your contributions enable us to carry out our vital seva activities. As a non-profit organization, we utilize these funds directly for our programs.</p>
 
-                    <h4 class="demi"><i class="fas fa-phone-alt mr-2 text-red"></i>Telephone</h4>
-                    <p class="lite ml-4">Nagaraju: <a class="text-grey" href="tel:+919949319928">+919949319928</a></p>
-                    <p class="lite ml-4">Ram Manikanta: <a class="text-grey" href="tel:+918885321888">+918885321888</a></p>
+            <h3>1. Donation Refunds</h3>
+            <ul>
+                <li>Donations made to Ashraya Trust are considered final and are generally <strong>non-refundable</strong>. We deploy resources based on received donations for our charitable activities, and reversing transactions incurs administrative costs.</li>
+                <li>We request donors to be sure before making a donation.</li>
+            </ul>
 
-                    <h4 class="demi mt-4"><i class="fas fa-map-marker-alt mr-2 text-red"></i>Address</h4>
-                    <p class="lite ml-4">The Ashraya Trust<br>
-                        Plot No. 294, Vishnu Township,<br>
-                        NH-44, Kurnool, AP 518003<br>
-                        India
-                    </p>
+            <h3>2. Cancellation of Recurring Donations (Subscriptions)</h3>
+            <ul>
+                <li>If you have set up a recurring donation (subscription) through our payment gateway (Razorpay), you have the right to cancel it at any time.</li>
+                <li>To cancel a recurring donation, please contact us directly via email or call us at the numbers listed on our <a href="contact.html">Contact page</a>. Please provide your name and email address associated with the donation.</li>
+                <li>Alternatively, if available through the Razorpay platform, you may be able to manage your subscription directly via a link provided in your donation confirmation email or through your Razorpay account.</li>
+                <li>Cancellation requests must be received at least <strong>5 business days</strong> before your next scheduled payment date to ensure the cancellation takes effect for that billing cycle. If a cancellation request is received later, the current month's donation might still be processed, and the cancellation will apply from the subsequent billing cycle.</li>
+                <li>No refunds will be provided for past recurring donations already processed.</li>
+            </ul>
 
-                    <h4 class="demi mt-4"><i class="fas fa-envelope mr-2 text-red"></i>Email</h4>
-                    <p class="lite ml-4"><a href="mailto:jaimaa@ashrayatrust.org" class="text-grey">jaimaa@ashrayatrust.org</a></p>
-                    <!-- Add Email if available -->
+            <h3>3. Errors in Donation Processing</h3>
+            <ul>
+                <li>In the rare event of a technical error resulting in an incorrect donation amount or a duplicate transaction being charged, please contact us immediately or call us.</li>
+                <li>We will investigate the issue. If an error is confirmed on our side or by the payment gateway, we will work to correct it, which may include refunding the erroneously charged amount.</li>
+                <li>Refund requests due to technical errors must be made within <strong>7 days</strong> of the transaction date, accompanied by proof of the error (e.g., bank statement screenshot).</li>
+                <li>Any refunds processed under these exceptional circumstances will be made back to the original mode of payment within a reasonable timeframe (typically 7-10 business days), subject to banking and payment gateway processing times.</li>
+            </ul>
 
-                    <h4 class="demi mt-4"><i class="fas fa-share-alt mr-2 text-red"></i>Social Media</h4>
-                    <p class="lite ml-4">
-                        <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-red d-inline-block mr-3" style="font-size: 1.5em;"><i class="fab fa-facebook-f" style="color: #173e7d;"></i></a>
-                        <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube" style="color: #f83044;"></i> </a>
-                        <!-- Add other social links -->
-                    </p>
+            <h3>4. Contact Us</h3>
+            <ul>
+                <li>For any questions regarding cancellations or refunds, please contact us via the details provided on our <a href="contact.html">Contact page</a>.</li>
+            </ul>
 
-                    <div id="map-placeholder" class="mt-4">
-                        <!-- Placeholder for Google Maps Embed -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.4748751095376!2d78.0128673!3d15.8316196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb5e0ae91d39141%3A0x5f6feafb0ff60d9c!2sAshraya%20Trust!5e0!3m2!1sen!2sin!4v1744440927432!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-7">
-                <div class="contact-form">
-                    <h3 class="demi text-red mb-4">Send Us a Message</h3>
-                    <div class="google-form-embed">
-                        <iframe src="https://forms.gle/Ztrv11RMP8hyjQLY6" width="100%" height="950">Loading…</iframe>
-                    </div>
-                </div>
-            </div>
+            <p><em>Last Updated: [April 14, 2025]</em></p>
         </div>
     </main>
 
@@ -286,34 +249,26 @@
     </footer>
 </div>
 
-<!-- Scripts -->
+<!-- Scripts (Copied from terms-conditions.html) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     // Mobile nav toggle
     $('.navbar-toggle').on('click', function(event){
-        event.stopPropagation(); // Prevent event bubbling
+        event.stopPropagation();
         var target = $(this).data('target');
-        // Use slideToggle for a smoother effect, or just toggle
-        $(target).slideToggle(200); // Adjust speed as needed
+        $(target).slideToggle(200);
     });
-
-    // Close mobile nav if clicked outside
     $(document).on('click', function(event) {
         if (!$(event.target).closest('#sidebar-nav, .navbar-toggle').length) {
-            // Check if the sidebar is currently visible before hiding
             if ($('#sidebar-nav').is(":visible")) {
-                $('#sidebar-nav').slideUp(200); // Use slideUp to match slideToggle
+                $('#sidebar-nav').slideUp(200);
             }
         }
     });
-
-    // Close mobile nav using the close icon inside
     $('#sidebar-nav .fa-times').on('click', function(){
-        $('#sidebar-nav').slideUp(200); // Use slideUp
+        $('#sidebar-nav').slideUp(200);
     });
-
-    // Dynamic Copyright Year
     document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
     // **** REVISED Web Share API Logic for all share triggers ****
