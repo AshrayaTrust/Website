@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta name="author" content="Ashraya Trust">
     <title>Donate to Ashraya Trust - Support Our Initiatives</title>
     <meta name="description" content="Support Ashraya Trust's initiatives like food distribution, medical aid, education, Gurukulam, and Ugadi Seva through secure Razorpay Payment Pages. 80G benefits available.">
@@ -36,7 +36,13 @@
             --brand-white: #ffffff;       /* White */
             --brand-text-color: #555;     /* Standard paragraph text color */
         }
-        body { font-family: "Nunito", sans-serif; }
+        body { 
+            font-family: "Nunito", sans-serif; 
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            overflow-x: hidden;
+        }
 
         /* Page Header */
         .page-header { height: 40vh; min-height: 250px; background: url('images/about-guriji.webp') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
@@ -365,9 +371,111 @@
                 min-height: 400px;
                 background: url('images/mobile.webp') no-repeat center top;
             }
+            
+            /* Fix mobile zoom and scaling issues */
+            body {
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+                text-size-adjust: 100%;
+                overflow-x: hidden;
+            }
+            
+            /* Ensure proper container scaling on mobile */
+            .container {
+                max-width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            /* Adjust font sizes for mobile */
+            .page-header h1 {
+                font-size: 2em !important;
+            }
+            
+            .page-header .lead {
+                font-size: 1em !important;
+            }
+            
+            /* Ensure donation cards don't overflow on mobile */
+            .donation-card {
+                padding: 1.5rem 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            /* Adjust subscription cards for mobile */
+            .subscription-card {
+                padding: 1.5rem 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            /* Fix tab navigation on mobile */
+            .donation-tabs .nav-link {
+                font-size: 0.95em;
+                padding: 0.6rem 1rem;
+            }
         }
 
         /* --- End Responsive Tab Styles --- */
+        
+        /* Additional mobile fixes to prevent zoom */
+        @media (max-width: 480px) {
+            /* Extra small devices */
+            .page-header h1 {
+                font-size: 1.8em !important;
+            }
+            
+            .donation-card h4 {
+                font-size: 1.2em !important;
+            }
+            
+            .subscription-card h5 {
+                font-size: 1.1em !important;
+            }
+            
+            .subscription-card .amount {
+                font-size: 1.2em !important;
+            }
+            
+            /* Ensure buttons are properly sized for touch */
+            .btn {
+                min-height: 44px;
+                padding: 0.75rem 1rem;
+            }
+        }
+        
+        /* Prevent horizontal scrolling on all mobile devices */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Ensure images scale properly */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Highlight target section when navigating via anchor */
+        :target {
+            animation: highlight-section 2s ease-out;
+        }
+        
+        @keyframes highlight-section {
+            0% { background-color: rgba(167, 13, 23, 0.1); }
+            100% { background-color: transparent; }
+        }
+        
+        /* Ensure proper spacing for anchor targets */
+        .subscription-card:target,
+        .donation-card:target {
+            padding-top: 20px;
+            margin-top: -20px;
+        }
     </style>
 
 </head>
@@ -561,6 +669,7 @@
 
                 <!-- One-Time Donation Tab Pane -->
                 <div class="tab-pane fade show active" id="onetime" role="tabpanel" aria-labelledby="onetime-tab">
+                    <div id="one-time-donation">
                     <div class="text-center mb-4">
                         <h3 class="demi text-red">Support a Specific Cause or Give Generally</h3>
                         <p class="lite">Choose an initiative close to your heart or make a general contribution towards our overall mission.</p>
@@ -568,7 +677,7 @@
                     <div class="row justify-content-center">
                         <!-- Kshuda Nivarana Card -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="donation-card">
+                            <div class="donation-card" id="kshuda-nivarana">
                                 <div class="donation-icon"><i class="fas fa-utensils"></i></div>
                                 <h4>Kshuda Nivarana - Feed the Hungry</h4>
                                 <p>Support our daily distribution of nutritious meals to patients' attendants, travelers, and the homeless.</p>
@@ -581,7 +690,7 @@
 
                         <!-- Rugna Nivarana Card -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="donation-card">
+                            <div class="donation-card" id="rugna-nivarana">
                                 <div class="donation-icon"><i class="fas fa-first-aid"></i></div>
                                 <h4>Rugna Nivarana - Medical Aid</h4>
                                 <p>Help us provide free medical checkups, medicines, and support through our weekly camps and mobile dispensary.</p>
@@ -594,7 +703,7 @@
 
                         <!-- Educational Assistance Card -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="donation-card">
+                            <div class="donation-card" id="educational-assistance">
                                 <div class="donation-icon"><i class="fas fa-book-reader"></i></div>
                                 <h4>Educational Assistance</h4>
                                 <p>Sponsor a child's education. Your support covers fees, books, uniforms, transport, and enrichment classes.</p>
@@ -609,7 +718,7 @@
 
                         <!-- Ugadi Yatri Seva Card -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="donation-card">
+                            <div class="donation-card" id="ugadi-yatri-seva">
                                 <div class="donation-icon"><i class="fas fa-hand-holding-heart"></i></div>
                                 <h4>Ugadi Yatri Seva</h4>
                                 <p>Help us serve lakhs of pilgrims walking to Srisailam with food, medical aid, wound care, and massage during the annual Ugadi walkathon.</p>
@@ -622,7 +731,7 @@
 
                         <!-- General Donation Card -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="donation-card">
+                            <div class="donation-card" id="general-donation">
                                 <div class="donation-icon"><i class="fas fa-donate"></i></div>
                                 <h4>General Donation</h4>
                                 <p>Your contribution will be used where the need is greatest across all our service activities. Donate any amount securely.</p>
@@ -633,12 +742,13 @@
                             </div>
                         </div>
                     </div> <!-- End Row for One-Time -->
+                    </div> <!-- End One-Time Donation Section -->
                 </div> <!-- End One-Time Tab Pane -->
 
                 <!-- Monthly Support Tab Pane -->
                 <div class="tab-pane fade" id="monthly" role="tabpanel" aria-labelledby="monthly-tab">
                     <!-- == Monthly Recurring Donation Section == -->
-                    <div class="subscription-section">
+                    <div class="subscription-section" id="monthly-support">
                         <div class="text-center mb-5">
                             <h2 class="demi text-red"><i class="fas fa-sync-alt mr-2"></i>Become an Eternal Flame of Seva</h2>
                             <p class="font-l lite col-lg-9 mx-auto">Your consistent monthly support provides the steady foundation Ashraya Trust needs to sustain and grow all our Seva activities. Choose a level that resonates with your spirit of giving.</p>
@@ -648,7 +758,7 @@
                         <div class="row justify-content-center">
                             <!-- Tier 1: Ankuram -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="ankuram-tier">
                                     <div> <!-- Wrapper for content above button -->
                                         <div class="tier-icon"><i class="fas fa-seedling"></i></div>
                                         <h5>Ankuram (The Seedling)</h5>
@@ -663,7 +773,7 @@
 
                             <!-- Tier 2: Karuna Dhara -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="karuna-dhara-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-water"></i></div>
                                         <h5>Karuna Dhara (Stream of Compassion)</h5>
@@ -679,7 +789,7 @@
 
                             <!-- Tier 3: Maitri Shakti -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="maitri-shakti-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-heart"></i></div>
                                         <h5>Maitri Shakti (Power of Loving-Kindness)</h5>
@@ -694,7 +804,7 @@
 
                             <!-- Tier 4: Jyoti Patha -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="jyoti-patha-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-lightbulb"></i></div>
                                         <h5>Jyoti Patha (Path of Light)</h5>
@@ -709,7 +819,7 @@
 
                             <!-- Tier 5: Samarpan Deepa -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="samarpan-deepa-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-praying-hands"></i></div>
                                         <h5>Samarpan Deepa (Lamp of Dedication)</h5>
@@ -724,7 +834,7 @@
 
                             <!-- Tier 6: Abhaya Hastam -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="abhaya-hastam-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-hand-holding-heart"></i></div>
                                         <h5>Abhaya Hastam (Hand of Fearlessness)</h5>
@@ -739,7 +849,7 @@
 
                             <!-- Tier 7: Seva Adhara -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="seva-adhara-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-hands-helping"></i></div>
                                         <h5>Seva Adhara (Foundation of Service)</h5>
@@ -754,7 +864,7 @@
 
                             <!-- Tier 8: Kalyan Vriksha -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="kalyan-vriksha-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-tree"></i></div>
                                         <h5>Kalyan Vriksha (Auspicious Tree)</h5>
@@ -769,7 +879,7 @@
 
                             <!-- Tier 9: Amrita Sindhu -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="amrita-sindhu-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-tint"></i></div>
                                         <h5>Amrita Sindhu (Ocean of Nectar)</h5>
@@ -792,10 +902,10 @@
 
                 <!-- Other Ways to Give Tab Pane -->
                 <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center" id="other-ways-to-give">
                         <div class="col-lg-10"> <!-- Wider column for this content -->
                             <!-- Bank Transfer Details -->
-                            <div class="bank-details mb-5"> <!-- Added bottom margin -->
+                            <div class="bank-details mb-5" id="bank-transfer"> <!-- Added bottom margin -->
                                 <h4 class="text-center demi text-red mb-3">Alternative: Bank Transfer (NEFT/IMPS)</h4>
                                 <p class="text-center lite mb-1">You can also donate directly to our bank account:</p>
                                 <p class="text-center text-warning small mb-2">
@@ -826,7 +936,7 @@
                             </div>
 
                             <!-- Donate In-Kind Section -->
-                            <div class="in-kind-details">
+                            <div class="in-kind-details" id="in-kind-donation">
                                 <h3 class="text-center demi text-red mb-3">Donate Goods (In-Kind)</h3>
                                 <p class="text-center lite mb-3 col-lg-10 mx-auto">
                                     Beyond monetary support, your contribution of essential goods directly aids our beneficiaries. We gratefully accept new or gently used items in good condition.
@@ -1159,6 +1269,73 @@
         }
     });
     // **** END REVISED Web Share API Logic ****
+    
+    // **** ANCHOR LINK NAVIGATION FUNCTIONALITY ****
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle anchor links for direct navigation
+        function handleAnchorNavigation() {
+            const hash = window.location.hash;
+            if (hash) {
+                // Remove the # from the hash
+                const targetId = hash.substring(1);
+                
+                // Check if the target element exists
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    // Determine which tab the target is in
+                    let targetTab = null;
+                    
+                    if (targetId === 'monthly-support' || targetId.includes('-tier')) {
+                        targetTab = 'monthly';
+                    } else if (targetId === 'one-time-donation' || targetId.includes('nivarana') || targetId.includes('assistance') || targetId.includes('seva') || targetId.includes('donation')) {
+                        targetTab = 'onetime';
+                    } else if (targetId === 'other-ways-to-give' || targetId === 'bank-transfer' || targetId === 'in-kind-donation') {
+                        targetTab = 'other';
+                    }
+                    
+                    // Switch to the appropriate tab if needed
+                    if (targetTab) {
+                        const tabButton = document.querySelector(`[data-toggle="tab"][href="#${targetTab}"]`);
+                        if (tabButton) {
+                            tabButton.click();
+                        }
+                    }
+                    
+                    // Scroll to the target element after a short delay to allow tab switching
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        
+                        // Add a subtle highlight effect
+                        targetElement.style.transition = 'background-color 0.3s ease';
+                        targetElement.style.backgroundColor = 'rgba(167, 13, 23, 0.1)';
+                        setTimeout(() => {
+                            targetElement.style.backgroundColor = '';
+                        }, 2000);
+                    }, 300);
+                }
+            }
+        }
+        
+        // Handle initial page load with anchor
+        handleAnchorNavigation();
+        
+        // Handle browser back/forward navigation
+        window.addEventListener('hashchange', handleAnchorNavigation);
+        
+        // Add click handlers for smooth scrolling within the page
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    });
+    // **** END ANCHOR LINK NAVIGATION FUNCTIONALITY ****
 
 </script>
 

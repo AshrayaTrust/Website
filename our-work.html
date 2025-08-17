@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta name="author" content="Ashraya Trust">
     <title>Our Work - Ashraya Trust Initiatives</title>
     <meta name="description" content="Explore the various initiatives of Ashraya Trust, including Kshuda Nivarana (food distribution), Rugna Nivarana (medical aid), educational support, AksharaTara Gurukulam, and Ugadi Seva. See how we serve the needy.">
@@ -138,7 +138,20 @@
         }
 
         /* === General Page Styles === */
-        body { margin: 0; font-family: "Nunito", sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.6; color: var(--text-color); text-align: left; background-color: var(--white); }
+        body { 
+            margin: 0; 
+            font-family: "Nunito", sans-serif; 
+            font-size: 1rem; 
+            font-weight: 400; 
+            line-height: 1.6; 
+            color: var(--text-color); 
+            text-align: left; 
+            background-color: var(--white);
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            overflow-x: hidden;
+        }
 
         /* Page Header */
         .page-header { height: 40vh; min-height: 250px; background: url('images/about-guriji.webp') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
@@ -211,6 +224,39 @@
                 min-height: 400px;
                 background: url('images/mobile.webp') no-repeat center top;
             }
+            
+            /* Fix mobile zoom and scaling issues */
+            body {
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+                text-size-adjust: 100%;
+                overflow-x: hidden;
+            }
+            
+            /* Ensure proper container scaling on mobile */
+            .container {
+                max-width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            /* Adjust font sizes for mobile */
+            .page-header h1 {
+                font-size: 2em !important;
+            }
+            
+            .page-header .lead {
+                font-size: 1em !important;
+            }
+            
+            /* Ensure project sections don't overflow on mobile */
+            .project-section {
+                padding: 2rem 0;
+            }
+            
+            .project-carousel {
+                margin: 0 -15px;
+            }
         }
 
         @media (max-width: 575.98px) {
@@ -262,7 +308,40 @@
                 transform: translateX(-100%);
             }
         }
-
+        
+        /* Additional mobile fixes to prevent zoom */
+        @media (max-width: 480px) {
+            /* Extra small devices */
+            .page-header h1 {
+                font-size: 1.8em !important;
+            }
+            
+            .project-section h2 {
+                font-size: 1.5em !important;
+            }
+            
+            .project-section h3.sub-heading {
+                font-size: 1.4em !important;
+            }
+            
+            /* Ensure buttons are properly sized for touch */
+            .btn {
+                min-height: 44px;
+                padding: 0.75rem 1rem;
+            }
+        }
+        
+        /* Prevent horizontal scrolling on all mobile devices */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Ensure images scale properly */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>

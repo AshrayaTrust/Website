@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta name="author" content="Ashraya Trust">
     <title>About Ashraya Trust - Mission, Founder & Activities</title>
     <meta name="description" content="Learn about Ashraya Trust's mission, vision, founder Avadhoota Nadananda, and our core activities: food distribution (Kshuda Nivarana), medical aid (Rugna Nivarana), educational support, AksharaTara Gurukulam, and Ugadi Seva.">
@@ -32,7 +32,13 @@
             /* position: fixed; */
             /* width: 100%; */
         }
-        body { font-family: "Nunito", sans-serif; }
+        body { 
+            font-family: "Nunito", sans-serif; 
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            overflow-x: hidden;
+        }
 
         /* Page Header (Unchanged) */
         .page-header {
@@ -203,9 +209,70 @@
                 min-height: 400px;
                 background: url('images/mobile.webp') no-repeat center top;
             }
+            
+            /* Fix mobile zoom and scaling issues */
+            body {
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+                text-size-adjust: 100%;
+                overflow-x: hidden;
+            }
+            
+            /* Ensure proper container scaling on mobile */
+            .container {
+                max-width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            /* Adjust font sizes for mobile */
+            .page-header h1 {
+                font-size: 2em !important;
+            }
+            
+            .page-header .lead {
+                font-size: 1em !important;
+            }
+            
+            /* Ensure content doesn't overflow on mobile */
+            #founder {
+                padding: 2rem 1rem;
+            }
+            
+            .project-carousel {
+                margin: 0 -15px;
+            }
         }
-
-
+        
+        /* Additional mobile fixes to prevent zoom */
+        @media (max-width: 480px) {
+            /* Extra small devices */
+            .page-header h1 {
+                font-size: 1.8em !important;
+            }
+            
+            #founder h3 {
+                font-size: 1.3em !important;
+            }
+            
+            /* Ensure buttons are properly sized for touch */
+            .btn {
+                min-height: 44px;
+                padding: 0.75rem 1rem;
+            }
+        }
+        
+        /* Prevent horizontal scrolling on all mobile devices */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Ensure images scale properly */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
     <link rel="preload" href="images/Ashraya-logo.webp" as="image" fetchpriority="high">
     <link rel="preload" href="images/about-guriji.webp" as="image" fetchpriority="high">

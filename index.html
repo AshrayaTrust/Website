@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta name="author" content="Ashraya Trust">
     <title>Ashraya Trust - Serving the Needy Since 2011</title> <!-- Added year to title -->
     <meta name="description" content="Operating for over 14 years, Ashraya Trust, founded by Avadhoota Nadananda, is dedicated to serving the needy through food distribution, medical aid, and educational support in Kurnool, AP. Join us in making a difference.">
@@ -39,7 +39,13 @@
             --text-color: #404041;
             --white: #fff;
         }
-        body { font-family: "Nunito", sans-serif; } /* Define font if not in app.css */
+        body { 
+            font-family: "Nunito", sans-serif; 
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            overflow-x: hidden;
+        } /* Define font if not in app.css */
         .hero-section {
             height: 85vh; /* Adjust as needed */
             min-height: 500px;
@@ -193,8 +199,77 @@
                 /*min-height: 400px;*/
                 background: url('images/mobile.webp') no-repeat center top;
             }
+            
+            /* Fix mobile zoom and scaling issues */
+            body {
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+                text-size-adjust: 100%;
+                overflow-x: hidden;
+            }
+            
+            /* Ensure proper container scaling on mobile */
+            .container {
+                max-width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            /* Adjust font sizes for mobile */
+            .hero-content h1 {
+                font-size: 2.2em !important;
+            }
+            
+            .hero-content p {
+                font-size: 1.1em !important;
+            }
+            
+            /* Ensure cards don't overflow on mobile */
+            .focus-card {
+                padding: 1.5rem 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .story-card img {
+                width: 120px;
+                height: 120px;
+                margin-right: 1rem;
+            }
         }
-
+        
+        /* Additional mobile fixes to prevent zoom */
+        @media (max-width: 480px) {
+            /* Extra small devices */
+            .hero-content h1 {
+                font-size: 1.8em !important;
+            }
+            
+            .focus-card h3 {
+                font-size: 1.3em !important;
+            }
+            
+            .impact-card h3 {
+                font-size: 2em !important;
+            }
+            
+            /* Ensure buttons are properly sized for touch */
+            .btn {
+                min-height: 44px;
+                padding: 0.75rem 1rem;
+            }
+        }
+        
+        /* Prevent horizontal scrolling on all mobile devices */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Ensure images scale properly */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
