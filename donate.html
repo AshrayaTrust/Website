@@ -1334,6 +1334,50 @@
                 }
             });
         });
+        
+        // Enhanced tab click behavior - scroll to show first tier/card
+        document.querySelectorAll('.donation-tabs .nav-link').forEach(tabLink => {
+            tabLink.addEventListener('click', function(e) {
+                const targetTab = this.getAttribute('href').substring(1);
+                let scrollTarget = null;
+                
+                // Determine which element to scroll to based on the tab
+                if (targetTab === 'monthly') {
+                    // Scroll to show the first monthly tier (Ankuram)
+                    scrollTarget = document.getElementById('ankuram-tier');
+                } else if (targetTab === 'onetime') {
+                    // Scroll to show the first one-time donation card (Kshuda Nivarana)
+                    scrollTarget = document.getElementById('kshuda-nivarana');
+                } else if (targetTab === 'other') {
+                    // Scroll to show the bank transfer section
+                    scrollTarget = document.getElementById('bank-transfer');
+                }
+                
+                // Use a more reliable method to wait for tab content to be visible
+                const checkAndScroll = () => {
+                    if (scrollTarget && scrollTarget.offsetParent !== null) {
+                        // Element is visible, now scroll to it
+                        scrollTarget.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center' // Center the first card for better visibility
+                        });
+                        
+                        // Add a subtle highlight effect to the first card
+                        scrollTarget.style.transition = 'background-color 0.3s ease';
+                        scrollTarget.style.backgroundColor = 'rgba(167, 13, 23, 0.05)';
+                        setTimeout(() => {
+                            scrollTarget.style.backgroundColor = '';
+                        }, 1500);
+                    } else {
+                        // Element not yet visible, check again in a short while
+                        setTimeout(checkAndScroll, 50);
+                    }
+                };
+                
+                // Start checking immediately and continue until element is visible
+                checkAndScroll();
+            });
+        });
     });
     // **** END ANCHOR LINK NAVIGATION FUNCTIONALITY ****
 
