@@ -1322,7 +1322,7 @@
         // Handle browser back/forward navigation
         window.addEventListener('hashchange', handleAnchorNavigation);
         
-        // Add click handlers for smooth scrolling within the page
+        // Add click handlers for smooth scrolling within the page and update URL
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1330,27 +1330,49 @@
                 const targetElement = document.getElementById(targetId);
                 
                 if (targetElement) {
+                    // Update the browser URL with the anchor link
+                    const newUrl = window.location.pathname + '#' + targetId;
+                    window.history.pushState({ path: newUrl }, '', newUrl);
+                    
+                    // Scroll to the target element
                     targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Add a subtle highlight effect
+                    targetElement.style.transition = 'background-color 0.3s ease';
+                    targetElement.style.backgroundColor = 'rgba(167, 13, 23, 0.1)';
+                    setTimeout(() => {
+                        targetElement.style.backgroundColor = '';
+                    }, 2000);
                 }
             });
         });
         
-        // Enhanced tab click behavior - scroll to show first tier/card
+        // Enhanced tab click behavior - scroll to show first tier/card and update URL
         document.querySelectorAll('.donation-tabs .nav-link').forEach(tabLink => {
             tabLink.addEventListener('click', function(e) {
                 const targetTab = this.getAttribute('href').substring(1);
                 let scrollTarget = null;
+                let anchorId = '';
                 
                 // Determine which element to scroll to based on the tab
                 if (targetTab === 'monthly') {
                     // Scroll to show the first monthly tier (Ankuram)
                     scrollTarget = document.getElementById('ankuram-tier');
+                    anchorId = 'monthly-support';
                 } else if (targetTab === 'onetime') {
                     // Scroll to show the first one-time donation card (Kshuda Nivarana)
                     scrollTarget = document.getElementById('kshuda-nivarana');
+                    anchorId = 'one-time-donation';
                 } else if (targetTab === 'other') {
                     // Scroll to show the bank transfer section
                     scrollTarget = document.getElementById('bank-transfer');
+                    anchorId = 'other-ways-to-give';
+                }
+                
+                // Update the browser URL with the tab anchor link
+                if (anchorId) {
+                    const newUrl = window.location.pathname + '#' + anchorId;
+                    window.history.pushState({ path: newUrl }, '', newUrl);
                 }
                 
                 // Use a more reliable method to wait for tab content to be visible
