@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta name="author" content="Ashraya Trust">
     <title>Donate to Ashraya Trust - Support Our Initiatives</title>
     <meta name="description" content="Support Ashraya Trust's initiatives like food distribution, medical aid, education, Gurukulam, and Ugadi Seva through secure Razorpay Payment Pages. 80G benefits available.">
@@ -36,7 +36,13 @@
             --brand-white: #ffffff;       /* White */
             --brand-text-color: #555;     /* Standard paragraph text color */
         }
-        body { font-family: "Nunito", sans-serif; }
+        body { 
+            font-family: "Nunito", sans-serif; 
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            overflow-x: hidden;
+        }
 
         /* Page Header */
         .page-header { height: 40vh; min-height: 250px; background: url('images/about-guriji.webp') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; }
@@ -365,9 +371,111 @@
                 min-height: 400px;
                 background: url('images/mobile.webp') no-repeat center top;
             }
+            
+            /* Fix mobile zoom and scaling issues */
+            body {
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+                text-size-adjust: 100%;
+                overflow-x: hidden;
+            }
+            
+            /* Ensure proper container scaling on mobile */
+            .container {
+                max-width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            /* Adjust font sizes for mobile */
+            .page-header h1 {
+                font-size: 2em !important;
+            }
+            
+            .page-header .lead {
+                font-size: 1em !important;
+            }
+            
+            /* Ensure donation cards don't overflow on mobile */
+            .donation-card {
+                padding: 1.5rem 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            /* Adjust subscription cards for mobile */
+            .subscription-card {
+                padding: 1.5rem 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            /* Fix tab navigation on mobile */
+            .donation-tabs .nav-link {
+                font-size: 0.95em;
+                padding: 0.6rem 1rem;
+            }
         }
 
         /* --- End Responsive Tab Styles --- */
+        
+        /* Additional mobile fixes to prevent zoom */
+        @media (max-width: 480px) {
+            /* Extra small devices */
+            .page-header h1 {
+                font-size: 1.8em !important;
+            }
+            
+            .donation-card h4 {
+                font-size: 1.2em !important;
+            }
+            
+            .subscription-card h5 {
+                font-size: 1.1em !important;
+            }
+            
+            .subscription-card .amount {
+                font-size: 1.2em !important;
+            }
+            
+            /* Ensure buttons are properly sized for touch */
+            .btn {
+                min-height: 44px;
+                padding: 0.75rem 1rem;
+            }
+        }
+        
+        /* Prevent horizontal scrolling on all mobile devices */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        /* Ensure images scale properly */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Highlight target section when navigating via anchor */
+        :target {
+            animation: highlight-section 2s ease-out;
+        }
+        
+        @keyframes highlight-section {
+            0% { background-color: rgba(167, 13, 23, 0.1); }
+            100% { background-color: transparent; }
+        }
+        
+        /* Ensure proper spacing for anchor targets */
+        .subscription-card:target,
+        .donation-card:target {
+            padding-top: 20px;
+            margin-top: -20px;
+        }
     </style>
 
 </head>
@@ -375,6 +483,77 @@
 <body>
 <div id="app" class="donate-page">
     <!-- Header (Keep As Is) -->
+<!--    <header>-->
+<!--        <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">-->
+<!--            <div class="marquee-container flex-grow-1"> &lt;!&ndash; Added flex-grow-1 &ndash;&gt;-->
+<!--                <div class="marquee-content">80G Tax Benefits For Donations</div>-->
+<!--            </div>-->
+<!--            <div class="social d-flex align-items-center">-->
+<!--                <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"> <i class="fab fa-facebook-f"></i> </a>-->
+<!--                &lt;!&ndash;                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>&ndash;&gt;-->
+<!--                <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="site-navigation w-100 text-uppercase pb-3 text-red position-relative alt-nav" style="background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">-->
+<!--            <div class="container-fluid d-flex align-items-center">-->
+<!--                <div class="main-nav d-flex align-items-center mr-auto">-->
+<!--                    <nav class="navbar navbar-expand-lg">-->
+<!--                        <a class="navbar-brand" href="index.html"><img src="images/Ashraya-logo.webp" class="main-logo img-fluid" alt="Ashraya Trust Logo" fetchpriority="high"/></a>-->
+<!--                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                            <i class="fas fa-bars text-dark"></i>-->
+<!--                        </button>-->
+<!--                        <div class="collapse navbar-collapse ml-2" id="navbarText">-->
+<!--                            <ul class='navbar-nav mr-auto d-flex align-items-center'>-->
+<!--                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="index.html">Home</a></li>-->
+<!--                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="about.html">About Us</a></li>-->
+<!--                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="our-work.html">Our Work</a></li>-->
+<!--                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="get-involved.html">Get Involved</a></li>-->
+<!--                                <li class='nav-item px-2'><a class="nav-link demi text-dark" href="contact.html">Contact</a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </nav>-->
+<!--                </div>-->
+<!--                <div class="second-nav d-flex align-items-center">-->
+<!--                    <nav class="navbar p-0 navbar-expand-lg">-->
+<!--                        &lt;!&ndash; **** ADDED DESKTOP SHARE BUTTON **** &ndash;&gt;-->
+<!--                        <a href="#" class="py-2 px-4 btn btn-outline-danger demi mr-3 share-trigger" style="border-radius: 20px; display: none;">-->
+<!--                            <i class="fas fa-share-alt mr-1"></i> Share-->
+<!--                        </a>-->
+<!--                        <a class="py-2 px-4 btn pulse demi text-white" href="donate.html" style="border-radius: 20px;">DONATE</a>-->
+<!--                    </nav>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Mobile Nav (Keep As Is) &ndash;&gt;-->
+<!--        <div id="mobile-nav" class="d-lg-none">-->
+<!--            <div class="wrapper" style="background: #fff; padding: 10px; border-bottom: 1px solid #eee;">-->
+<!--                <div class="mobile-top d-flex align-items-center justify-content-between">-->
+<!--                    <a class="" href="index.html"><img src="images/Ashraya-logo.webp" class="w-50 img-fluid" alt="Ashraya Trust Logo" fetchpriority="high"/></a>-->
+<!--                    <i class="fas fa-bars navbar-toggle collapsed" data-target="#sidebar-nav" style="font-size: 1.5em; cursor: pointer; color: #404041;"></i>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="" id="sidebar-nav" style="display: none; position: fixed; top: 0; left: 0; height: 100%; width: 80%; background: #404041; z-index: 9999; padding-top: 60px; overflow-y: auto;">-->
+<!--                <i class="fas fa-times navbar-toggle" style="position: absolute; top: 20px; right: 20px; font-size: 1.8em; color: white; cursor: pointer;"></i>-->
+<!--                <div class="sidebar-wrapper px-3">-->
+<!--                    <ul class='navbar-nav mr-auto'>-->
+<!--                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="index.html">Home</a></li>-->
+<!--                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="about.html">About Us</a></li>-->
+<!--                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="our-work.html">Our Work</a></li>-->
+<!--                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="get-involved.html">Get Involved</a></li>-->
+<!--                        <li class='nav-item py-2'><a class="nav-link demi text-white" href="contact.html">Contact</a></li>-->
+<!--                        &lt;!&ndash; **** ADDED MOBILE SHARE LINK **** &ndash;&gt;-->
+<!--                        <li class='nav-item py-2'>-->
+<!--                            <a class="nav-link demi text-white share-trigger" href="#" style="display: none;">-->
+<!--                                <i class="fas fa-share-alt mr-2"></i>Share Our Work-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li class='nav-item mt-3'><a class="btn btn-donate d-block text-center text-white" href="donate.html">Donate Now</a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </header>-->
+
     <header>
         <div id="top-nav" class="text-white text-uppercase px-3 d-flex flex-row-reverse1 py-1 py-md-2">
             <div class="marquee-container flex-grow-1"> <!-- Added flex-grow-1 -->
@@ -382,7 +561,6 @@
             </div>
             <div class="social d-flex align-items-center">
                 <a target="_blank" href="https://www.facebook.com/TARASHRAYA" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Facebook"> <i class="fab fa-facebook-f"></i> </a>
-                <!--                <a target="_blank" href="#" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="Instagram"> <i class="fab fa-instagram"></i> </a>-->
                 <a target="_blank" href="https://www.youtube.com/@ashrayatrust" class="text-white d-inline-block mr-3" style="font-size: 1.5em;" aria-label="YouTube"> <i class="fab fa-youtube"></i> </a>
             </div>
         </div>
@@ -400,6 +578,8 @@
                                 <li class='nav-item px-2'><a class="nav-link demi text-dark" href="about.html">About Us</a></li>
                                 <li class='nav-item px-2'><a class="nav-link demi text-dark" href="our-work.html">Our Work</a></li>
                                 <li class='nav-item px-2'><a class="nav-link demi text-dark" href="get-involved.html">Get Involved</a></li>
+                                <!-- NEW LINK ADDED HERE -->
+                                <li class='nav-item px-2'><a class="nav-link demi text-red" href="restore-our-hall.html">Hall Restoration</a></li>
                                 <li class='nav-item px-2'><a class="nav-link demi text-dark" href="contact.html">Contact</a></li>
                             </ul>
                         </div>
@@ -407,7 +587,6 @@
                 </div>
                 <div class="second-nav d-flex align-items-center">
                     <nav class="navbar p-0 navbar-expand-lg">
-                        <!-- **** ADDED DESKTOP SHARE BUTTON **** -->
                         <a href="#" class="py-2 px-4 btn btn-outline-danger demi mr-3 share-trigger" style="border-radius: 20px; display: none;">
                             <i class="fas fa-share-alt mr-1"></i> Share
                         </a>
@@ -416,7 +595,7 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Nav (Keep As Is) -->
+        <!-- Mobile Nav -->
         <div id="mobile-nav" class="d-lg-none">
             <div class="wrapper" style="background: #fff; padding: 10px; border-bottom: 1px solid #eee;">
                 <div class="mobile-top d-flex align-items-center justify-content-between">
@@ -424,7 +603,7 @@
                     <i class="fas fa-bars navbar-toggle collapsed" data-target="#sidebar-nav" style="font-size: 1.5em; cursor: pointer; color: #404041;"></i>
                 </div>
             </div>
-            <div class="" id="sidebar-nav" style="display: none; position: fixed; top: 0; left: 0; height: 100%; width: 80%; background: #404041; z-index: 9999; padding-top: 60px; overflow-y: auto;">
+            <div class="" id="sidebar-nav" style="display: none; position: fixed; top: 0; left: 0; height: 100%; width: 80%; max-width: 80%; background: #404041; z-index: 9999; padding-top: 60px; overflow-y: auto; overflow-x: hidden;">
                 <i class="fas fa-times navbar-toggle" style="position: absolute; top: 20px; right: 20px; font-size: 1.8em; color: white; cursor: pointer;"></i>
                 <div class="sidebar-wrapper px-3">
                     <ul class='navbar-nav mr-auto'>
@@ -432,8 +611,9 @@
                         <li class='nav-item py-2'><a class="nav-link demi text-white" href="about.html">About Us</a></li>
                         <li class='nav-item py-2'><a class="nav-link demi text-white" href="our-work.html">Our Work</a></li>
                         <li class='nav-item py-2'><a class="nav-link demi text-white" href="get-involved.html">Get Involved</a></li>
+                        <!-- NEW LINK ADDED HERE -->
+                        <li class='nav-item py-2'><a class="nav-link demi" href="restore-our-hall.html" style="color: #ffc107;">Hall Restoration</a></li>
                         <li class='nav-item py-2'><a class="nav-link demi text-white" href="contact.html">Contact</a></li>
-                        <!-- **** ADDED MOBILE SHARE LINK **** -->
                         <li class='nav-item py-2'>
                             <a class="nav-link demi text-white share-trigger" href="#" style="display: none;">
                                 <i class="fas fa-share-alt mr-2"></i>Share Our Work
@@ -445,7 +625,6 @@
             </div>
         </div>
     </header>
-
     <!-- Page Header (Keep As Is) -->
     <section class="page-header">
         <div class="page-header-overlay"></div>
@@ -490,6 +669,7 @@
 
                 <!-- One-Time Donation Tab Pane -->
                 <div class="tab-pane fade show active" id="onetime" role="tabpanel" aria-labelledby="onetime-tab">
+                    <div id="one-time-donation">
                     <div class="text-center mb-4">
                         <h3 class="demi text-red">Support a Specific Cause or Give Generally</h3>
                         <p class="lite">Choose an initiative close to your heart or make a general contribution towards our overall mission.</p>
@@ -497,7 +677,7 @@
                     <div class="row justify-content-center">
                         <!-- Kshuda Nivarana Card -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="donation-card">
+                            <div class="donation-card" id="kshuda-nivarana">
                                 <div class="donation-icon"><i class="fas fa-utensils"></i></div>
                                 <h4>Kshuda Nivarana - Feed the Hungry</h4>
                                 <p>Support our daily distribution of nutritious meals to patients' attendants, travelers, and the homeless.</p>
@@ -510,7 +690,7 @@
 
                         <!-- Rugna Nivarana Card -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="donation-card">
+                            <div class="donation-card" id="rugna-nivarana">
                                 <div class="donation-icon"><i class="fas fa-first-aid"></i></div>
                                 <h4>Rugna Nivarana - Medical Aid</h4>
                                 <p>Help us provide free medical checkups, medicines, and support through our weekly camps and mobile dispensary.</p>
@@ -523,7 +703,7 @@
 
                         <!-- Educational Assistance Card -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="donation-card">
+                            <div class="donation-card" id="educational-assistance">
                                 <div class="donation-icon"><i class="fas fa-book-reader"></i></div>
                                 <h4>Educational Assistance</h4>
                                 <p>Sponsor a child's education. Your support covers fees, books, uniforms, transport, and enrichment classes.</p>
@@ -534,22 +714,11 @@
                             </div>
                         </div>
 
-                        <!-- AksharaTara Gurukulam Card -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="donation-card">
-                                <div class="donation-icon"><i class="fas fa-school"></i></div>
-                                <h4>AksharaTara Gurukulam</h4>
-                                <p>Contribute to our visionary Gurukulam project, blending ancient wisdom with modern learning for holistic child development.</p>
-                                <p class="suggestion"><small>Suggested: ₹2000 (Supports infrastructure/learning)</small></p>
-                                <a href="[RAZORPAY_GURUKULAM_LINK]" target="_blank" rel="noopener noreferrer" class="btn btn-donate demi text-white">
-                                    Support Gurukulam
-                                </a>
-                            </div>
-                        </div>
+
 
                         <!-- Ugadi Yatri Seva Card -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="donation-card">
+                            <div class="donation-card" id="ugadi-yatri-seva">
                                 <div class="donation-icon"><i class="fas fa-hand-holding-heart"></i></div>
                                 <h4>Ugadi Yatri Seva</h4>
                                 <p>Help us serve lakhs of pilgrims walking to Srisailam with food, medical aid, wound care, and massage during the annual Ugadi walkathon.</p>
@@ -562,7 +731,7 @@
 
                         <!-- General Donation Card -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="donation-card">
+                            <div class="donation-card" id="general-donation">
                                 <div class="donation-icon"><i class="fas fa-donate"></i></div>
                                 <h4>General Donation</h4>
                                 <p>Your contribution will be used where the need is greatest across all our service activities. Donate any amount securely.</p>
@@ -573,12 +742,13 @@
                             </div>
                         </div>
                     </div> <!-- End Row for One-Time -->
+                    </div> <!-- End One-Time Donation Section -->
                 </div> <!-- End One-Time Tab Pane -->
 
                 <!-- Monthly Support Tab Pane -->
                 <div class="tab-pane fade" id="monthly" role="tabpanel" aria-labelledby="monthly-tab">
                     <!-- == Monthly Recurring Donation Section == -->
-                    <div class="subscription-section">
+                    <div class="subscription-section" id="monthly-support">
                         <div class="text-center mb-5">
                             <h2 class="demi text-red"><i class="fas fa-sync-alt mr-2"></i>Become an Eternal Flame of Seva</h2>
                             <p class="font-l lite col-lg-9 mx-auto">Your consistent monthly support provides the steady foundation Ashraya Trust needs to sustain and grow all our Seva activities. Choose a level that resonates with your spirit of giving.</p>
@@ -588,7 +758,7 @@
                         <div class="row justify-content-center">
                             <!-- Tier 1: Ankuram -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="ankuram-tier">
                                     <div> <!-- Wrapper for content above button -->
                                         <div class="tier-icon"><i class="fas fa-seedling"></i></div>
                                         <h5>Ankuram (The Seedling)</h5>
@@ -603,7 +773,7 @@
 
                             <!-- Tier 2: Karuna Dhara -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="karuna-dhara-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-water"></i></div>
                                         <h5>Karuna Dhara (Stream of Compassion)</h5>
@@ -619,7 +789,7 @@
 
                             <!-- Tier 3: Maitri Shakti -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="maitri-shakti-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-heart"></i></div>
                                         <h5>Maitri Shakti (Power of Loving-Kindness)</h5>
@@ -634,7 +804,7 @@
 
                             <!-- Tier 4: Jyoti Patha -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="jyoti-patha-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-lightbulb"></i></div>
                                         <h5>Jyoti Patha (Path of Light)</h5>
@@ -649,7 +819,7 @@
 
                             <!-- Tier 5: Samarpan Deepa -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="samarpan-deepa-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-praying-hands"></i></div>
                                         <h5>Samarpan Deepa (Lamp of Dedication)</h5>
@@ -664,7 +834,7 @@
 
                             <!-- Tier 6: Abhaya Hastam -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="abhaya-hastam-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-hand-holding-heart"></i></div>
                                         <h5>Abhaya Hastam (Hand of Fearlessness)</h5>
@@ -679,7 +849,7 @@
 
                             <!-- Tier 7: Seva Adhara -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="seva-adhara-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-hands-helping"></i></div>
                                         <h5>Seva Adhara (Foundation of Service)</h5>
@@ -694,7 +864,7 @@
 
                             <!-- Tier 8: Kalyan Vriksha -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="kalyan-vriksha-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-tree"></i></div>
                                         <h5>Kalyan Vriksha (Auspicious Tree)</h5>
@@ -709,7 +879,7 @@
 
                             <!-- Tier 9: Amrita Sindhu -->
                             <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="subscription-card">
+                                <div class="subscription-card" id="amrita-sindhu-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-tint"></i></div>
                                         <h5>Amrita Sindhu (Ocean of Nectar)</h5>
@@ -732,10 +902,10 @@
 
                 <!-- Other Ways to Give Tab Pane -->
                 <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center" id="other-ways-to-give">
                         <div class="col-lg-10"> <!-- Wider column for this content -->
                             <!-- Bank Transfer Details -->
-                            <div class="bank-details mb-5"> <!-- Added bottom margin -->
+                            <div class="bank-details mb-5" id="bank-transfer"> <!-- Added bottom margin -->
                                 <h4 class="text-center demi text-red mb-3">Alternative: Bank Transfer (NEFT/IMPS)</h4>
                                 <p class="text-center lite mb-1">You can also donate directly to our bank account:</p>
                                 <p class="text-center text-warning small mb-2">
@@ -766,7 +936,7 @@
                             </div>
 
                             <!-- Donate In-Kind Section -->
-                            <div class="in-kind-details">
+                            <div class="in-kind-details" id="in-kind-donation">
                                 <h3 class="text-center demi text-red mb-3">Donate Goods (In-Kind)</h3>
                                 <p class="text-center lite mb-3 col-lg-10 mx-auto">
                                     Beyond monetary support, your contribution of essential goods directly aids our beneficiaries. We gratefully accept new or gently used items in good condition.
@@ -898,19 +1068,14 @@
         food:     "https://rzp.io/rzp/MKuL9dNF",
         medical:  "https://rzp.io/rzp/qlHMj7ac",
         education:"https://rzp.io/rzp/NPXLSAKf",
-        gurukulam:"https://rzp.io/rzp/YUlhj1b5",
         ugadi:    "https://rzp.io/rzp/JHFecC0",
         general:  "https://rzp.io/rzp/xStFR4Z"
     };
     replaceLink("[RAZORPAY_KSHUDA_LINK]", razorpayLinks.food);
     replaceLink("[RAZORPAY_RUGNA_LINK]", razorpayLinks.medical);
     replaceLink("[RAZORPAY_EDUCATION_LINK]", razorpayLinks.education);
-    replaceLink("[RAZORPAY_GURUKULAM_LINK]", razorpayLinks.gurukulam);
     replaceLink("[RAZORPAY_UGADI_LINK]", razorpayLinks.ugadi);
     replaceLink("[RAZORPAY_GENERAL_LINK]", razorpayLinks.general);
-
-    // Monthly subscription links are now handled by Razorpay's embedded button scripts.
-    // The old razorpaySubscriptionLinks object and related replaceSubscriptionLink calls are removed.
 
     /**
      * Helper function to find an anchor tag by its placeholder href and replace it.
@@ -921,7 +1086,7 @@
     function replaceLink(placeholder, actualLink) {
         const element = document.querySelector(`a[href="${placeholder}"]`);
         if (element) {
-            if (actualLink && typeof actualLink === 'string' && !actualLink.toUpperCase().startsWith("REPLACE_WITH_")) {
+            if (actualLink && typeof actualLink === 'string' && !actualLink.toUpperCase().startsWith("[RAZORPAY_")) {
                 element.href = actualLink;
             } else {
                 console.warn(`Link for ${placeholder} not provided or still a placeholder. The corresponding button link will not be updated.`);
@@ -1010,44 +1175,61 @@
             const subscriptionForms = document.querySelectorAll('.subscription-card .razorpay-form-wrapper');
 
             subscriptionForms.forEach(form => {
-                // Use a MutationObserver to wait for Razorpay to add its elements
+                // Set up observer for each form
                 const observer = new MutationObserver((mutationsList, obs) => {
                     // Check for the radio button once Razorpay injects content
                     const radioButton = form.querySelector('input[type="radio"][name="plan_id"]');
                     if (radioButton) {
                         if (!radioButton.checked) {
                             radioButton.checked = true;
-                            // You can add a console.log here for debugging if needed:
-                            // console.log('Auto-checked plan for card containing:', form.closest('.subscription-card').querySelector('h5').textContent.trim());
+                            radioButton.dispatchEvent(new Event('change', { bubbles: true }));
                         }
-                        obs.disconnect(); // Stop observing once the radio button is found and handled
+                        obs.disconnect();
                     }
                 });
 
                 // Start observing the form for child additions
                 observer.observe(form, { childList: true, subtree: true });
 
-                // Fallback timeout, in case the mutation observer is too slow or misses for some reason.
-                // This is less reliable but acts as a safety net.
+                // Fallback timeout - increased and more reliable
                 setTimeout(() => {
                     const radioButton = form.querySelector('input[type="radio"][name="plan_id"]');
                     if (radioButton && !radioButton.checked) {
                         radioButton.checked = true;
-                        // console.log('Auto-checked plan (fallback) for card containing:', form.closest('.subscription-card').querySelector('h5').textContent.trim());
+                        radioButton.dispatchEvent(new Event('change', { bubbles: true }));
                     }
-                    // If observer is still somehow connected, try to disconnect.
-                    // Check if observer.disconnect is a function before calling.
                     if (typeof observer.disconnect === 'function') {
                         try {
                             observer.disconnect();
-                        } catch (e) { /* ignore if already disconnected or observer instance is gone */ }
+                        } catch (e) { /* ignore */ }
                     }
-                }, 2500); // Adjust timeout (e.g., 1500-3000ms)
+                }, 3000);
+
+                // Additional immediate check for existing elements
+                const existingRadio = form.querySelector('input[type="radio"][name="plan_id"]');
+                if (existingRadio && !existingRadio.checked) {
+                    existingRadio.checked = true;
+                    existingRadio.dispatchEvent(new Event('change', { bubbles: true }));
+                }
             });
         }
 
         // Call the function to set up observers
         autoSelectRazorpayPlan();
+
+        // Additional periodic check for the first few seconds to catch any missed buttons
+        let checkInterval = setInterval(() => {
+            const uncheckedRadios = document.querySelectorAll('.subscription-card .razorpay-form-wrapper input[type="radio"][name="plan_id"]:not(:checked)');
+            uncheckedRadios.forEach(radio => {
+                radio.checked = true;
+                radio.dispatchEvent(new Event('change', { bubbles: true }));
+            });
+        }, 500);
+
+        // Stop the periodic check after 10 seconds
+        setTimeout(() => {
+            clearInterval(checkInterval);
+        }, 10000);
 
     }); // End of DOMContentLoaded
 
@@ -1104,6 +1286,139 @@
         }
     });
     // **** END REVISED Web Share API Logic ****
+    
+    // **** ANCHOR LINK NAVIGATION FUNCTIONALITY ****
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle anchor links for direct navigation
+        function handleAnchorNavigation() {
+            const hash = window.location.hash;
+            if (hash) {
+                // Remove the # from the hash
+                const targetId = hash.substring(1);
+                
+                // Check if the target element exists
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    // Determine which tab the target is in
+                    let targetTab = null;
+                    
+                    if (targetId === 'monthly-support' || targetId.includes('-tier')) {
+                        targetTab = 'monthly';
+                    } else if (targetId === 'one-time-donation' || targetId.includes('nivarana') || targetId.includes('assistance') || targetId.includes('seva') || targetId.includes('donation')) {
+                        targetTab = 'onetime';
+                    } else if (targetId === 'other-ways-to-give' || targetId === 'bank-transfer' || targetId === 'in-kind-donation') {
+                        targetTab = 'other';
+                    }
+                    
+                    // Switch to the appropriate tab if needed
+                    if (targetTab) {
+                        const tabButton = document.querySelector(`[data-toggle="tab"][href="#${targetTab}"]`);
+                        if (tabButton) {
+                            tabButton.click();
+                        }
+                    }
+                    
+                    // Scroll to the target element after a short delay to allow tab switching
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        
+                        // Add a subtle highlight effect
+                        targetElement.style.transition = 'background-color 0.3s ease';
+                        targetElement.style.backgroundColor = 'rgba(167, 13, 23, 0.1)';
+                        setTimeout(() => {
+                            targetElement.style.backgroundColor = '';
+                        }, 2000);
+                    }, 300);
+                }
+            }
+        }
+        
+        // Handle initial page load with anchor
+        handleAnchorNavigation();
+        
+        // Handle browser back/forward navigation
+        window.addEventListener('hashchange', handleAnchorNavigation);
+        
+        // Add click handlers for smooth scrolling within the page and update URL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    // Update the browser URL with the anchor link
+                    const newUrl = window.location.pathname + '#' + targetId;
+                    window.history.pushState({ path: newUrl }, '', newUrl);
+                    
+                    // Scroll to the target element
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Add a subtle highlight effect
+                    targetElement.style.transition = 'background-color 0.3s ease';
+                    targetElement.style.backgroundColor = 'rgba(167, 13, 23, 0.1)';
+                    setTimeout(() => {
+                        targetElement.style.backgroundColor = '';
+                    }, 2000);
+                }
+            });
+        });
+        
+        // Enhanced tab click behavior - scroll to show first tier/card and update URL
+        document.querySelectorAll('.donation-tabs .nav-link').forEach(tabLink => {
+            tabLink.addEventListener('click', function(e) {
+                const targetTab = this.getAttribute('href').substring(1);
+                let scrollTarget = null;
+                let anchorId = '';
+                
+                // Determine which element to scroll to based on the tab
+                if (targetTab === 'monthly') {
+                    // Scroll to show the first monthly tier (Ankuram)
+                    scrollTarget = document.getElementById('ankuram-tier');
+                    anchorId = 'monthly-support';
+                } else if (targetTab === 'onetime') {
+                    // Scroll to show the first one-time donation card (Kshuda Nivarana)
+                    scrollTarget = document.getElementById('kshuda-nivarana');
+                    anchorId = 'one-time-donation';
+                } else if (targetTab === 'other') {
+                    // Scroll to show the bank transfer section
+                    scrollTarget = document.getElementById('bank-transfer');
+                    anchorId = 'other-ways-to-give';
+                }
+                
+                // Update the browser URL with the tab anchor link
+                if (anchorId) {
+                    const newUrl = window.location.pathname + '#' + anchorId;
+                    window.history.pushState({ path: newUrl }, '', newUrl);
+                }
+                
+                // Use a more reliable method to wait for tab content to be visible
+                const checkAndScroll = () => {
+                    if (scrollTarget && scrollTarget.offsetParent !== null) {
+                        // Element is visible, now scroll to it
+                        scrollTarget.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center' // Center the first card for better visibility
+                        });
+                        
+                        // Add a subtle highlight effect to the first card
+                        scrollTarget.style.transition = 'background-color 0.3s ease';
+                        scrollTarget.style.backgroundColor = 'rgba(167, 13, 23, 0.05)';
+                        setTimeout(() => {
+                            scrollTarget.style.backgroundColor = '';
+                        }, 1500);
+                    } else {
+                        // Element not yet visible, check again in a short while
+                        setTimeout(checkAndScroll, 50);
+                    }
+                };
+                
+                // Start checking immediately and continue until element is visible
+                checkAndScroll();
+            });
+        });
+    });
+    // **** END ANCHOR LINK NAVIGATION FUNCTIONALITY ****
 
 </script>
 
