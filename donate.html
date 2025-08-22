@@ -1175,44 +1175,61 @@
             const subscriptionForms = document.querySelectorAll('.subscription-card .razorpay-form-wrapper');
 
             subscriptionForms.forEach(form => {
-                // Use a MutationObserver to wait for Razorpay to add its elements
+                // Set up observer for each form
                 const observer = new MutationObserver((mutationsList, obs) => {
                     // Check for the radio button once Razorpay injects content
                     const radioButton = form.querySelector('input[type="radio"][name="plan_id"]');
                     if (radioButton) {
                         if (!radioButton.checked) {
                             radioButton.checked = true;
-                            // You can add a console.log here for debugging if needed:
-                            // console.log('Auto-checked plan for card containing:', form.closest('.subscription-card').querySelector('h5').textContent.trim());
+                            radioButton.dispatchEvent(new Event('change', { bubbles: true }));
                         }
-                        obs.disconnect(); // Stop observing once the radio button is found and handled
+                        obs.disconnect();
                     }
                 });
 
                 // Start observing the form for child additions
                 observer.observe(form, { childList: true, subtree: true });
 
-                // Fallback timeout, in case the mutation observer is too slow or misses for some reason.
-                // This is less reliable but acts as a safety net.
+                // Fallback timeout - increased and more reliable
                 setTimeout(() => {
                     const radioButton = form.querySelector('input[type="radio"][name="plan_id"]');
                     if (radioButton && !radioButton.checked) {
                         radioButton.checked = true;
-                        // console.log('Auto-checked plan (fallback) for card containing:', form.closest('.subscription-card').querySelector('h5').textContent.trim());
+                        radioButton.dispatchEvent(new Event('change', { bubbles: true }));
                     }
-                    // If observer is still somehow connected, try to disconnect.
-                    // Check if observer.disconnect is a function before calling.
                     if (typeof observer.disconnect === 'function') {
                         try {
                             observer.disconnect();
-                        } catch (e) { /* ignore if already disconnected or observer instance is gone */ }
+                        } catch (e) { /* ignore */ }
                     }
-                }, 2500); // Adjust timeout (e.g., 1500-3000ms)
+                }, 3000);
+
+                // Additional immediate check for existing elements
+                const existingRadio = form.querySelector('input[type="radio"][name="plan_id"]');
+                if (existingRadio && !existingRadio.checked) {
+                    existingRadio.checked = true;
+                    existingRadio.dispatchEvent(new Event('change', { bubbles: true }));
+                }
             });
         }
 
         // Call the function to set up observers
         autoSelectRazorpayPlan();
+
+        // Additional periodic check for the first few seconds to catch any missed buttons
+        let checkInterval = setInterval(() => {
+            const uncheckedRadios = document.querySelectorAll('.subscription-card .razorpay-form-wrapper input[type="radio"][name="plan_id"]:not(:checked)');
+            uncheckedRadios.forEach(radio => {
+                radio.checked = true;
+                radio.dispatchEvent(new Event('change', { bubbles: true }));
+            });
+        }, 500);
+
+        // Stop the periodic check after 10 seconds
+        setTimeout(() => {
+            clearInterval(checkInterval);
+        }, 10000);
 
     }); // End of DOMContentLoaded
 
