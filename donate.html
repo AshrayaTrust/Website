@@ -278,6 +278,55 @@
             font-weight: 600;
         }
         /* --- END NEW STYLES FOR RAZORPAY BUTTON INTEGRATION --- */
+
+        /* --- Custom Subscription Form (UI polish) --- */
+        .subscription-card .custom-subscription-form { text-align: left; margin-top: .25rem; }
+        .subscription-card .custom-subscription-form .form-group label { font-weight: 600; color: var(--brand-dark-grey); font-size: 0.95rem; }
+        .subscription-card .custom-subscription-form .form-section-title { 
+            font-weight: 700; 
+            font-size: 0.95rem; 
+            color: var(--brand-red); 
+            margin: .5rem 0 .5rem; 
+            letter-spacing: .2px;
+        }
+        .subscription-card .custom-subscription-form .input-group-text {
+            background-color: var(--brand-beige);
+            border-color: var(--brand-beige);
+            color: var(--brand-dark-grey);
+        }
+        .subscription-card .custom-subscription-form .form-control:focus {
+            border-color: var(--brand-red);
+            box-shadow: 0 0 0 0.2rem rgba(167, 13, 23, 0.15);
+        }
+        .subscription-card .custom-subscription-form .btn { margin-top: 0.25rem; }
+        /* On small screens keep single column; md and above uses .col-md-6 already */
+        @media (min-width: 992px) { /* lg and up */
+            .subscription-card .custom-subscription-form .form-row > [class^="col-"] { margin-bottom: .75rem; }
+        }
+
+        /* Match Razorpay Subscribe button look & feel for our custom button */
+        .subscription-card .custom-subscription-form .SubscriptionButton {
+            width: 100%;
+            background: rgb(255, 124, 4);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .subscription-card .custom-subscription-form .SubscriptionButton:hover {
+            background: rgb(230, 110, 0);
+        }
+        .subscription-card .custom-subscription-form .SubscriptionButton svg {
+            display: inline-block;
+        }
+        .subscription-card .custom-subscription-form .SubscriptionButton-text { font-weight: 600; }
         /* --- Styles for In-Kind Section --- */
         .in-kind-details {
             background-color: #fff;
@@ -892,46 +941,72 @@
                                 </div>
                             </div>
 
-                            <!-- Tier 10: Custom Patron (₹5,000+) -->
+                            <!-- Tier 10: Seva Ratna (₹5,000+) -->
                             <div class="col-lg-4 col-md-6 mb-4">
                                 <div class="subscription-card" id="custom-patron-tier">
                                     <div>
                                         <div class="tier-icon"><i class="fas fa-crown"></i></div>
-                                        <h5>Custom Patron</h5>
+                                        <h5>Seva Ratna (Jewel of Service)</h5>
                                         <div class="amount">₹5,000+ / month</div>
-                                        <p class="description">Enter your own monthly amount (₹5,000 and above) and subscribe securely. You can edit or cancel anytime via Razorpay.</p>
+                                        <p class="description">Offer a custom monthly commitment (₹5,000 and above) as a Seva Ratna to sustain all Seva activities. You can modify or cancel anytime via Razorpay.</p>
                                     </div>
-                                    <div class="razorpay-form-wrapper" id="custom-subscription-form-container">
-                                        <div class="form-group text-left">
+                                    <div class="razorpay-form-wrapper custom-subscription-form" id="custom-subscription-form-container">
+                                        <div class="form-group">
                                             <label for="custom-subscription-amount" class="mb-1">Monthly Amount (₹) <span class="text-danger">*</span></label>
-                                            <input type="number" class="form-control" id="custom-subscription-amount" min="5000" step="1" placeholder="5000" inputmode="numeric" aria-label="Monthly Amount in Rupees" required>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-rupee-sign" aria-hidden="true"></i></span>
+                                                </div>
+                                                <input type="number" class="form-control" id="custom-subscription-amount" min="5000" step="1" placeholder="5000" inputmode="numeric" aria-label="Monthly Amount in Rupees" required>
+                                            </div>
                                             <small class="form-text text-muted" id="amount-help-text">Minimum ₹5,000.</small>
                                         </div>
+                                        <h6 class="form-section-title">Your Details</h6>
                                         <div class="form-row">
-                                            <div class="form-group col-12 text-left mb-2">
+                                            <div class="form-group col-12 col-md-6 mb-2">
                                                 <label for="custom-subscriber-name" class="mb-1">Name <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="custom-subscriber-name" placeholder="Your full name" required>
                                             </div>
-                                            <div class="form-group col-12 text-left mb-2">
+                                            <div class="form-group col-12 col-md-6 mb-2">
                                                 <label for="custom-subscriber-email" class="mb-1">Email <span class="text-danger">*</span></label>
                                                 <input type="email" class="form-control" id="custom-subscriber-email" placeholder="you@example.com" required>
                                             </div>
-                                            <div class="form-group col-12 text-left mb-2">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-12 col-md-6 mb-2">
                                                 <label for="custom-subscriber-phone" class="mb-1">Phone <span class="text-danger">*</span></label>
-                                                <input type="tel" class="form-control" id="custom-subscriber-phone" placeholder="9876543210" required>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-phone" aria-hidden="true"></i></span>
+                                                    </div>
+                                                    <input type="tel" class="form-control" id="custom-subscriber-phone" placeholder="9876543210" required>
+                                                </div>
                                                 <small class="form-text text-muted">Enter your 10-15 digit mobile number.</small>
                                             </div>
-                                            <div class="form-group col-12 text-left mb-2">
+                                            <div class="form-group col-12 col-md-6 mb-2">
                                                 <label for="custom-subscriber-pan" class="mb-1">PAN No <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="custom-subscriber-pan" placeholder="ABCDE1234F" maxlength="10" required>
-                                                <small class="form-text text-muted">PAN format: 5 letters, 4 digits, 1 letter (e.g., ABCDE1234F). Required for 80G receipt.</small>
-                                            </div>
-                                            <div class="form-group col-12 text-left mb-3">
-                                                <label for="custom-subscriber-address" class="mb-1">Address <span class="text-danger">*</span></label>
-                                                <textarea class="form-control" id="custom-subscriber-address" rows="2" placeholder="House/Street, Area, City, State, PIN" required></textarea>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="far fa-id-card" aria-hidden="true"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="custom-subscriber-pan" placeholder="ABCDE1234F" maxlength="10" required>
+                                                </div>
+                                                <small class="form-text text-muted">Required for 80G receipt.</small>
                                             </div>
                                         </div>
-                                        <button type="button" id="custom-subscribe-btn" class="btn btn-donate demi text-white w-100">Subscribe Monthly</button>
+                                        <div class="form-group mb-3">
+                                            <label for="custom-subscriber-address" class="mb-1">Address <span class="text-danger">*</span></label>
+                                            <textarea class="form-control" id="custom-subscriber-address" rows="2" placeholder="House/Street, Area, City, State, PIN" required></textarea>
+                                        </div>
+                                        <button type="button" id="custom-subscribe-btn" class="SubscriptionButton SubscriptionButton--dark" aria-label="Subscribe Now">
+                                            <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                                <path d="M7.077 6.476l-.988 3.569 5.65-3.589-3.695 13.54 3.752.004 5.457-20L7.077 6.476z" fill="#fff"></path>
+                                                <path d="M1.455 14.308L0 20h7.202L10.149 8.42l-8.694 5.887z" fill="#fff"></path>
+                                            </svg>
+                                            <div class="SubscriptionButton-contents">
+                                                <span class="SubscriptionButton-text">Subscribe Now</span>
+                                            </div>
+                                        </button>
                                         <small class="text-muted d-block mt-2">Secured by Razorpay. You will authorize a monthly charge.</small>
                                     </div>
                                 </div>
@@ -1401,7 +1476,7 @@
                     description: 'Custom Monthly Patron Subscription',
                     theme: { color: '#A70D17' },
                     prefill: { name, email, contact },
-                    notes: { tier: 'Custom Patron', source: 'donate.html', pan, address },
+                    notes: { tier: 'Seva Ratna', source: 'donate.html', pan, address },
                     handler: function (response) {
                         // response.razorpay_payment_id, response.razorpay_subscription_id, response.razorpay_signature
                         alert('Thank you! Your subscription setup is complete.');
