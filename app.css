@@ -2302,15 +2302,15 @@ a.btn:after {
 }
 
 .btn-donate {
-  background: #00B095;
+  background: #FF7C04;
   color: white !important;
-  border: 1px solid #00B095;
+  border: 1px solid #FF7C04;
   padding-left: 2em;
   padding-right: 2em;
 }
 
 .btn-donate:hover {
-  background: #66cfbf;
+  background: #e66a00;
 }
 
 .btn-donate a {
